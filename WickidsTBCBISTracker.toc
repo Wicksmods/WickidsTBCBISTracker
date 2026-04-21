@@ -1,0 +1,28 @@
+## Interface: 20505
+## Title: Wick's TBC BIS Tracker
+## Notes: BIS gear tracker for all classes and specs across all TBC phases.
+## Author: Wick
+## Version: 1.3.1
+## SavedVariables: WTBTSavedSettings WTBTSoftResData
+## SavedVariablesPerCharacter: WTBTCustomLists
+
+Data\Data_HolyPriest.lua
+Data\Data_ShadowPriest.lua
+Data\Data_Paladin.lua
+Data\Data_RestorationDruid.lua
+Data\Data_BalanceDruid.lua
+Data\Data_FeralDruid.lua
+Data\Data_Shaman.lua
+Data\Data_Mage.lua
+Data\Data_Warlock.lua
+Data\Data_Hunter.lua
+Data\Data_Rogue.lua
+Data\Data_Warrior.lua
+Data\Data_Templates.lua
+Data\Data_Consumables.lua
+
+Libs\LibDeflate.lua
+
+Core.lua
+SoftRes.lua
+UI.lua
