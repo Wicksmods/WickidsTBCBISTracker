@@ -1,8 +1,10 @@
+<p align="center"><img src="images/wick-thumb-bis.png" alt="Wick's TBC BIS Tracker"></p>
+
 # Wick's TBC BIS Tracker
 
 > Best-in-slot gear tracking for every class, every spec, every phase of TBC Classic.
 
-Part of the **[Wick suite](../WickSuite)** — three precision addons built around a single fel-green-on-deep-purple aesthetic.
+Part of the **[Wick suite](https://github.com/jspliff/WickSuite)** — three precision addons built around a single fel-green-on-deep-purple aesthetic.
 
 ## Features
 
