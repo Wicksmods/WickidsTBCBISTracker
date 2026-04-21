@@ -15,7 +15,7 @@ Part of the **[Wick suite](../WickSuite)** — three precision addons built arou
 
 ## Install
 
-- **CurseForge:** search for "Wick's TBC BIS Tracker".
+- **CurseForge:** [curseforge.com/wow/addons/wicks-tbc-bis-tracker](https://www.curseforge.com/wow/addons/wicks-tbc-bis-tracker)
 - **Manual:** drop the `WickidsTBCBISTracker` folder into `World of Warcraft\_classic_\Interface\AddOns\`.
 
 ## Usage
