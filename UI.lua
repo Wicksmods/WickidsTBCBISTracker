@@ -320,6 +320,7 @@ local activeGearRows = {}
 
 -- Forward-declare pool release functions (defined after Refresh)
 local ReleaseAllConsumableRows
+local ReleaseAllGemRows
 local activeSectionHeaders = {}
 
 -- Acquire a gear row from pool or create new
@@ -1019,6 +1020,7 @@ function WTBT_UI:Build()
         { key = "bis",         label = "BIS Tracker" },
         { key = "custom",      label = "Custom Lists" },
         { key = "consumables", label = "Consumables" },
+        { key = "gems",        label = "Gems" },
         { key = "softres",     label = "SoftRes" },
     }
 
@@ -1415,6 +1417,10 @@ function WTBT_UI:UpdateSelectorVisibility()
         self.classDD:Show()
         self.specDD:Show()
         self.phaseBar:Hide()
+    elseif tab == "gems" then
+        self.classDD:Show()
+        self.specDD:Show()
+        self.phaseBar:Hide()
     end
 end
 
@@ -1444,6 +1450,8 @@ function WTBT_UI:Refresh()
     end
     -- Release consumable row pools
     if ReleaseAllConsumableRows then ReleaseAllConsumableRows() end
+    -- Release gem row pools
+    if ReleaseAllGemRows then ReleaseAllGemRows() end
 
     local tab = WTBT.state.tab or "bis"
     if tab == "bis" then
@@ -1454,6 +1462,8 @@ function WTBT_UI:Refresh()
         self:RefreshSoftRes()
     elseif tab == "consumables" then
         self:RefreshConsumables()
+    elseif tab == "gems" then
+        self:RefreshGems()
     end
 end
 
@@ -2459,4 +2469,188 @@ function WTBT_UI:RefreshConsumables()
 
     self.statusLeft:SetText(className .. " · " .. specName .. " · Consumables")
     self.statusRight:SetText("|cffC8B68C" .. totalItems .. " items|r")
+end
+
+-- ============================================================
+-- GEMS TAB
+-- ============================================================
+
+-- Gem row pool (shares shape with consumable rows)
+local gemRowPool = {}
+local activeGemRows = {}
+
+local function CreateGemRow(parent)
+    local row = CreateFrame("Button", nil, parent)
+    row:SetHeight(ROW_H)
+
+    local hoverBG = NewTexture(row, "BACKGROUND")
+    hoverBG:SetAllPoints()
+    hoverBG:SetColorTexture(0, 0, 0, 0)
+    row.hoverBG = hoverBG
+
+    local iconFrame = CreateFrame("Frame", nil, row)
+    iconFrame:SetSize(ICON_SIZE, ICON_SIZE)
+    iconFrame:SetPoint("LEFT", row, "LEFT", 10, 0)
+
+    local iconTex = iconFrame:CreateTexture(nil, "ARTWORK")
+    iconTex:SetAllPoints()
+    iconTex:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+    row.iconTex = iconTex
+
+    local iconBorder = AddBorder(iconFrame, 0.220, 0.188, 0.345, 1)
+    row.iconBorder = iconBorder
+    row.iconFrame = iconFrame
+
+    local itemName = NewText(row, 10)
+    itemName:SetFont("Fonts\\FRIZQT__.TTF", 11, "")
+    itemName:SetPoint("LEFT", iconFrame, "RIGHT", 6, 4)
+    itemName:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+    row.itemName = itemName
+
+    local statText = NewText(row, 8)
+    statText:SetFont("Fonts\\FRIZQT__.TTF", 9, "")
+    statText:SetPoint("TOPLEFT", itemName, "BOTTOMLEFT", 0, -1)
+    statText:SetPoint("RIGHT", row, "RIGHT", -10, 0)
+    statText:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+    row.statText = statText
+
+    local catBadge = CreateFrame("Frame", nil, row)
+    catBadge:SetSize(70, 14)
+    catBadge:SetPoint("RIGHT", row, "RIGHT", -8, 0)
+    local catBG = NewTexture(catBadge, "BACKGROUND")
+    catBG:SetAllPoints()
+    row.catBG = catBG
+    AddBorder(catBadge, 0.220, 0.188, 0.345, 0.6)
+    local catLabel = NewText(catBadge, 7)
+    catLabel:SetFont("Fonts\\FRIZQT__.TTF", 8, "OUTLINE")
+    catLabel:SetAllPoints()
+    catLabel:SetJustifyH("CENTER")
+    catLabel:SetJustifyV("MIDDLE")
+    row.catLabel = catLabel
+    row.catBadge = catBadge
+
+    local div = NewTexture(row, "BORDER")
+    div:SetColorTexture(0.220, 0.188, 0.345, 0.25)
+    div:SetPoint("BOTTOMLEFT", 10, 0); div:SetPoint("BOTTOMRIGHT", -10, 0); div:SetHeight(1)
+
+    row:SetScript("OnEnter", function(self)
+        self.hoverBG:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.04)
+        if self.itemId then
+            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+            GameTooltip:SetHyperlink("item:" .. self.itemId)
+            GameTooltip:Show()
+        end
+    end)
+    row:SetScript("OnLeave", function(self)
+        self.hoverBG:SetColorTexture(0, 0, 0, 0)
+        GameTooltip:Hide()
+    end)
+
+    return row
+end
+
+local function AcquireGemRow(parent)
+    local row = table.remove(gemRowPool)
+    if not row then
+        row = CreateGemRow(parent)
+    end
+    row:SetParent(parent)
+    row:Show()
+    activeGemRows[#activeGemRows + 1] = row
+    return row
+end
+
+ReleaseAllGemRows = function()
+    for _, row in ipairs(activeGemRows) do
+        row:Hide()
+        row:ClearAllPoints()
+        row.itemId = nil
+        gemRowPool[#gemRowPool + 1] = row
+    end
+    wipe(activeGemRows)
+end
+
+local GEM_COLORS = {
+    ["Meta"]   = { 0.85, 0.65, 0.30 },
+    ["Red"]    = { 0.90, 0.30, 0.30 },
+    ["Yellow"] = { 0.95, 0.85, 0.30 },
+    ["Blue"]   = { 0.30, 0.60, 0.90 },
+    ["Hybrid"] = { 0.70, 0.40, 0.85 },
+}
+
+function WTBT_UI:RefreshGems()
+    local sc = self.scrollChild
+    ReleaseAllGemRows()
+
+    local className = WTBT.state.class
+    local specName  = WTBT.state.spec
+    local data = WTBT_Gems and WTBT_Gems[className] and WTBT_Gems[className][specName]
+
+    if not data or #data == 0 then
+        self.statusLeft:SetText(className .. " · " .. specName .. " · Gems")
+        self.statusRight:SetText("|cff6B5A8CNo data|r")
+        sc:SetHeight(40)
+        return
+    end
+
+    local yOffset = 0
+
+    local catOrder = { "Meta", "Red", "Yellow", "Blue", "Hybrid" }
+    local catItems = {}
+    for _, cat in ipairs(catOrder) do catItems[cat] = {} end
+
+    for _, item in ipairs(data) do
+        local cat = item.category
+        if catItems[cat] then
+            catItems[cat][#catItems[cat] + 1] = item
+        end
+    end
+
+    local totalItems = 0
+
+    for _, cat in ipairs(catOrder) do
+        local items = catItems[cat]
+        if #items > 0 then
+            local hdr = AcquireSectionHeader(sc, cat)
+            hdr:SetPoint("TOPLEFT", sc, "TOPLEFT", 0, -yOffset)
+            hdr:SetPoint("TOPRIGHT", sc, "TOPRIGHT", 0, -yOffset)
+            yOffset = yOffset + 16
+
+            for _, item in ipairs(items) do
+                local row = AcquireGemRow(sc)
+                row:SetPoint("TOPLEFT", sc, "TOPLEFT", 0, -yOffset)
+                row:SetPoint("TOPRIGHT", sc, "TOPRIGHT", 0, -yOffset)
+
+                row.itemId = item.itemId
+
+                local itemTexture = item.itemId and GetItemIcon(item.itemId)
+                if itemTexture then
+                    row.iconTex:SetTexture(itemTexture)
+                else
+                    row.iconTex:SetTexture("Interface\\Icons\\INV_Misc_QuestionMark")
+                end
+                row.iconTex:Show()
+
+                local cc = GEM_COLORS[cat] or { 0.220, 0.188, 0.345 }
+                for _, edge in ipairs(row.iconBorder) do
+                    edge:SetColorTexture(cc[1], cc[2], cc[3], 0.8)
+                end
+
+                row.itemName:SetText(item.name)
+                row.statText:SetText(item.stat or "")
+
+                row.catLabel:SetText(cat:upper())
+                row.catBG:SetColorTexture(cc[1], cc[2], cc[3], 0.15)
+                row.catLabel:SetTextColor(cc[1], cc[2], cc[3], 1)
+
+                yOffset = yOffset + ROW_H
+                totalItems = totalItems + 1
+            end
+        end
+    end
+
+    sc:SetHeight(yOffset + 4)
+
+    self.statusLeft:SetText(className .. " · " .. specName .. " · Gems")
+    self.statusRight:SetText("|cffC8B68C" .. totalItems .. " gems|r")
 end

@@ -1,5 +1,19 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.4.0 — 2026-04-23
+
+### New: Gems tab
+
+Added a fourth tab alongside BIS, Custom Lists, and Consumables. Class + spec dropdowns drive a per-spec gem recommendation list grouped by socket color: **Meta / Red / Yellow / Blue / Hybrid**.
+
+- Data sourced from Wowhead TBC Classic class guides — rare Outland gems (Living Ruby / Dawnstone / Star of Elune / Noble Topaz / Nightseye / Talasite) as the mainstream recommendations that remain competitive through most of TBC's lifecycle.
+- Socket bonuses matched only where the bonus is worth chasing — tanks, healers, Bear druids. Pure DPS casters slam Runed Living Ruby in every color and ignore the bonus.
+- Pre-hit-cap warlock path uses Great Dawnstone (+8 Spell Hit) in yellow sockets; post-hit-cap swaps back to Runed.
+- Special cases: Feral Cat has no meta socket (Wolfshead Helm); Prot Paladin threat is spell-based and uses Runed Living Ruby; Resto Shaman's yellow is Quick Dawnstone (+8 Spell Haste).
+- In-game tooltip on hover is authoritative.
+
+New data file: `Data\Data_Gems.lua`. All 9 classes and all specs covered.
+
 ## 1.3.1 — 2026-04-21
 
 ### Brand identity pass
