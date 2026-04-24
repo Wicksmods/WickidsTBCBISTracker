@@ -1,5 +1,11 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.4.1 — 2026-04-24
+
+### Housekeeping
+
+Release zip no longer contains a stray `.claude/` tooling config folder. That was a local Claude Code permission allowlist with no sensitive content, but it didn't belong in a public addon zip. No functional changes — v1.4.0 users can safely stay on this version if they prefer.
+
 ## 1.4.0 — 2026-04-23
 
 ### New: Gems tab
