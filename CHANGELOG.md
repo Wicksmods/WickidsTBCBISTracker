@@ -1,5 +1,11 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.4.3 — 2026-04-25
+
+### Title bar harmonization
+
+Title now reads as two-tone — `Wick's` in fel-green, `TBC BIS Tracker` in cream — matching the canonical Wick suite header spec. No functional changes.
+
 ## 1.4.2 — 2026-04-25
 
 ### BIS source corrections — full-suite audit pass

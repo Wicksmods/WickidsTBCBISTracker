@@ -900,8 +900,7 @@ function WTBT_UI:Build()
 
     local title = NewText(header, 13)
     title:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE")
-    title:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
-    title:SetText("Wick's TBC BIS Tracker")
+    title:SetText("|cff4FC778Wick's|r |cffD4C8A1TBC BIS Tracker|r")
     title:SetPoint("LEFT", header, "LEFT", 12, 0)
 
     -- Close button
