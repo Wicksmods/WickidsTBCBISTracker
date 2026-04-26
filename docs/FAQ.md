@@ -14,11 +14,11 @@ Paste a soft-reserve token string (from softres.it) into the import box. Items r
 
 ### An item is missing from my list — bug?
 
-Most likely it's a new item from a recent build, or a spec-specific item the addon hasn't classified yet. [Open an issue](https://github.com/jspliff/WickidsTBCBISTracker/issues) with the item name and which class/spec/phase you expected it in.
+Most likely it's a new item from a recent build, or a spec-specific item the addon hasn't classified yet. [Open an issue](https://github.com/Wicksmods/WickidsTBCBISTracker/issues) with the item name and which class/spec/phase you expected it in.
 
 ### Can I use a custom BIS list?
 
-Not in the current release. Custom-list support is a planned feature — track progress on the [issues page](https://github.com/jspliff/WickidsTBCBISTracker/issues).
+Not in the current release. Custom-list support is a planned feature — track progress on the [issues page](https://github.com/Wicksmods/WickidsTBCBISTracker/issues).
 
 ### Is this for Era / Season of Discovery / Retail?
 

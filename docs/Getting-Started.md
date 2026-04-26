@@ -3,7 +3,7 @@
 ## Install
 
 - **CurseForge client** — search for "Wick's TBC BIS Tracker" and install.
-- **Manual** — download the latest ZIP from [CurseForge](https://www.curseforge.com/wow/addons/wicks-tbc-bis-tracker) or [GitHub Releases](https://github.com/jspliff/WickidsTBCBISTracker/releases), extract the `WickidsTBCBISTracker` folder into `World of Warcraft\_classic_\Interface\AddOns\`.
+- **Manual** — download the latest ZIP from [CurseForge](https://www.curseforge.com/wow/addons/wicks-tbc-bis-tracker) or [GitHub Releases](https://github.com/Wicksmods/WickidsTBCBISTracker/releases), extract the `WickidsTBCBISTracker` folder into `World of Warcraft\_classic_\Interface\AddOns\`.
 
 ## First run
 
