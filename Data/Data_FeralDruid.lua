@@ -62,7 +62,7 @@ WTBT_Data["Druid"]["Feral"] = {
         },
         Ring1 = {
             { name = "Shapeshifter's Signet",              source = "Lower City — Exalted",               sourceType = "rep",   gems = {},                   enchant = nil, itemId = 30834 },
-            { name = "Garona's Signet Ring",               source = "Illhoof — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28649 },
+            { name = "Garona's Signet Ring",               source = "The Curator — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28649 },
         },
         Ring2 = {
             { name = "Ring of the Recalcitrant",           source = "Quest: Magtheridon",                 sourceType = "quest", gems = {},                   enchant = nil, itemId = 28791 },
@@ -140,7 +140,7 @@ WTBT_Data["Druid"]["Feral"] = {
         },
         Ring1 = {
             { name = "Ring of Lethality",                  source = "Hydross — Serpentshrine Cavern",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30052 },
-            { name = "Garona's Signet Ring",               source = "Illhoof — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28649 },
+            { name = "Garona's Signet Ring",               source = "The Curator — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28649 },
         },
         Ring2 = {
             { name = "Band of the Ranger-General",         source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29997 },
@@ -200,7 +200,7 @@ WTBT_Data["Druid"]["Feral"] = {
         },
         Waist = {
             { name = "Belt of One-Hundred Deaths",         source = "Lady Vashj — Serpentshrine Cavern",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
-            { name = "Don Alejandro's Money Belt",         source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30879 },
+            { name = "Don Alejandro's Money Belt",         source = "Anetheron — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30879 },
         },
         Legs = {
             { name = "Thunderheart Leggings",              source = "The Illidari Council — Black Temple", sourceType = "drop", gems = {},                   enchant = "Nethercobra Leg Armor (+50 AP, +12 Crit)", itemId = 31044 },
@@ -228,7 +228,7 @@ WTBT_Data["Druid"]["Feral"] = {
         },
         MainHand = {
             { name = "Vengeful Gladiator's Staff",         source = "Arena Points (Season 3)",            sourceType = "pvp",   gems = {},                   enchant = "Greater Agility (+35 Agi)", itemId = 33716 },
-            { name = "Pillar of Ferocity",                 source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = "Greater Agility (+35 Agi)", itemId = 30883 },
+            { name = "Pillar of Ferocity",                 source = "Anetheron — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = "Greater Agility (+35 Agi)", itemId = 30883 },
             { name = "Terestian's Stranglestaff",          source = "Illhoof — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = "Greater Agility (+35 Agi)", itemId = 28658 },
         },
         Relic = {
@@ -274,13 +274,13 @@ WTBT_Data["Druid"]["Feral"] = {
             { name = "Thunderheart Gauntlets",             source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = "Superior Agility (+15 Agi)", itemId = 31034 },
         },
         Waist = {
-            { name = "Belt of One-Hundred Deaths",         source = "Morogrim Tidewalker — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
-            { name = "Don Alejandro's Money Belt",         source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30879 },
+            { name = "Belt of One-Hundred Deaths",         source = "Lady Vashj — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
+            { name = "Don Alejandro's Money Belt",         source = "Anetheron — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30879 },
             { name = "Waistguard of the Great Beast",      source = "G'eras — Badge Vendor",              sourceType = "badge", gems = {},                   enchant = nil, itemId = 33583 },
         },
         Legs = {
             { name = "Thunderheart Leggings",              source = "The Illidari Council — Black Temple", sourceType = "drop", gems = {},                   enchant = "Nethercobra Leg Armor (+50 AP, +12 Crit)", itemId = 31044 },
-            { name = "Shady Dealer's Pantaloons",          source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = "Nethercobra Leg Armor (+50 AP, +12 Crit)", itemId = 30898 },
+            { name = "Shady Dealer's Pantaloons",          source = "Azgalor — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = "Nethercobra Leg Armor (+50 AP, +12 Crit)", itemId = 30898 },
             { name = "Skulker's Greaves",                  source = "Netherspite — Karazhan",             sourceType = "drop",  gems = { "red", "red" },     enchant = "Nethercobra Leg Armor (+50 AP, +12 Crit)", itemId = 28741 },
         },
         Feet = {
@@ -311,7 +311,7 @@ WTBT_Data["Druid"]["Feral"] = {
         MainHand = {
             { name = "Vengeful Gladiator's Staff",         source = "Arena Points (Season 3)",            sourceType = "pvp",   gems = {},                   enchant = "Greater Agility (+35 Agi)", itemId = 33716 },
             { name = "Staff of Primal Fury",               source = "Hex Lord Malacrass — Zul'Aman",     sourceType = "drop",  gems = {},                   enchant = "Greater Agility (+35 Agi)", itemId = 33465 },
-            { name = "Pillar of Ferocity",                 source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = "Greater Agility (+35 Agi)", itemId = 30883 },
+            { name = "Pillar of Ferocity",                 source = "Anetheron — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = "Greater Agility (+35 Agi)", itemId = 30883 },
         },
         Relic = {
             { name = "Everbloom Idol",                     source = "G'eras — Shattrath City (15 Badges)", sourceType = "badge", gems = {},                  enchant = nil, itemId = 29390 },

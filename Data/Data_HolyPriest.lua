@@ -193,7 +193,7 @@ WTBT_Data["Priest"]["Holy"] = {
             { name = "Tears of Heaven",                source = "G'eras — Badges of Justice",          sourceType = "badge", gems = {},                   enchant = nil, itemId = 29274 },
         },
         Relic = {
-            { name = "Luminescent Rod of the Naaru",   source = "The Lurker Below — SSC",              sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30080 },
+            { name = "Luminescent Rod of the Naaru",   source = "Morogrim Tidewalker — SSC",              sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30080 },
             { name = "Blue Diamond Witchwand",         source = "Opera Event — Karazhan",              sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28588 },
         },
     },
@@ -239,7 +239,7 @@ WTBT_Data["Priest"]["Holy"] = {
         },
         Waist = {
             { name = "Angelista's Sash",               source = "Kaz'rogal — Hyjal Summit",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30895 },
-            { name = "Belt of Divine Guidance",        source = "High Warlord Naj'entus — BT",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32519 },
+            { name = "Belt of Divine Guidance",        source = "The Illidari Council — Black Temple",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32519 },
             { name = "Belt of the Long Road",          source = "Tailoring (AH)",                      sourceType = "craft", gems = { "red", "yellow" },  enchant = nil, itemId = 30036 },
         },
         Legs = {
@@ -323,7 +323,7 @@ WTBT_Data["Priest"]["Holy"] = {
         },
         Waist = {
             { name = "Angelista's Sash",               source = "Kaz'rogal — Hyjal Summit",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30895 },
-            { name = "Belt of Divine Guidance",        source = "High Warlord Naj'entus — BT",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32519 },
+            { name = "Belt of Divine Guidance",        source = "The Illidari Council — Black Temple",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32519 },
         },
         Legs = {
             { name = "Achromic Trousers of the Naaru", source = "G'eras — Badges of Justice",          sourceType = "badge", gems = { "red", "red", "red" }, enchant = "Runic Spellthread (+35 Healing, +20 Sta)", itemId = 33585 },
@@ -406,7 +406,7 @@ WTBT_Data["Priest"]["Holy"] = {
         Waist = {
             { name = "Belt of Absolution",             source = "Brutallus/Eredar Twins — Sunwell",    sourceType = "drop",  gems = { "red", "yellow" },  enchant = nil, itemId = 34527 },
             { name = "Angelista's Sash",               source = "Kaz'rogal — Hyjal Summit",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30895 },
-            { name = "Belt of Divine Guidance",        source = "High Warlord Naj'entus — BT",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32519 },
+            { name = "Belt of Divine Guidance",        source = "The Illidari Council — Black Temple",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32519 },
         },
         Legs = {
             { name = "Pantaloons of Calming Strife",   source = "Kalecgos — Sunwell Plateau",          sourceType = "drop",  gems = { "red", "red", "blue" }, enchant = "Runic Spellthread (+35 Healing, +20 Sta)", itemId = 34170 },

@@ -42,12 +42,12 @@ WTBT_Data["Warrior"]["Arms"] = {
         },
         Hands = {
             { name = "Gauntlets of Martial Perfection",   source = "Karazhan",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28824 },
-            { name = "Liar's Tongue Gloves",              source = "Karazhan",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28776 },
+            { name = "Liar's Tongue Gloves",              source = "Magtheridon — Magtheridon's Lair",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28776 },
             { name = "Gauntlets of Renewed Hope",         source = "Maiden of Virtue — Karazhan",        sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28520 },
         },
         Waist = {
             { name = "Girdle of the Endless Pit",         source = "Karazhan",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28779 },
-            { name = "Girdle of the Deathdealer",         source = "Netherspite — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28799 },
+            { name = "Girdle of the Deathdealer",         source = "Aeonus — Heroic Black Morass",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29247 },
             { name = "Belt of the Tracker",               source = "The Curator — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28750 },
         },
         Legs = {
@@ -56,9 +56,9 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Wrynn Dynasty Greaves",             source = "Karazhan",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28621 },
         },
         Feet = {
-            { name = "Ironstriders of Urgency",           source = "Attumen the Huntsman — Karazhan",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28608 },
+            { name = "Ironstriders of Urgency",           source = "Nightbane — Karazhan",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28608 },
             { name = "Edgewalker Longboots",              source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28545 },
-            { name = "Boots of Valiance",                 source = "The Curator — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28747 },
+            { name = "Boots of Valiance",                 source = "Moroes — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28569 },
         },
         Ring1 = {
             { name = "Ring of Reciprocity",               source = "Doom Lord Kazzak — World Boss",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30738 },
@@ -95,10 +95,10 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Destroyer Battle-Helm",             source = "Lady Vashj — SSC",                   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30120 },
         },
         Neck = {
-            { name = "Pendant of the Perilous",           source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30022 },
+            { name = "Pendant of the Perilous",           source = "Trash — SSC",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30022 },
         },
         Shoulder = {
-            { name = "Shoulderpads of the Stranger",      source = "Fathom-Lord Karathress — SSC",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30055 },
+            { name = "Shoulderpads of the Stranger",      source = "Hydross the Unstable — SSC",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30055 },
             { name = "Destroyer Shoulderblades",          source = "Void Reaver — Tempest Keep",         sourceType = "token", gems = {},                   enchant = nil, itemId = 30122 },
         },
         Back = {
@@ -107,7 +107,7 @@ WTBT_Data["Warrior"]["Arms"] = {
         },
         Chest = {
             { name = "Destroyer Breastplate",             source = "Kael'thas — Tempest Keep",           sourceType = "token", gems = {},                   enchant = nil, itemId = 30118 },
-            { name = "Bloodsea Brigand's Vest",           source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = { "red", "red", "yellow" }, enchant = nil, itemId = 30101 },
+            { name = "Bloodsea Brigand's Vest",           source = "Fathom-Lord Karathress — SSC",          sourceType = "drop",  gems = { "red", "red", "yellow" }, enchant = nil, itemId = 30101 },
         },
         Wrist = {
             { name = "Bracers of Eradication",            source = "Morogrim Tidewalker — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30057 },
@@ -116,7 +116,7 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Gloves of the Searing Grip",        source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29947 },
         },
         Waist = {
-            { name = "Belt of One-Hundred Deaths",        source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
+            { name = "Belt of One-Hundred Deaths",        source = "Lady Vashj — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
         },
         Legs = {
             { name = "Leggings of Murderous Intent",      source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29995 },
@@ -149,28 +149,28 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Cursed Vision of Sargeras",         source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 32235 },
         },
         Neck = {
-            { name = "Choker of Endless Nightmares",      source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
+            { name = "Choker of Endless Nightmares",      source = "Supremus — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
         },
         Shoulder = {
             { name = "Onslaught Shoulderblades",          source = "Mother Shahraz — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30979 },
             { name = "Swiftsteel Shoulders",              source = "Blacksmithing",                      sourceType = "craft", gems = {},                   enchant = nil, itemId = 32570 },
         },
         Back = {
-            { name = "Shadowmoon Destroyer's Drape",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
+            { name = "Shadowmoon Destroyer's Drape",      source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
         },
         Chest = {
             { name = "Onslaught Breastplate",             source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30975 },
             { name = "Midnight Chestguard",               source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = { "red", "red", "yellow" }, enchant = nil, itemId = 30905 },
         },
         Wrist = {
-            { name = "Deadly Cuffs",                      source = "Shade of Akama — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
-            { name = "Insidious Bands",                   source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32324 },
+            { name = "Deadly Cuffs",                      source = "Rage Winterchill — Hyjal Summit",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
+            { name = "Insidious Bands",                   source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32324 },
         },
         Hands = {
-            { name = "Grips of Silent Justice",           source = "Teron Gorefiend — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32278 },
+            { name = "Grips of Silent Justice",           source = "Shade of Akama — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32278 },
         },
         Waist = {
-            { name = "Belt of One-Hundred Deaths",        source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
+            { name = "Belt of One-Hundred Deaths",        source = "Lady Vashj — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
         },
         Legs = {
             { name = "Leggings of Divine Retribution",    source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32341 },
@@ -179,7 +179,7 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Dreadboots of the Legion",          source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32345 },
         },
         Ring1 = {
-            { name = "Stormrage Signet Ring",             source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
+            { name = "Stormrage Signet Ring",             source = "Illidan Stormrage — Black Temple",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
         },
         Ring2 = {
             { name = "Unstoppable Aggressor's Ring",      source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32335 },
@@ -194,7 +194,7 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Cataclysm's Edge",                  source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30902 },
         },
         Relic = {
-            { name = "Twisted Blades of Zarak",           source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32326 },
+            { name = "Twisted Blades of Zarak",           source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32326 },
         },
     },
     [4] = {
@@ -202,14 +202,14 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Cursed Vision of Sargeras",         source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 32235 },
         },
         Neck = {
-            { name = "Choker of Endless Nightmares",      source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
+            { name = "Choker of Endless Nightmares",      source = "Supremus — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
         },
         Shoulder = {
             { name = "Onslaught Shoulderblades",          source = "Mother Shahraz — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30979 },
             { name = "Swiftsteel Shoulders",              source = "Blacksmithing",                      sourceType = "craft", gems = {},                   enchant = nil, itemId = 32570 },
         },
         Back = {
-            { name = "Shadowmoon Destroyer's Drape",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
+            { name = "Shadowmoon Destroyer's Drape",      source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
             { name = "Dory's Embrace",                    source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 33484 },
         },
         Chest = {
@@ -217,14 +217,14 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Midnight Chestguard",               source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = { "red", "red", "yellow" }, enchant = nil, itemId = 30905 },
         },
         Wrist = {
-            { name = "Deadly Cuffs",                      source = "Shade of Akama — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
-            { name = "Insidious Bands",                   source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32324 },
+            { name = "Deadly Cuffs",                      source = "Rage Winterchill — Hyjal Summit",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
+            { name = "Insidious Bands",                   source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32324 },
         },
         Hands = {
-            { name = "Grips of Silent Justice",           source = "Teron Gorefiend — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32278 },
+            { name = "Grips of Silent Justice",           source = "Shade of Akama — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32278 },
         },
         Waist = {
-            { name = "Belt of One-Hundred Deaths",        source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
+            { name = "Belt of One-Hundred Deaths",        source = "Lady Vashj — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
         },
         Legs = {
             { name = "Leggings of Divine Retribution",    source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32341 },
@@ -233,7 +233,7 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Dreadboots of the Legion",          source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32345 },
         },
         Ring1 = {
-            { name = "Stormrage Signet Ring",             source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
+            { name = "Stormrage Signet Ring",             source = "Illidan Stormrage — Black Temple",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
         },
         Ring2 = {
             { name = "Signet of Primal Wrath",            source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33496 },
@@ -296,7 +296,7 @@ WTBT_Data["Warrior"]["Arms"] = {
             { name = "Blackened Naaru Sliver",            source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34427 },
         },
         Trinket2 = {
-            { name = "Shard of Contempt",                 source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34472 },
+            { name = "Shard of Contempt",                 source = "Priestess Delrissa — Heroic Magisters' Terrace",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34472 },
         },
         MainHand = {
             { name = "Apolyon, the Soul-Render",          source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34247 },
@@ -324,7 +324,7 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Haramad's Bargain",                 source = "The Consortium — Exalted",           sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29119 },
         },
         Shoulder = {
-            { name = "Ripfiend Shoulderplates",           source = "Doomwalker — World Boss",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30740 },
+            { name = "Ripfiend Shoulderplates",           source = "Doom Lord Kazzak — World Boss",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30740 },
             { name = "Warbringer Shoulderplates",         source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29023 },
             { name = "Shoulderguards of the Bold",        source = "Nightbane — Karazhan",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28755 },
         },
@@ -345,12 +345,12 @@ WTBT_Data["Warrior"]["Fury"] = {
         },
         Hands = {
             { name = "Gauntlets of Martial Perfection",   source = "Karazhan",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28824 },
-            { name = "Liar's Tongue Gloves",              source = "Karazhan",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28776 },
+            { name = "Liar's Tongue Gloves",              source = "Magtheridon — Magtheridon's Lair",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28776 },
             { name = "Gauntlets of Renewed Hope",         source = "Maiden of Virtue — Karazhan",        sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28520 },
         },
         Waist = {
             { name = "Girdle of the Endless Pit",         source = "Karazhan",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28779 },
-            { name = "Girdle of the Deathdealer",         source = "Netherspite — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28799 },
+            { name = "Girdle of the Deathdealer",         source = "Aeonus — Heroic Black Morass",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29247 },
             { name = "Belt of the Tracker",               source = "The Curator — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28750 },
         },
         Legs = {
@@ -359,9 +359,9 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Wrynn Dynasty Greaves",             source = "Karazhan",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28621 },
         },
         Feet = {
-            { name = "Ironstriders of Urgency",           source = "Attumen the Huntsman — Karazhan",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28608 },
+            { name = "Ironstriders of Urgency",           source = "Nightbane — Karazhan",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28608 },
             { name = "Edgewalker Longboots",              source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28545 },
-            { name = "Boots of Valiance",                 source = "The Curator — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28747 },
+            { name = "Boots of Valiance",                 source = "Moroes — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28569 },
         },
         Ring1 = {
             { name = "Ring of Reciprocity",               source = "Doom Lord Kazzak — World Boss",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30738 },
@@ -403,7 +403,7 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Destroyer Battle-Helm",             source = "Lady Vashj — SSC",                   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30120 },
         },
         Neck = {
-            { name = "Pendant of the Perilous",           source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30022 },
+            { name = "Pendant of the Perilous",           source = "Trash — SSC",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30022 },
         },
         Shoulder = {
             { name = "Destroyer Shoulderblades",          source = "Void Reaver — Tempest Keep",         sourceType = "token", gems = {},                   enchant = nil, itemId = 30122 },
@@ -421,7 +421,7 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Destroyer Gauntlets",               source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30119 },
         },
         Waist = {
-            { name = "Belt of One-Hundred Deaths",        source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
+            { name = "Belt of One-Hundred Deaths",        source = "Lady Vashj — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
         },
         Legs = {
             { name = "Leggings of Murderous Intent",      source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29995 },
@@ -456,25 +456,25 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Cursed Vision of Sargeras",         source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 32235 },
         },
         Neck = {
-            { name = "Choker of Endless Nightmares",      source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
+            { name = "Choker of Endless Nightmares",      source = "Supremus — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
         },
         Shoulder = {
             { name = "Onslaught Shoulderblades",          source = "Mother Shahraz — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30979 },
         },
         Back = {
-            { name = "Shadowmoon Destroyer's Drape",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
+            { name = "Shadowmoon Destroyer's Drape",      source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
         },
         Chest = {
             { name = "Onslaught Breastplate",             source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30975 },
         },
         Wrist = {
-            { name = "Deadly Cuffs",                      source = "Shade of Akama — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
+            { name = "Deadly Cuffs",                      source = "Rage Winterchill — Hyjal Summit",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
         },
         Hands = {
-            { name = "Grips of Silent Justice",           source = "Teron Gorefiend — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32278 },
+            { name = "Grips of Silent Justice",           source = "Shade of Akama — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32278 },
         },
         Waist = {
-            { name = "Belt of One-Hundred Deaths",        source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
+            { name = "Belt of One-Hundred Deaths",        source = "Lady Vashj — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
         },
         Legs = {
             { name = "Leggings of Divine Retribution",    source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32341 },
@@ -483,7 +483,7 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Dreadboots of the Legion",          source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32345 },
         },
         Ring1 = {
-            { name = "Stormrage Signet Ring",             source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
+            { name = "Stormrage Signet Ring",             source = "Illidan Stormrage — Black Temple",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
         },
         Ring2 = {
             { name = "Unstoppable Aggressor's Ring",      source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32335 },
@@ -501,7 +501,7 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Warglaive of Azzinoth",             source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32838 },
         },
         Relic = {
-            { name = "Twisted Blades of Zarak",           source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32326 },
+            { name = "Twisted Blades of Zarak",           source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32326 },
         },
     },
     [4] = {
@@ -509,25 +509,25 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Cursed Vision of Sargeras",         source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 32235 },
         },
         Neck = {
-            { name = "Choker of Endless Nightmares",      source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
+            { name = "Choker of Endless Nightmares",      source = "Supremus — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
         },
         Shoulder = {
             { name = "Onslaught Shoulderblades",          source = "Mother Shahraz — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30979 },
         },
         Back = {
-            { name = "Shadowmoon Destroyer's Drape",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
+            { name = "Shadowmoon Destroyer's Drape",      source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
         },
         Chest = {
             { name = "Onslaught Breastplate",             source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30975 },
         },
         Wrist = {
-            { name = "Deadly Cuffs",                      source = "Shade of Akama — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
+            { name = "Deadly Cuffs",                      source = "Rage Winterchill — Hyjal Summit",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
         },
         Hands = {
-            { name = "Grips of Silent Justice",           source = "Teron Gorefiend — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32278 },
+            { name = "Grips of Silent Justice",           source = "Shade of Akama — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32278 },
         },
         Waist = {
-            { name = "Belt of One-Hundred Deaths",        source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
+            { name = "Belt of One-Hundred Deaths",        source = "Lady Vashj — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
         },
         Legs = {
             { name = "Leggings of Divine Retribution",    source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32341 },
@@ -536,7 +536,7 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Dreadboots of the Legion",          source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32345 },
         },
         Ring1 = {
-            { name = "Stormrage Signet Ring",             source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
+            { name = "Stormrage Signet Ring",             source = "Illidan Stormrage — Black Temple",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
         },
         Ring2 = {
             { name = "Signet of Primal Wrath",            source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33496 },
@@ -603,7 +603,7 @@ WTBT_Data["Warrior"]["Fury"] = {
             { name = "Blackened Naaru Sliver",            source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34427 },
         },
         Trinket2 = {
-            { name = "Shard of Contempt",                 source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34472 },
+            { name = "Shard of Contempt",                 source = "Priestess Delrissa — Heroic Magisters' Terrace",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34472 },
             { name = "Dragonspine Trophy",                source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28830 },
         },
         MainHand = {
@@ -735,7 +735,7 @@ WTBT_Data["Warrior"]["Protection"] = {
         },
         Waist = {
             { name = "Girdle of the Invulnerable",        source = "Morogrim Tidewalker — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30096 },
-            { name = "Belt of One-Hundred Deaths",        source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
+            { name = "Belt of One-Hundred Deaths",        source = "Lady Vashj — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
         },
         Legs = {
             { name = "Destroyer Legguards",               source = "Fathom-Lord Karathress — SSC",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30116 },
@@ -826,7 +826,7 @@ WTBT_Data["Warrior"]["Protection"] = {
             { name = "Kaz'rogal's Hardened Heart",        source = "Kaz'rogal — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30889 },
         },
         Relic = {
-            { name = "Twisted Blades of Zarak",           source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32326 },
+            { name = "Twisted Blades of Zarak",           source = "Teron Gorefiend — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32326 },
         },
     },
     [4] = {

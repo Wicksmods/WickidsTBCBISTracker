@@ -1,5 +1,44 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.4.2 — 2026-04-25
+
+### BIS source corrections — full-suite audit pass
+
+Audited every `drop`-sourced item across all 12 spec data files against AtlasLoot Classic's TBC drop tables. Corrected ~120 entries (~310 lines) where the listed boss or dungeon was wrong. Item stats and recommendations are unchanged — only the "where it drops from" text is fixed.
+
+**Highlights (highest-occurrence corrections):**
+
+- **Beast Lord Helm** (28275) — was "The Black Stalker — The Underbog", now "Pathaleon — Mechanar".
+- **Slippers of the Seacaller** (32239) — was Karathress / Reliquary / Badge Vendor, now "High Warlord Naj'entus — Black Temple".
+- **Ring of Ancient Knowledge** (32527) — was Illidan Stormrage, now "Trash — Black Temple".
+- **Insidious Bands** (32324) — was Bloodboil / Illidan / Akama, now "Teron Gorefiend — Black Temple".
+- **Translucent Spellthread Necklace** (32349) — was Bloodboil / Akama, now "Reliquary of the Lost — Black Temple".
+- **Wand of the Forgotten Star** (29982) — was Kael'thas, now "High Astromancer Solarian — Tempest Keep".
+- **Beast Lord Mantle** (27801) — was "Warbringer O'mrogg — Shattered Halls", now "Warlord Kalithresh — The Steamvault".
+- **Chronicle of Dark Secrets** (30872) — was Anetheron / Azgalor, now "Rage Winterchill — Hyjal Summit".
+- **Tirisfal Wand of Ascendancy** (28673) — was Illhoof, now "Shade of Aran — Karazhan".
+
+**Pattern noted in Warrior data:** several Black Temple drops were defaulted to Illidan Stormrage when they're actually earlier-tier bosses (Teron Gorefiend, Reliquary of the Lost, Naj'entus). Looks like copy-paste drift; corrected throughout.
+
+**Broken entries (itemId ↔ name mismatch — both itemId and source corrected, name kept as author intent):**
+
+- Iron Band of the Unbreakable (Paladin) — itemId 27822 → 27436, source "Lieutenant Drake — Old Hillsbrad".
+- Shermanar Great-Ring (Paladin) — itemId 29172 → 28675, source "Shade of Aran — Karazhan".
+- Wrathtide Longbow (Hunter) — itemId 27903 → 29351 (source already correct).
+- Fiend Slayer Boots (Hunter) — itemId 28549 → 28746, source "Chess Event — Karazhan".
+- Boots of Valiance (Warrior) — itemId 28747 → 28569, source "Moroes — Karazhan".
+- Girdle of the Deathdealer (Warrior) — itemId 28799 → 29247, source "Aeonus — Heroic Black Morass".
+- Bangle of Endless Blessings (Resto Druid P1) — itemId 28674 → 28370, source "Warp Splinter — The Botanica".
+
+**Source-type fixes (Balance Druid P4):** three items previously marked `sourceType = "badge"` actually drop in Black Temple — corrected to `"drop"` with proper boss source: Slippers of the Seacaller, Ring of Captured Storms, Naturewarden's Treads.
+
+**Two entries left untouched pending review:**
+
+- itemId 28296 in Paladin file labeled "Libram of Divine Purpose" — TBC libram naming is ambiguous and we want a definitive call before changing it.
+- itemId 28555 across Warlock + Mage files labeled "Ashton's Ring of Adornment" — actual itemId 28555 is "Seal of the Exorcist" (PvP); intended item couldn't be identified.
+
+**Visual note:** column alignment of `sourceType` / `gems` / `enchant` may have drifted on some rows where the corrected source string is longer or shorter than the original. Lua doesn't care; a follow-up formatting pass can re-align if it's visually distracting in diffs.
+
 ## 1.4.1 — 2026-04-24
 
 ### Housekeeping

@@ -74,7 +74,7 @@ WTBT_Data["Druid"]["Restoration"] = {
         Trinket2 = {
             { name = "Eye of the Dead",                    source = "Naxxramas",                          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 23047 },
             { name = "Lower City Prayerbook",              source = "Lower City — Revered",               sourceType = "rep",   gems = {},                   enchant = nil, itemId = 30841 },
-            { name = "Bangle of Endless Blessings",        source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28674 },
+            { name = "Bangle of Endless Blessings",        source = "Warp Splinter — The Botanica",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28370 },
         },
         MainHand = {
             { name = "Light's Justice",                    source = "Prince Malchezaar — Karazhan",       sourceType = "drop",  gems = {},                   enchant = "Spellsurge", itemId = 28771 },
@@ -136,7 +136,7 @@ WTBT_Data["Druid"]["Restoration"] = {
         Feet = {
             { name = "Gold-Leaf Wildboots",                source = "Doom Lord Kazzak — World Boss",      sourceType = "drop",  gems = {},                   enchant = "Boar's Speed (+9 Sta, Minor Speed)", itemId = 30737 },
             { name = "Orca-Hide Boots",                    source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = "Boar's Speed (+9 Sta, Minor Speed)", itemId = 30092 },
-            { name = "Soul-Strider Boots",                 source = "Morogrim Tidewalker — SSC",          sourceType = "drop",  gems = {},                   enchant = "Boar's Speed (+9 Sta, Minor Speed)", itemId = 30100 },
+            { name = "Soul-Strider Boots",                 source = "Fathom-Lord Karathress — SSC",          sourceType = "drop",  gems = {},                   enchant = "Boar's Speed (+9 Sta, Minor Speed)", itemId = 30100 },
         },
         Ring1 = {
             { name = "Coral Band of the Revived",          source = "Lady Vashj — Serpentshrine Cavern",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30110 },
@@ -289,7 +289,7 @@ WTBT_Data["Druid"]["Restoration"] = {
             { name = "Light-Blessed Bonds",                source = "G'eras — Badge Vendor",              sourceType = "badge", gems = {},                   enchant = "Major Healing (+35 Healing)", itemId = 33587 },
         },
         Waist = {
-            { name = "Angelista's Sash",                   source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30895 },
+            { name = "Angelista's Sash",                   source = "Kaz'rogal — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30895 },
             { name = "Life-step Belt",                     source = "Zul'Aman Timed Chest (1st)",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33483 },
             { name = "Belt of Primal Majesty",             source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32339 },
         },

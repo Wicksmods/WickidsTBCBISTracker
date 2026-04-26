@@ -15,7 +15,7 @@ WTBT_Data["Paladin"]["Holy"] = {
             { name = "Whitemend Hood",                 source = "Tailoring",                          sourceType = "craft", gems = { "meta", "yellow" }, enchant = "Glyph of Renewal (+35 Healing)", itemId = 24264 },
         },
         Neck = {
-            { name = "Archaic Charm of Presence",      source = "Doom Lord Kazzak — World Boss",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30726 },
+            { name = "Archaic Charm of Presence",      source = "Doomwalker — World Boss",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30726 },
             { name = "Necklace of Eternal Hope",       source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 29374 },
             { name = "Teeth of Gruul",                 source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28822 },
         },
@@ -30,7 +30,7 @@ WTBT_Data["Paladin"]["Holy"] = {
         Chest = {
             { name = "Justicar Chestpiece",            source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = { "red", "red", "yellow" }, enchant = "Exceptional Stats (+6 all stats)", itemId = 29062 },
             { name = "Windhawk Hauberk",               source = "Leatherworking (Tribal)",            sourceType = "craft", gems = { "red", "red", "yellow" }, enchant = "Exceptional Stats (+6 all stats)", itemId = 29522 },
-            { name = "Breastplate of the Lightbinder",  source = "Netherspite — Karazhan",             sourceType = "drop",  gems = {},                          enchant = "Exceptional Stats (+6 all stats)", itemId = 28662 },
+            { name = "Breastplate of the Lightbinder",  source = "Terestian Illhoof — Karazhan",       sourceType = "drop",  gems = {},                          enchant = "Exceptional Stats (+6 all stats)", itemId = 28662 },
         },
         Wrist = {
             { name = "Windhawk Bracers",               source = "Leatherworking (Tribal)",            sourceType = "craft", gems = {},                   enchant = "Healing Power (+30 Healing)", itemId = 29523 },
@@ -90,7 +90,7 @@ WTBT_Data["Paladin"]["Holy"] = {
         },
         Neck = {
             { name = "Lord Sanguinar's Claim",         source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30018 },
-            { name = "Archaic Charm of Presence",      source = "Doom Lord Kazzak — World Boss",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30726 },
+            { name = "Archaic Charm of Presence",      source = "Doomwalker — World Boss",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30726 },
         },
         Shoulder = {
             { name = "Crystalforge Pauldrons",         source = "Void Reaver — Tempest Keep",         sourceType = "token", gems = { "red", "yellow" },  enchant = "Greater Inscription of Discipline", itemId = 30138 },
@@ -348,7 +348,7 @@ WTBT_Data["Paladin"]["Holy"] = {
             { name = "Crystal Spire of Karabor",       source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = "Spellsurge", itemId = 32500 },
         },
         OffHand = {
-            { name = "Aegis of Angelic Fortune",       source = "Eredar Twins — Sunwell Plateau",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34231 },
+            { name = "Aegis of Angelic Fortune",       source = "M'uru — Sunwell Plateau",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34231 },
             { name = "Book of Highborne Hymns",        source = "Brutallus — Sunwell Plateau",        sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34206 },
             { name = "Felstone Bulwark",               source = "Supremus — Black Temple",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32255 },
         },
@@ -374,7 +374,7 @@ WTBT_Data["Paladin"]["Protection"] = {
         },
         Shoulder = {
             { name = "Justicar Shoulderguards",        source = "High King Maulgar — Gruul's Lair",   sourceType = "drop",  gems = { "red", "yellow" },  enchant = nil, itemId = 29070 },
-            { name = "Spaulders of the Righteous",     source = "The Mechanar",                       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 27739 },
+            { name = "Spaulders of the Righteous",     source = "Laj — The Botanica",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 27739 },
         },
         Back = {
             { name = "Gilded Thorium Cloak",           source = "Blacksmithing",                      sourceType = "craft", gems = {},                   enchant = nil, itemId = 28660 },
@@ -385,7 +385,7 @@ WTBT_Data["Paladin"]["Protection"] = {
             { name = "Panzar'Thar Breastplate",        source = "Nightbane — Karazhan",               sourceType = "drop",  gems = {},                          enchant = nil, itemId = 28597 },
         },
         Wrist = {
-            { name = "Vambraces of Courage",           source = "Nightbane — Karazhan",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28502 },
+            { name = "Vambraces of Courage",           source = "Attumen the Huntsman — Karazhan",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28502 },
             { name = "Bracers of Dignity",             source = "Aldor/Scryer Vendor",                sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29252 },
         },
         Hands = {
@@ -394,11 +394,11 @@ WTBT_Data["Paladin"]["Protection"] = {
         },
         Waist = {
             { name = "Girdle of Valorous Deeds",       source = "Aldor/Scryer Vendor",                sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29253 },
-            { name = "Crimson Girdle of the Indomitable", source = "Attumen — Karazhan",              sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28566 },
+            { name = "Crimson Girdle of the Indomitable", source = "Moroes — Karazhan",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28566 },
         },
         Legs = {
             { name = "Justicar Legguards",             source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = { "red", "red" },     enchant = nil, itemId = 29069 },
-            { name = "Wrynn Dynasty Greaves",          source = "Chess Event — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28621 },
+            { name = "Wrynn Dynasty Greaves",          source = "The Curator — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28621 },
         },
         Feet = {
             { name = "Boots of the Righteous Path",    source = "Aldor/Scryer Vendor",                sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29254 },
@@ -407,11 +407,11 @@ WTBT_Data["Paladin"]["Protection"] = {
         },
         Ring1 = {
             { name = "Violet Signet of the Great Protector", source = "The Violet Eye — Exalted",    sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29279 },
-            { name = "Shermanar Great-Ring",           source = "Heroic Slave Pens",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29172 },
+            { name = "Shermanar Great-Ring",           source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28675 },
         },
         Ring2 = {
             { name = "A'dal's Signet of Defense",      source = "Aldor/Scryer Vendor",                sourceType = "rep",   gems = {},                   enchant = nil, itemId = 28792 },
-            { name = "Iron Band of the Unbreakable",   source = "The Arcatraz",                       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 27822 },
+            { name = "Iron Band of the Unbreakable",   source = "Lieutenant Drake — Old Hillsbrad",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 27436 },
         },
         Trinket1 = {
             { name = "Moroes' Lucky Pocket Watch",     source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28528 },
@@ -419,7 +419,7 @@ WTBT_Data["Paladin"]["Protection"] = {
         },
         Trinket2 = {
             { name = "Figurine of the Colossus",       source = "Jewelcrafting",                      sourceType = "craft", gems = {},                   enchant = nil, itemId = 27529 },
-            { name = "Adamantine Figurine",            source = "Heroic Sethekk Halls",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 27891 },
+            { name = "Adamantine Figurine",            source = "Blackheart the Inciter — Heroic Shadow Labyrinth", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 27891 },
         },
         MainHand = {
             { name = "King's Defender",                source = "Chess Event — Karazhan",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28749 },
@@ -433,7 +433,7 @@ WTBT_Data["Paladin"]["Protection"] = {
         },
         Relic = {
             { name = "Libram of Repentance",           source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 29388 },
-            { name = "Libram of Saints Departed",      source = "Heroic Auchenai Crypts",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 27917 },
+            { name = "Libram of Saints Departed",      source = "Darkweaver Syth — Sethekk Halls",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 27917 },
         },
     },
     [2] = {
@@ -460,7 +460,7 @@ WTBT_Data["Paladin"]["Protection"] = {
         },
         Wrist = {
             { name = "Wristguards of Determination",   source = "Void Reaver — Tempest Keep",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32515 },
-            { name = "Vambraces of Courage",           source = "Nightbane — Karazhan",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28502 },
+            { name = "Vambraces of Courage",           source = "Attumen the Huntsman — Karazhan",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28502 },
         },
         Hands = {
             { name = "Justicar Handguards",            source = "The Curator — Karazhan",             sourceType = "drop",  gems = { "red" },             enchant = nil, itemId = 29067 },

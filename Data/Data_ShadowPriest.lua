@@ -47,7 +47,7 @@ WTBT_Data["Priest"]["Shadow"] = {
             { name = "Anger-Spark Gloves",             source = "Doomwalker — World Boss",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30725 },
         },
         Waist = {
-            { name = "Belt of Divine Inspiration",     source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28799 },
+            { name = "Belt of Divine Inspiration",     source = "High King Maulgar — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28799 },
             { name = "Girdle of Ruination",            source = "Tailoring (AH)",                     sourceType = "craft", gems = {},                   enchant = nil, itemId = 24256 },
         },
         Legs = {
@@ -221,7 +221,7 @@ WTBT_Data["Priest"]["Shadow"] = {
         },
         MainHand = {
             { name = "Zhar'doom, Greatstaff of the Devourer", source = "Illidan — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32374 },
-            { name = "The Maelstrom's Fury",           source = "Shade of Akama — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32237 },
+            { name = "The Maelstrom's Fury",           source = "High Warlord Naj'entus — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32237 },
         },
         OffHand = {
             { name = "Orb of the Soul-Eater",          source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 29272 },
@@ -356,7 +356,7 @@ WTBT_Data["Priest"]["Shadow"] = {
             { name = "Hex Shrunken Head",              source = "Hex Lord Malacrass — Zul'Aman",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33829 },
         },
         MainHand = {
-            { name = "Grand Magister's Staff of Torrents", source = "Kil'jaeden — Sunwell Plateau",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34182 },
+            { name = "Grand Magister's Staff of Torrents", source = "Felmyst — Sunwell Plateau",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34182 },
             { name = "Sunflare",                       source = "Kil'jaeden — Sunwell Plateau",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34336 },
             { name = "Zhar'doom, Greatstaff of the Devourer", source = "Illidan — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32374 },
         },

@@ -16,7 +16,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Collar of the Aldor",            source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29076 },
         },
         Neck = {
-            { name = "Brooch of Unquenchable Fury",    source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28530 },
+            { name = "Brooch of Unquenchable Fury",    source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28530 },
             { name = "Adornment of Stolen Souls",      source = "Prince Malchezaar — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28762 },
             { name = "Pendant of the Violet Eye",      source = "Nightbane — Karazhan",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28609 },
         },
@@ -27,7 +27,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
         },
         Back = {
             { name = "Ruby Drape of the Mysticant",    source = "Prince Malchezaar — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28766 },
-            { name = "Brute Cloak of the Ogre-Magi",   source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28797 },
+            { name = "Brute Cloak of the Ogre-Magi",   source = "High King Maulgar — Gruul's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28797 },
             { name = "Shadow-Cloak of Dalaran",        source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28570 },
         },
         Chest = {
@@ -87,7 +87,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Karaborian Talisman",            source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28781 },
         },
         Relic = {
-            { name = "Tirisfal Wand of Ascendancy",    source = "Terestian Illhoof — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28673 },
+            { name = "Tirisfal Wand of Ascendancy",    source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28673 },
             { name = "Eredar Wand of Obliteration",    source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28783 },
         },
     },
@@ -111,7 +111,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Robe of the Corruptor",          source = "Kael'thas — Tempest Keep",           sourceType = "token", gems = {},                   enchant = nil, itemId = 30214 },
         },
         Wrist = {
-            { name = "Mindstorm Wristbands",           source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29918 },
+            { name = "Mindstorm Wristbands",           source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29918 },
         },
         Hands = {
             { name = "Voidheart Gloves",               source = "Curator — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28968 },
@@ -141,10 +141,10 @@ WTBT_Data["Warlock"]["Destruction"] = {
         },
         MainHand = {
             { name = "Merciless Gladiator's Spellblade", source = "PvP Vendor",                       sourceType = "pvp",   gems = {},                   enchant = nil, itemId = 32053 },
-            { name = "Fang of the Leviathan",          source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30095 },
+            { name = "Fang of the Leviathan",          source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30095 },
         },
         OffHand = {
-            { name = "Fathomstone",                    source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30049 },
+            { name = "Fathomstone",                    source = "Hydross the Unstable — SSC",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30049 },
             { name = "Flametongue Seal",               source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 29270 },
         },
         Relic = {
@@ -157,7 +157,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Cowl of the Illidari High Lord",  source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 32525 },
         },
         Neck = {
-            { name = "Translucent Spellthread Necklace", source = "Gurtogg Bloodboil — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
+            { name = "Translucent Spellthread Necklace", source = "Reliquary of the Lost — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
             { name = "The Sun King's Talisman",        source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30015 },
         },
         Shoulder = {
@@ -173,7 +173,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
         },
         Wrist = {
             { name = "Bracers of Nimble Thought",      source = "Tailoring",                          sourceType = "craft", gems = {},                   enchant = nil, itemId = 32586 },
-            { name = "Cuffs of Devastation",           source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30870 },
+            { name = "Cuffs of Devastation",           source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30870 },
         },
         Hands = {
             { name = "Gloves of the Malefic",          source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31050 },
@@ -183,14 +183,14 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Anetheron's Noose",              source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30888 },
         },
         Legs = {
-            { name = "Leggings of Channeled Elements", source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = { "red", "red", "blue" }, enchant = nil, itemId = 30916 },
+            { name = "Leggings of Channeled Elements", source = "Kaz'rogal — Hyjal Summit",           sourceType = "drop",  gems = { "red", "red", "blue" }, enchant = nil, itemId = 30916 },
             { name = "Leggings of the Malefic",        source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31053 },
         },
         Feet = {
-            { name = "Slippers of the Seacaller",      source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
+            { name = "Slippers of the Seacaller",      source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
         },
         Ring1 = {
-            { name = "Ring of Ancient Knowledge",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
+            { name = "Ring of Ancient Knowledge",      source = "Trash — Black Temple",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
         },
         Ring2 = {
             { name = "Band of the Eternal Sage",       source = "Scale of the Sands — Exalted",       sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29305 },
@@ -206,7 +206,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Tempest of Chaos",               source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30910 },
         },
         OffHand = {
-            { name = "Chronicle of Dark Secrets",      source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",      source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
         },
         Relic = {
             { name = "Wand of Prismatic Focus",        source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32343 },
@@ -217,7 +217,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Hood of the Malefic",            source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31051 },
         },
         Neck = {
-            { name = "Translucent Spellthread Necklace", source = "Gurtogg Bloodboil — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
+            { name = "Translucent Spellthread Necklace", source = "Reliquary of the Lost — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
             { name = "Loop of Cursed Bones",           source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33466 },
         },
         Shoulder = {
@@ -244,14 +244,14 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Leggings of the Malefic",        source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31053 },
         },
         Feet = {
-            { name = "Slippers of the Seacaller",      source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
+            { name = "Slippers of the Seacaller",      source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
             { name = "Footpads of Madness",            source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33357 },
         },
         Ring1 = {
-            { name = "Ring of Ancient Knowledge",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
+            { name = "Ring of Ancient Knowledge",      source = "Trash — Black Temple",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
         },
         Ring2 = {
-            { name = "Ring of Captured Storms",        source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32247 },
+            { name = "Ring of Captured Storms",        source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32247 },
         },
         Trinket1 = {
             { name = "The Skull of Gul'dan",           source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32483 },
@@ -263,7 +263,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
             { name = "Zhar'doom Greatstaff of the Devourer", source = "Illidan Stormrage — Black Temple", sourceType = "drop", gems = {},                enchant = nil, itemId = 32374 },
         },
         OffHand = {
-            { name = "Chronicle of Dark Secrets",      source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",      source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
         },
         Relic = {
             { name = "Carved Witch Doctor's Stick",    source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 33192 },
@@ -311,7 +311,7 @@ WTBT_Data["Warlock"]["Destruction"] = {
         },
         Ring2 = {
             { name = "Ring of Omnipotence",            source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34230 },
-            { name = "Mana Attuned Band",              source = "Magisters' Terrace",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33497 },
+            { name = "Mana Attuned Band",              source = "Timed Chest — Zul'Aman",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33497 },
         },
         Trinket1 = {
             { name = "Shifting Naaru Sliver",          source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34429 },
@@ -343,7 +343,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Collar of the Aldor",            source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29076 },
         },
         Neck = {
-            { name = "Brooch of Unquenchable Fury",    source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28530 },
+            { name = "Brooch of Unquenchable Fury",    source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28530 },
             { name = "Adornment of Stolen Souls",      source = "Prince Malchezaar — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28762 },
             { name = "Pendant of the Violet Eye",      source = "Nightbane — Karazhan",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28609 },
         },
@@ -354,7 +354,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
         },
         Back = {
             { name = "Ruby Drape of the Mysticant",    source = "Prince Malchezaar — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28766 },
-            { name = "Brute Cloak of the Ogre-Magi",   source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28797 },
+            { name = "Brute Cloak of the Ogre-Magi",   source = "High King Maulgar — Gruul's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28797 },
             { name = "Shadow-Cloak of Dalaran",        source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28570 },
         },
         Chest = {
@@ -369,7 +369,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
         },
         Hands = {
             { name = "Voidheart Gloves",               source = "Curator — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28968 },
-            { name = "Handwraps of Flowing Thought",   source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28507 },
+            { name = "Handwraps of Flowing Thought",   source = "Attumen the Huntsman — Karazhan",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28507 },
             { name = "Soul-Eater's Handwraps",         source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28780 },
         },
         Waist = {
@@ -414,7 +414,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Karaborian Talisman",            source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28781 },
         },
         Relic = {
-            { name = "Tirisfal Wand of Ascendancy",    source = "Terestian Illhoof — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28673 },
+            { name = "Tirisfal Wand of Ascendancy",    source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28673 },
             { name = "Eredar Wand of Obliteration",    source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28783 },
         },
     },
@@ -438,7 +438,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Robe of the Corruptor",          source = "Kael'thas — Tempest Keep",           sourceType = "token", gems = {},                   enchant = nil, itemId = 30214 },
         },
         Wrist = {
-            { name = "Mindstorm Wristbands",           source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29918 },
+            { name = "Mindstorm Wristbands",           source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29918 },
         },
         Hands = {
             { name = "Voidheart Gloves",               source = "Curator — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28968 },
@@ -468,10 +468,10 @@ WTBT_Data["Warlock"]["Affliction"] = {
         },
         MainHand = {
             { name = "Merciless Gladiator's Spellblade", source = "PvP Vendor",                       sourceType = "pvp",   gems = {},                   enchant = nil, itemId = 32053 },
-            { name = "Fang of the Leviathan",          source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30095 },
+            { name = "Fang of the Leviathan",          source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30095 },
         },
         OffHand = {
-            { name = "Fathomstone",                    source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30049 },
+            { name = "Fathomstone",                    source = "Hydross the Unstable — SSC",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30049 },
             { name = "Flametongue Seal",               source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 29270 },
         },
         Relic = {
@@ -484,7 +484,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Cowl of the Illidari High Lord",  source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 32525 },
         },
         Neck = {
-            { name = "Translucent Spellthread Necklace", source = "Gurtogg Bloodboil — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
+            { name = "Translucent Spellthread Necklace", source = "Reliquary of the Lost — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
             { name = "The Sun King's Talisman",        source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30015 },
         },
         Shoulder = {
@@ -500,7 +500,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
         },
         Wrist = {
             { name = "Bracers of Nimble Thought",      source = "Tailoring",                          sourceType = "craft", gems = {},                   enchant = nil, itemId = 32586 },
-            { name = "Cuffs of Devastation",           source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30870 },
+            { name = "Cuffs of Devastation",           source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30870 },
         },
         Hands = {
             { name = "Gloves of the Malefic",          source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31050 },
@@ -510,14 +510,14 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Anetheron's Noose",              source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30888 },
         },
         Legs = {
-            { name = "Leggings of Channeled Elements", source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = { "red", "red", "blue" }, enchant = nil, itemId = 30916 },
+            { name = "Leggings of Channeled Elements", source = "Kaz'rogal — Hyjal Summit",           sourceType = "drop",  gems = { "red", "red", "blue" }, enchant = nil, itemId = 30916 },
             { name = "Leggings of the Malefic",        source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31053 },
         },
         Feet = {
-            { name = "Slippers of the Seacaller",      source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
+            { name = "Slippers of the Seacaller",      source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
         },
         Ring1 = {
-            { name = "Ring of Ancient Knowledge",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
+            { name = "Ring of Ancient Knowledge",      source = "Trash — Black Temple",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
         },
         Ring2 = {
             { name = "Band of the Eternal Sage",       source = "Scale of the Sands — Exalted",       sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29305 },
@@ -533,7 +533,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Tempest of Chaos",               source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30910 },
         },
         OffHand = {
-            { name = "Chronicle of Dark Secrets",      source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",      source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
         },
         Relic = {
             { name = "Wand of Prismatic Focus",        source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32343 },
@@ -544,7 +544,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Hood of the Malefic",            source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31051 },
         },
         Neck = {
-            { name = "Translucent Spellthread Necklace", source = "Gurtogg Bloodboil — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
+            { name = "Translucent Spellthread Necklace", source = "Reliquary of the Lost — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
             { name = "Loop of Cursed Bones",           source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33466 },
         },
         Shoulder = {
@@ -571,14 +571,14 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Leggings of the Malefic",        source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31053 },
         },
         Feet = {
-            { name = "Slippers of the Seacaller",      source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
+            { name = "Slippers of the Seacaller",      source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
             { name = "Footpads of Madness",            source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33357 },
         },
         Ring1 = {
-            { name = "Ring of Ancient Knowledge",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
+            { name = "Ring of Ancient Knowledge",      source = "Trash — Black Temple",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
         },
         Ring2 = {
-            { name = "Ring of Captured Storms",        source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32247 },
+            { name = "Ring of Captured Storms",        source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32247 },
         },
         Trinket1 = {
             { name = "The Skull of Gul'dan",           source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32483 },
@@ -590,7 +590,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
             { name = "Zhar'doom Greatstaff of the Devourer", source = "Illidan Stormrage — Black Temple", sourceType = "drop", gems = {},                enchant = nil, itemId = 32374 },
         },
         OffHand = {
-            { name = "Chronicle of Dark Secrets",      source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",      source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
         },
         Relic = {
             { name = "Carved Witch Doctor's Stick",    source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 33192 },
@@ -638,7 +638,7 @@ WTBT_Data["Warlock"]["Affliction"] = {
         },
         Ring2 = {
             { name = "Ring of Omnipotence",            source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34230 },
-            { name = "Mana Attuned Band",              source = "Magisters' Terrace",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33497 },
+            { name = "Mana Attuned Band",              source = "Timed Chest — Zul'Aman",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33497 },
         },
         Trinket1 = {
             { name = "Shifting Naaru Sliver",          source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34429 },
@@ -670,7 +670,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Collar of the Aldor",            source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29076 },
         },
         Neck = {
-            { name = "Brooch of Unquenchable Fury",    source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28530 },
+            { name = "Brooch of Unquenchable Fury",    source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28530 },
             { name = "Adornment of Stolen Souls",      source = "Prince Malchezaar — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28762 },
             { name = "Pendant of the Violet Eye",      source = "Nightbane — Karazhan",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28609 },
         },
@@ -681,7 +681,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
         },
         Back = {
             { name = "Ruby Drape of the Mysticant",    source = "Prince Malchezaar — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28766 },
-            { name = "Brute Cloak of the Ogre-Magi",   source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28797 },
+            { name = "Brute Cloak of the Ogre-Magi",   source = "High King Maulgar — Gruul's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28797 },
             { name = "Shadow-Cloak of Dalaran",        source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28570 },
         },
         Chest = {
@@ -696,7 +696,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
         },
         Hands = {
             { name = "Voidheart Gloves",               source = "Curator — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28968 },
-            { name = "Handwraps of Flowing Thought",   source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28507 },
+            { name = "Handwraps of Flowing Thought",   source = "Attumen the Huntsman — Karazhan",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28507 },
             { name = "Soul-Eater's Handwraps",         source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28780 },
         },
         Waist = {
@@ -741,7 +741,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Karaborian Talisman",            source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28781 },
         },
         Relic = {
-            { name = "Tirisfal Wand of Ascendancy",    source = "Terestian Illhoof — Karazhan",       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28673 },
+            { name = "Tirisfal Wand of Ascendancy",    source = "Shade of Aran — Karazhan",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28673 },
             { name = "Eredar Wand of Obliteration",    source = "Magtheridon — Magtheridon's Lair",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28783 },
         },
     },
@@ -765,7 +765,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Robe of the Corruptor",          source = "Kael'thas — Tempest Keep",           sourceType = "token", gems = {},                   enchant = nil, itemId = 30214 },
         },
         Wrist = {
-            { name = "Mindstorm Wristbands",           source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29918 },
+            { name = "Mindstorm Wristbands",           source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29918 },
         },
         Hands = {
             { name = "Voidheart Gloves",               source = "Curator — Karazhan",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28968 },
@@ -795,10 +795,10 @@ WTBT_Data["Warlock"]["Demonology"] = {
         },
         MainHand = {
             { name = "Merciless Gladiator's Spellblade", source = "PvP Vendor",                       sourceType = "pvp",   gems = {},                   enchant = nil, itemId = 32053 },
-            { name = "Fang of the Leviathan",          source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30095 },
+            { name = "Fang of the Leviathan",          source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30095 },
         },
         OffHand = {
-            { name = "Fathomstone",                    source = "The Lurker Below — SSC",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30049 },
+            { name = "Fathomstone",                    source = "Hydross the Unstable — SSC",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30049 },
             { name = "Flametongue Seal",               source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 29270 },
         },
         Relic = {
@@ -811,7 +811,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Cowl of the Illidari High Lord",  source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 32525 },
         },
         Neck = {
-            { name = "Translucent Spellthread Necklace", source = "Gurtogg Bloodboil — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
+            { name = "Translucent Spellthread Necklace", source = "Reliquary of the Lost — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
             { name = "The Sun King's Talisman",        source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30015 },
         },
         Shoulder = {
@@ -827,7 +827,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
         },
         Wrist = {
             { name = "Bracers of Nimble Thought",      source = "Tailoring",                          sourceType = "craft", gems = {},                   enchant = nil, itemId = 32586 },
-            { name = "Cuffs of Devastation",           source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30870 },
+            { name = "Cuffs of Devastation",           source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30870 },
         },
         Hands = {
             { name = "Gloves of the Malefic",          source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31050 },
@@ -837,14 +837,14 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Anetheron's Noose",              source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30888 },
         },
         Legs = {
-            { name = "Leggings of Channeled Elements", source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = { "red", "red", "blue" }, enchant = nil, itemId = 30916 },
+            { name = "Leggings of Channeled Elements", source = "Kaz'rogal — Hyjal Summit",           sourceType = "drop",  gems = { "red", "red", "blue" }, enchant = nil, itemId = 30916 },
             { name = "Leggings of the Malefic",        source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31053 },
         },
         Feet = {
-            { name = "Slippers of the Seacaller",      source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
+            { name = "Slippers of the Seacaller",      source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
         },
         Ring1 = {
-            { name = "Ring of Ancient Knowledge",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
+            { name = "Ring of Ancient Knowledge",      source = "Trash — Black Temple",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
         },
         Ring2 = {
             { name = "Band of the Eternal Sage",       source = "Scale of the Sands — Exalted",       sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29305 },
@@ -860,7 +860,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Tempest of Chaos",               source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30910 },
         },
         OffHand = {
-            { name = "Chronicle of Dark Secrets",      source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",      source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
         },
         Relic = {
             { name = "Wand of Prismatic Focus",        source = "Gurtogg Bloodboil — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32343 },
@@ -871,7 +871,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Hood of the Malefic",            source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31051 },
         },
         Neck = {
-            { name = "Translucent Spellthread Necklace", source = "Gurtogg Bloodboil — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
+            { name = "Translucent Spellthread Necklace", source = "Reliquary of the Lost — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32349 },
             { name = "Loop of Cursed Bones",           source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33466 },
         },
         Shoulder = {
@@ -898,14 +898,14 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Leggings of the Malefic",        source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 31053 },
         },
         Feet = {
-            { name = "Slippers of the Seacaller",      source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
+            { name = "Slippers of the Seacaller",      source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32239 },
             { name = "Footpads of Madness",            source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33357 },
         },
         Ring1 = {
-            { name = "Ring of Ancient Knowledge",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
+            { name = "Ring of Ancient Knowledge",      source = "Trash — Black Temple",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32527 },
         },
         Ring2 = {
-            { name = "Ring of Captured Storms",        source = "Reliquary of Souls — Black Temple",  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32247 },
+            { name = "Ring of Captured Storms",        source = "High Warlord Naj'entus — Black Temple", sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32247 },
         },
         Trinket1 = {
             { name = "The Skull of Gul'dan",           source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32483 },
@@ -917,7 +917,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
             { name = "Zhar'doom Greatstaff of the Devourer", source = "Illidan Stormrage — Black Temple", sourceType = "drop", gems = {},                enchant = nil, itemId = 32374 },
         },
         OffHand = {
-            { name = "Chronicle of Dark Secrets",      source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",      source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
         },
         Relic = {
             { name = "Carved Witch Doctor's Stick",    source = "G'eras — Badges of Justice",         sourceType = "badge", gems = {},                   enchant = nil, itemId = 33192 },
@@ -965,7 +965,7 @@ WTBT_Data["Warlock"]["Demonology"] = {
         },
         Ring2 = {
             { name = "Ring of Omnipotence",            source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34230 },
-            { name = "Mana Attuned Band",              source = "Magisters' Terrace",                 sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33497 },
+            { name = "Mana Attuned Band",              source = "Timed Chest — Zul'Aman",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33497 },
         },
         Trinket1 = {
             { name = "Shifting Naaru Sliver",          source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34429 },

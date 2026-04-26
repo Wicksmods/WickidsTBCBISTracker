@@ -252,7 +252,7 @@ WTBT_Data["Druid"]["Balance"] = {
             { name = "The Nexus Key",                      source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = "Spellpower", itemId = 29988 },
         },
         OffHand = {
-            { name = "Chronicle of Dark Secrets",          source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",          source = "Rage Winterchill — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
             { name = "Blind-Seers Icon",                   source = "Black Temple",                       sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32361 },
         },
         Relic = {
@@ -270,7 +270,7 @@ WTBT_Data["Druid"]["Balance"] = {
             { name = "Nordrassil Headpiece",               source = "Lady Vashj — Serpentshrine Cavern",  sourceType = "drop",  gems = { "meta", "red" },    enchant = "Glyph of Power (+22 SP, +14 Hit)", itemId = 30233 },
         },
         Neck = {
-            { name = "Brooch of Nature's Mercy",           source = "Hex Lord Malacrass — Zul'Aman",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33281 },
+            { name = "Brooch of Nature's Mercy",           source = "Akil'zon — Zul'Aman",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33281 },
             { name = "Shattered Sun Pendant of Acumen",    source = "Shattered Sun Offensive Vendor",     sourceType = "rep",   gems = {},                   enchant = nil, itemId = 34678 },
         },
         Shoulder = {
@@ -295,7 +295,7 @@ WTBT_Data["Druid"]["Balance"] = {
             { name = "Nordrassil Gauntlets",               source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = "Major Spellpower (+20 SP)", itemId = 30232 },
         },
         Waist = {
-            { name = "Anetheron's Noose",                  source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30888 },
+            { name = "Anetheron's Noose",                  source = "Anetheron — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30888 },
             { name = "Belt of the Crescent Moon",          source = "Kaz'rogal — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30914 },
         },
         Legs = {
@@ -303,12 +303,12 @@ WTBT_Data["Druid"]["Balance"] = {
             { name = "Thunderheart Pants",                 source = "The Illidari Council — Black Temple", sourceType = "drop", gems = {},                   enchant = "Runic Spellthread (+35 SP, +20 Sta)", itemId = 31046 },
         },
         Feet = {
-            { name = "Slippers of the Seacaller",          source = "Badge Vendor",                       sourceType = "badge", gems = {},                   enchant = "Boar's Speed (+9 Sta, Minor Speed)", itemId = 32239 },
-            { name = "Naturewarden's Treads",              source = "Badge Vendor",                       sourceType = "badge", gems = {},                   enchant = "Boar's Speed (+9 Sta, Minor Speed)", itemId = 32352 },
+            { name = "Slippers of the Seacaller",          source = "High Warlord Naj'entus — Black Temple",                       sourceType = "drop", gems = {},                   enchant = "Boar's Speed (+9 Sta, Minor Speed)", itemId = 32239 },
+            { name = "Naturewarden's Treads",              source = "Reliquary of the Lost — Black Temple",                       sourceType = "drop", gems = {},                   enchant = "Boar's Speed (+9 Sta, Minor Speed)", itemId = 32352 },
         },
         Ring1 = {
             { name = "Band of the Eternal Sage",           source = "Scale of the Sands — Exalted",       sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29305 },
-            { name = "Ring of Captured Storms",            source = "Badge Vendor",                       sourceType = "badge", gems = {},                   enchant = nil, itemId = 32247 },
+            { name = "Ring of Captured Storms",            source = "High Warlord Naj'entus — Black Temple",                       sourceType = "drop", gems = {},                   enchant = nil, itemId = 32247 },
         },
         Ring2 = {
             { name = "Mana Attuned Band",                  source = "Hex Lord Malacrass — Zul'Aman",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33497 },
@@ -327,7 +327,7 @@ WTBT_Data["Druid"]["Balance"] = {
             { name = "The Nexus Key",                      source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = "Spellpower", itemId = 29988 },
         },
         OffHand = {
-            { name = "Chronicle of Dark Secrets",          source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",          source = "Rage Winterchill — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
             { name = "Fetish of the Primal Gods",          source = "Zul'Aman",                           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 33334 },
         },
         Relic = {
@@ -402,7 +402,7 @@ WTBT_Data["Druid"]["Balance"] = {
         },
         OffHand = {
             { name = "Heart of the Pit",                   source = "Sunwell Plateau",                    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 34179 },
-            { name = "Chronicle of Dark Secrets",          source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
+            { name = "Chronicle of Dark Secrets",          source = "Rage Winterchill — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30872 },
         },
         Relic = {
             { name = "Idol of the Unseen Moon",            source = "G'eras — Badge Vendor",              sourceType = "badge", gems = {},                   enchant = nil, itemId = 33510 },
