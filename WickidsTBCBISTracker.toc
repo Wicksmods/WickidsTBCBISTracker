@@ -2,7 +2,7 @@
 ## Title: Wick's TBC BIS Tracker
 ## Notes: BIS gear tracker for all classes and specs across all TBC phases.
 ## Author: Wick
-## Version: 1.4.3
+## Version: 1.4.4
 ## SavedVariables: WTBTSavedSettings WTBTSoftResData
 ## SavedVariablesPerCharacter: WTBTCustomLists
 

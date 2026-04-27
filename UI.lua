@@ -14,7 +14,7 @@ local ROW_H         = 38
 local ALT_ROW_INDENT = 24
 local ICON_SIZE     = 28
 local SLOT_LABEL_W  = 58
-local HEADER_H      = 32
+local HEADER_H      = 22
 local SELECTOR_H    = 36
 local TAB_BAR_H     = 28
 local STATUS_H      = 22
@@ -874,65 +874,46 @@ function WTBT_UI:Build()
 
     self.panel = panel
 
-    -- ---- HEADER ----
-    local header = CreateFrame("Frame", nil, panel)
-    header:SetPoint("TOPLEFT", panel, "TOPLEFT", 1, -1)
-    header:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -1, -1)
-    header:SetHeight(HEADER_H)
-
-    local headerBG = NewTexture(header, "BACKGROUND")
-    headerBG:SetAllPoints()
+    -- ---- HEADER (slim, plain texture on main frame) ----
+    local headerBG = NewTexture(panel, "BACKGROUND")
+    headerBG:SetPoint("TOPLEFT", panel, "TOPLEFT", 1, -1)
+    headerBG:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -1, -1)
+    headerBG:SetHeight(HEADER_H)
     headerBG:SetColorTexture(C_HEADER_BG[1], C_HEADER_BG[2], C_HEADER_BG[3], C_HEADER_BG[4])
 
-    -- Green underline on header
-    local headerLine = NewTexture(header, "BORDER")
-    headerLine:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.35)
-    headerLine:SetPoint("BOTTOMLEFT", header, "BOTTOMLEFT", 40, 0)
-    headerLine:SetPoint("BOTTOMRIGHT", header, "BOTTOMRIGHT", -40, 0)
-    headerLine:SetHeight(1)
+    -- 1px separator below the header
+    local headerSep = NewTexture(panel, "BORDER")
+    headerSep:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 1)
+    headerSep:SetPoint("TOPLEFT", panel, "TOPLEFT", 1, -HEADER_H - 1)
+    headerSep:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -1, -HEADER_H - 1)
+    headerSep:SetHeight(1)
 
-    -- Header bottom border
-    local headerBotBorder = NewTexture(header, "BORDER")
-    headerBotBorder:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 1)
-    headerBotBorder:SetPoint("BOTTOMLEFT", header, "BOTTOMLEFT", 0, 0)
-    headerBotBorder:SetPoint("BOTTOMRIGHT", header, "BOTTOMRIGHT", 0, 0)
-    headerBotBorder:SetHeight(1)
-
-    local title = NewText(header, 13)
-    title:SetFont("Fonts\\FRIZQT__.TTF", 14, "OUTLINE")
+    -- Title — slim font, two-tone color preserved
+    local title = panel:CreateFontString(nil, "OVERLAY")
+    title:SetFont("Fonts\\FRIZQT__.TTF", 12, "")
     title:SetText("|cff4FC778Wick's|r |cffD4C8A1TBC BIS Tracker|r")
-    title:SetPoint("LEFT", header, "LEFT", 12, 0)
+    title:SetPoint("LEFT", panel, "TOPLEFT", 10, -HEADER_H / 2)
 
-    -- Close button
-    local closeBtn = CreateFrame("Button", nil, header)
-    closeBtn:SetSize(16, 16)
-    closeBtn:SetPoint("RIGHT", header, "RIGHT", -8, 0)
+    -- Close (×) button — plain text, no border
+    local closeBtn = CreateFrame("Button", nil, panel)
+    closeBtn:SetSize(HEADER_H - 4, HEADER_H - 4)
+    closeBtn:SetPoint("RIGHT", panel, "TOPRIGHT", -4, -HEADER_H / 2)
 
-    local closeBG = NewTexture(closeBtn, "BACKGROUND")
-    closeBG:SetAllPoints()
-    closeBG:SetColorTexture(0.090, 0.067, 0.141, 1)
-    AddBorder(closeBtn, C_BORDER[1], C_BORDER[2], C_BORDER[3], C_BORDER[4])
-
-    local closeX = NewText(closeBtn, 9)
-    closeX:SetText("✕")
-    closeX:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+    local closeX = closeBtn:CreateFontString(nil, "OVERLAY")
+    closeX:SetFont("Fonts\\FRIZQT__.TTF", 14, "")
+    closeX:SetText("×")
+    closeX:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
     closeX:SetAllPoints()
     closeX:SetJustifyH("CENTER")
     closeX:SetJustifyV("MIDDLE")
 
     closeBtn:SetScript("OnEnter", function()
-        closeX:SetTextColor(1, 0.3, 0.3, 1)
+        closeX:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
     end)
     closeBtn:SetScript("OnLeave", function()
-        closeX:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+        closeX:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
     end)
     closeBtn:SetScript("OnClick", function() panel:Hide() end)
-
-    -- Make header draggable too
-    header:EnableMouse(true)
-    header:RegisterForDrag("LeftButton")
-    header:SetScript("OnDragStart", function() panel:StartMoving() end)
-    header:SetScript("OnDragStop",  function() panel:StopMovingOrSizing() end)
 
     -- ---- SELECTOR BAR ----
     local selectorBar = CreateFrame("Frame", nil, panel)
