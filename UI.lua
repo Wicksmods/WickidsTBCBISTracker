@@ -1095,12 +1095,17 @@ function WTBT_UI:Build()
     filterPopup:Hide()
 
     local FILTER_DEFS = {
-        { key = "hideWorldBoss", label = "World Boss" },
-        { key = "hidePvP",      label = "PvP" },
+        { key = "hideWorldBoss",   label = "Hide World Boss" },
+        { key = "hidePvP",         label = "Hide PvP" },
+        { key = "miniDashEnabled", label = "Show Mini Dash", invert = true, onChange = function()
+            if WTBT_MiniDash then
+                if WTBT.settings.miniDashEnabled then WTBT_MiniDash:Show() else WTBT_MiniDash:Hide() end
+            end
+        end },
     }
 
     local FROW_H = 20
-    local FPOP_W = 130
+    local FPOP_W = 150
     local FPOP_H = #FILTER_DEFS * FROW_H + 6
 
     filterPopup:SetSize(FPOP_W, FPOP_H)
@@ -1128,17 +1133,30 @@ function WTBT_UI:Build()
         check:SetJustifyH("LEFT")
 
         local lbl = NewText(frow, 9)
-        lbl:SetText("Hide " .. ft.label)
+        lbl:SetText(ft.label)
         lbl:SetPoint("LEFT", check, "RIGHT", 2, 0)
         lbl:SetJustifyH("LEFT")
 
         local function UpdateCheck()
-            if WTBT.settings[ft.key] then
-                check:SetText("|cffff4444x|r")
-                lbl:SetTextColor(0.9, 0.3, 0.3, 1)
+            local enabled = WTBT.settings[ft.key]
+            -- For "Show X" toggles (invert=true), green check = enabled is good
+            -- For "Hide X" toggles, red x = enabled means hidden
+            if ft.invert then
+                if enabled then
+                    check:SetText("|cff4FC778o|r")
+                    lbl:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+                else
+                    check:SetText("|cff6B598A-|r")
+                    lbl:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+                end
             else
-                check:SetText("|cff4FC778o|r")
-                lbl:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+                if enabled then
+                    check:SetText("|cffff4444x|r")
+                    lbl:SetTextColor(0.9, 0.3, 0.3, 1)
+                else
+                    check:SetText("|cff4FC778o|r")
+                    lbl:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+                end
             end
         end
         UpdateCheck()
@@ -1146,6 +1164,7 @@ function WTBT_UI:Build()
         frow:SetScript("OnClick", function()
             WTBT.settings[ft.key] = not WTBT.settings[ft.key]
             UpdateCheck()
+            if ft.onChange then ft.onChange() end
             WTBT_UI:Refresh()
         end)
 
@@ -1283,6 +1302,12 @@ function WTBT_UI:Build()
             WTBT.settings.tooltipBIS = not WTBT.settings.tooltipBIS
             local state = WTBT.settings.tooltipBIS and "ON" or "OFF"
             print("|cff4FC778[Wick's BIS]|r Tooltip BIS tags: " .. state)
+        elseif cmd == "dash" then
+            if WTBT_MiniDash then
+                WTBT_MiniDash:Toggle()
+                local state = WTBT.settings.miniDashEnabled and "ON" or "OFF"
+                print("|cff4FC778[Wick's BIS]|r Mini Dash: " .. state)
+            end
         elseif cmd:match("^phase%s+(%d)$") then
             local p = tonumber(cmd:match("^phase%s+(%d)$"))
             if p and p >= 1 and p <= 5 then
@@ -1444,6 +1469,11 @@ function WTBT_UI:Refresh()
         self:RefreshConsumables()
     elseif tab == "gems" then
         self:RefreshGems()
+    end
+
+    -- Keep the mini dash in sync with whatever list is currently being viewed
+    if WTBT_MiniDash and WTBT_MiniDash.frame and WTBT_MiniDash.frame:IsShown() then
+        WTBT_MiniDash:Refresh()
     end
 end
 

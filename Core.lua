@@ -120,6 +120,8 @@ WTBT.settings = {
     tooltipBIS = true, -- show "BIS" tag in item tooltips
     hideWorldBoss = false, -- hide World Boss drops
     hidePvP       = false, -- hide PvP sourced items
+    miniDashEnabled = false, -- show floating mini dashboard for current zone/dungeon/quests
+    miniDashPos = nil, -- saved position of the mini dash
 }
 
 -- Build a fast lookup: itemId → { slot, rank, phase } for the player's class across all phases
@@ -379,6 +381,11 @@ function WTBT:Init()
 
     -- Build BIS lookup for tooltip integration
     self:BuildPlayerBISLookup()
+
+    -- Initialize mini dashboard
+    if WTBT_MiniDash and WTBT_MiniDash.Initialize then
+        WTBT_MiniDash:Initialize()
+    end
 
     -- Hook GameTooltip for BIS tags
     GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
