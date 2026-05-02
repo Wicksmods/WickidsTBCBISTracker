@@ -1335,8 +1335,7 @@ function WTBT_UI:Build()
     -- Initial selector visibility
     self:UpdateSelectorVisibility()
 
-    -- Pre-create editbox to register shift-click hook early
-    GetOrCreateEditBox()
+    -- (EditBox is lazy-created on first use; see GetOrCreateEditBox.)
 
     -- ---- MINIMAP BUTTON ----
     local mmBtn = CreateFrame("Button", "WTBTMinimapButton", Minimap)
