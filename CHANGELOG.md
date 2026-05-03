@@ -1,5 +1,19 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.5.1 - 2026-05-02
+
+### Fix: `GetOrCreateEditBox` init error
+
+The eager pre-create call at `Build()` time tried to invoke `GetOrCreateEditBox` before its local definition was in scope, producing `attempt to call global GetOrCreateEditBox (a nil value)` and aborting initialization. Removed the eager call. The editbox now lazy-creates on first use when you click an empty custom list slot.
+
+## 1.5.0 - 2026-05-01
+
+### Mini Dashboard
+
+A floating mini-dash that surfaces BIS and custom list items obtainable from your current dungeon, zone, or active quests. It tracks the last-viewed list (BIS or Custom Lists tab), filters out items already equipped or in bags, and uses token-based location matching that handles compound names like "Auchindoun: Shadow Labyrinth". The frame sizes itself dynamically to the number of matches; each row shows the slot abbreviation and boss or quest name.
+
+Toggleable via the Filter popup ("Show Mini Dash") or `/bis dash`. Auto-refreshes on zone change, quest log update, bag and equipment changes, and any list switch in the main panel.
+
 ## 1.4.4 — 2026-04-26
 
 ### Title bar slim revert + close-button glyph fix
