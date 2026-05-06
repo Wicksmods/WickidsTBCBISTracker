@@ -1227,9 +1227,19 @@ function WTBT_UI:Build()
     statusTop:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.5)
     statusTop:SetPoint("TOPLEFT"); statusTop:SetPoint("TOPRIGHT"); statusTop:SetHeight(1)
 
+    -- Discreet cross-suite link, anchored at the far left of the status bar
+    local mfwBtn
+    if WTBT_MFW and WTBT_MFW.AttachButton then
+        mfwBtn = WTBT_MFW:AttachButton(statusBar)
+    end
+
     local statusLeft = NewText(statusBar, 9)
     statusLeft:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
-    statusLeft:SetPoint("LEFT", statusBar, "LEFT", 10, 0)
+    if mfwBtn then
+        statusLeft:SetPoint("LEFT", mfwBtn, "RIGHT", 8, 0)
+    else
+        statusLeft:SetPoint("LEFT", statusBar, "LEFT", 10, 0)
+    end
 
     -- Tooltip BIS toggle button
     local tooltipToggle = CreateFrame("Button", nil, statusBar)

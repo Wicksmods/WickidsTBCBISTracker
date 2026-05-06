@@ -1,5 +1,13 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.6.0 - 2026-05-06
+
+### "More from Wick" footer link
+
+A small "More from Wick" link in the bottom status bar opens a panel listing the rest of the Wick suite. Each row shows the addon name, a one-line tagline, and an "Installed" tag if the addon is already loaded. Clicking a row opens a copyable CurseForge URL so you can paste it straight into your browser.
+
+This ships in BIS Tracker first. The pattern will roll out to the other Wick addons in their next regular updates so you can move between the suite from any Wick window.
+
 ## 1.5.1 - 2026-05-02
 
 ### Fix: `GetOrCreateEditBox` init error
