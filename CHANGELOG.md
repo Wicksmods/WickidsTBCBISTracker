@@ -22,7 +22,7 @@ A floating mini-dash that surfaces BIS and custom list items obtainable from you
 
 Toggleable via the Filter popup ("Show Mini Dash") or `/bis dash`. Auto-refreshes on zone change, quest log update, bag and equipment changes, and any list switch in the main panel.
 
-## 1.4.4 — 2026-04-26
+## 1.4.4 - 2026-04-26
 
 ### Title bar slim revert + close-button glyph fix
 
@@ -32,13 +32,13 @@ Also: the previous `✕` (U+2715) close glyph was rendering as a tofu/missing-gl
 
 No functional changes.
 
-## 1.4.3 — 2026-04-25
+## 1.4.3 - 2026-04-25
 
 ### Title bar harmonization
 
 Title now reads as two-tone — `Wick's` in fel-green, `TBC BIS Tracker` in cream — matching the canonical Wick suite header spec. No functional changes.
 
-## 1.4.2 — 2026-04-25
+## 1.4.2 - 2026-04-25
 
 ### BIS source corrections — full-suite audit pass
 
@@ -77,13 +77,13 @@ Audited every `drop`-sourced item across all 12 spec data files against AtlasLoo
 
 **Visual note:** column alignment of `sourceType` / `gems` / `enchant` may have drifted on some rows where the corrected source string is longer or shorter than the original. Lua doesn't care; a follow-up formatting pass can re-align if it's visually distracting in diffs.
 
-## 1.4.1 — 2026-04-24
+## 1.4.1 - 2026-04-24
 
 ### Housekeeping
 
 Release zip no longer contains a stray `.claude/` tooling config folder. That was a local Claude Code permission allowlist with no sensitive content, but it didn't belong in a public addon zip. No functional changes — v1.4.0 users can safely stay on this version if they prefer.
 
-## 1.4.0 — 2026-04-23
+## 1.4.0 - 2026-04-23
 
 ### New: Gems tab
 
@@ -97,7 +97,7 @@ Added a fourth tab alongside BIS, Custom Lists, and Consumables. Class + spec dr
 
 New data file: `Data\Data_Gems.lua`. All 9 classes and all specs covered.
 
-## 1.3.1 — 2026-04-21
+## 1.3.1 - 2026-04-21
 
 ### Brand identity pass
 
