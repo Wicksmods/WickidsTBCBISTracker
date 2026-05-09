@@ -22,6 +22,7 @@ local SUITE = {
     { folder = "WicksStats", title = "Wick's Stats", tagline = "Detailed stats Blizzard hides", slug = "wicks-stats" },
     { folder = "WicksQuestKey", title = "Wick's Quest Key", tagline = "ExtraActionButton for quest items", slug = "wicks-quest-key" },
     { folder = "WicksTotemsAndThings", title = "Wick's Totems and Things", tagline = "Enhancement shaman command bar", slug = "wicks-totems-and-things" },
+    { folder = "WicksBags", title = "Wick's Bags", tagline = "Categorized bags + bank with masonry layout", slug = "wicks-bags" },
 }
 -- wick:suite-data:end
 
