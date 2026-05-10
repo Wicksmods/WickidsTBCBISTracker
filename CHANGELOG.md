@@ -1,5 +1,23 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.7.0 - 2026-05-09
+
+### Custom Lists: share, snapshot, and one-click equip
+
+Three new tools for Custom Lists.
+
+**Share lists with friends.** New Export and Import buttons on the list-management bar. Export produces a short share code for the selected list; Import pulls a code and recreates the list under the source class and spec, suffixing the name on collision. Works across classes, so a Mage can share a list with a Priest and have it stored under their own class roster.
+
+**Snapshot what you're wearing.** The new "+ Equipped" button creates a list pre-filled from your currently equipped gear, named "Equipped <Spec>". Sources backfill automatically for items in the BIS catalog; the rest get tagged "Currently Equipped".
+
+**Equip your list with one click.** When a custom list is selected, the new "Equip Owned" button shows live counts ("Equip Owned (12 of 17 in bags)") and equips every list item that's in your bags, targeting specific inventory slots so Ring1 vs Ring2 and MainHand vs OffHand land where you planned. Disables in combat with a clear status message. Refreshes live as you swap gear or move things between bags.
+
+### Polish
+
+- Wider copy/paste popups with the proper Wick brand chrome (fel-green L-brackets, void background, muted-purple border) replacing the cramped Blizzard StaticPopups.
+- Two glyphs that rendered as missing-character boxes on some setups (`▾` and `▴`) are now ASCII fallbacks (`v` and `^`).
+- Empty-slot placeholder text reads cleaner ("No data yet" instead of dashed text).
+
 ## 1.6.0 - 2026-05-06
 
 ### "More from Wick" footer link

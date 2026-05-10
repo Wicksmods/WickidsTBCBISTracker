@@ -227,7 +227,7 @@ local function CreateGearRow(parent, slotInfo, isAlt)
     -- Alt indicator dot (▾ bottom-right of icon)
     local altDot = NewText(row, 7)
     altDot:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
-    altDot:SetText("▾")
+    altDot:SetText("v")
     altDot:SetPoint("BOTTOMRIGHT", iconWrap, "BOTTOMRIGHT", 1, 1)
 
     -- Pre-created gem dot frames (max 4 gems, reused each populate)
@@ -389,7 +389,7 @@ local expandedSlots = {}
 -- ============================================================
 local function PopulateRow(row, item, slotInfo, hasAlts, isAlt, altIndex)
     if not item then
-        row.itemName:SetText("— No data —")
+        row.itemName:SetText("No data yet")
         row.itemName:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
         row.enchantText:SetText("")
         row.sourceText:SetText("")
@@ -495,7 +495,7 @@ local function PopulateRow(row, item, slotInfo, hasAlts, isAlt, altIndex)
     -- Alt dot (expand/collapse indicator)
     if hasAlts and not isAlt then
         local expanded = expandedSlots[slotInfo.key]
-        row.altDot:SetText(expanded and "▴" or "▾")
+        row.altDot:SetText(expanded and "^" or "v")
     else
         row.altDot:SetText("")
     end
@@ -639,7 +639,7 @@ local function CreateWTBTDropdown(parent, options, currentVal, onChange, colorFn
 
     local arrow = NewText(btn, 10)
     arrow:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
-    arrow:SetText("▾")
+    arrow:SetText("v")
     arrow:SetPoint("RIGHT", btn, "RIGHT", -6, 0)
 
     btn.label = label
@@ -1743,11 +1743,98 @@ local function BuildCustomBar(parent)
         GameTooltip:Hide()
     end)
 
-    -- List name dropdown area (between template and delete)
+    -- Equipped button (right of Template) — creates a list from currently worn gear
+    local equipBtn = CreateFrame("Button", nil, bar)
+    equipBtn:SetSize(64, 22)
+    equipBtn:SetPoint("LEFT", tmplBtn, "RIGHT", 4, 0)
+    local equipBG = NewTexture(equipBtn, "BACKGROUND")
+    equipBG:SetAllPoints()
+    equipBG:SetColorTexture(0.12, 0.08, 0.22, 1)
+    local equipBorder = AddBorder(equipBtn, C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7)
+    local equipLabel = NewText(equipBtn, 9)
+    equipLabel:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+    equipLabel:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+    equipLabel:SetText("+ Equipped")
+    equipLabel:SetAllPoints()
+    equipLabel:SetJustifyH("CENTER")
+    equipLabel:SetJustifyV("MIDDLE")
+    equipBtn:SetScript("OnEnter", function(self)
+        for _, e in ipairs(equipBorder) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+        equipLabel:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+        GameTooltip:SetOwner(self, "ANCHOR_TOP")
+        GameTooltip:AddLine("Create from equipped gear", C_GREEN[1], C_GREEN[2], C_GREEN[3])
+        GameTooltip:AddLine("Builds a new list from what you're wearing right now.", 0.7, 0.7, 0.7, true)
+        GameTooltip:Show()
+    end)
+    equipBtn:SetScript("OnLeave", function()
+        for _, e in ipairs(equipBorder) do e:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7) end
+        equipLabel:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+        GameTooltip:Hide()
+    end)
+
+    -- Import button (left of delete)
+    local importBtn = CreateFrame("Button", nil, bar)
+    importBtn:SetSize(56, 22)
+    importBtn:SetPoint("RIGHT", delBtn, "LEFT", -4, 0)
+    local importBG = NewTexture(importBtn, "BACKGROUND")
+    importBG:SetAllPoints()
+    importBG:SetColorTexture(0.12, 0.08, 0.22, 1)
+    local importBorder = AddBorder(importBtn, C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7)
+    local importLabel = NewText(importBtn, 9)
+    importLabel:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+    importLabel:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+    importLabel:SetText("Import")
+    importLabel:SetAllPoints()
+    importLabel:SetJustifyH("CENTER")
+    importLabel:SetJustifyV("MIDDLE")
+    importBtn:SetScript("OnEnter", function(self)
+        for _, e in ipairs(importBorder) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+        importLabel:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+        GameTooltip:SetOwner(self, "ANCHOR_TOP")
+        GameTooltip:AddLine("Import list from string", C_GREEN[1], C_GREEN[2], C_GREEN[3])
+        GameTooltip:AddLine("Paste a shared list code to add it.", 0.7, 0.7, 0.7, true)
+        GameTooltip:Show()
+    end)
+    importBtn:SetScript("OnLeave", function()
+        for _, e in ipairs(importBorder) do e:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7) end
+        importLabel:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+        GameTooltip:Hide()
+    end)
+
+    -- Export button (left of import)
+    local exportBtn = CreateFrame("Button", nil, bar)
+    exportBtn:SetSize(56, 22)
+    exportBtn:SetPoint("RIGHT", importBtn, "LEFT", -4, 0)
+    local exportBG = NewTexture(exportBtn, "BACKGROUND")
+    exportBG:SetAllPoints()
+    exportBG:SetColorTexture(0.12, 0.08, 0.22, 1)
+    local exportBorder = AddBorder(exportBtn, C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7)
+    local exportLabel = NewText(exportBtn, 9)
+    exportLabel:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+    exportLabel:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+    exportLabel:SetText("Export")
+    exportLabel:SetAllPoints()
+    exportLabel:SetJustifyH("CENTER")
+    exportLabel:SetJustifyV("MIDDLE")
+    exportBtn:SetScript("OnEnter", function(self)
+        for _, e in ipairs(exportBorder) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+        exportLabel:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+        GameTooltip:SetOwner(self, "ANCHOR_TOP")
+        GameTooltip:AddLine("Export current list", C_GREEN[1], C_GREEN[2], C_GREEN[3])
+        GameTooltip:AddLine("Copy a shareable code for the selected list.", 0.7, 0.7, 0.7, true)
+        GameTooltip:Show()
+    end)
+    exportBtn:SetScript("OnLeave", function()
+        for _, e in ipairs(exportBorder) do e:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7) end
+        exportLabel:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+        GameTooltip:Hide()
+    end)
+
+    -- List name dropdown area (between equipped button and export)
     local listDD = CreateFrame("Button", nil, bar)
     listDD:SetSize(160, 22)
-    listDD:SetPoint("LEFT", tmplBtn, "RIGHT", 6, 0)
-    listDD:SetPoint("RIGHT", delBtn, "LEFT", -6, 0)
+    listDD:SetPoint("LEFT", equipBtn, "RIGHT", 6, 0)
+    listDD:SetPoint("RIGHT", exportBtn, "LEFT", -6, 0)
     local listBG = NewTexture(listDD, "BACKGROUND")
     listBG:SetAllPoints()
     listBG:SetColorTexture(0.09, 0.08, 0.18, 1)
@@ -1759,17 +1846,175 @@ local function BuildCustomBar(parent)
     listLabel:SetJustifyH("LEFT")
     local listArrow = NewText(listDD, 10)
     listArrow:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
-    listArrow:SetText("▾")
+    listArrow:SetText("v")
     listArrow:SetPoint("RIGHT", listDD, "RIGHT", -6, 0)
 
-    bar.newBtn   = newBtn
-    bar.tmplBtn  = tmplBtn
-    bar.delBtn   = delBtn
-    bar.listDD   = listDD
+    bar.newBtn    = newBtn
+    bar.tmplBtn   = tmplBtn
+    bar.equipBtn  = equipBtn
+    bar.exportBtn = exportBtn
+    bar.importBtn = importBtn
+    bar.delBtn    = delBtn
+    bar.listDD    = listDD
     bar.listLabel = listLabel
     bar.listBorder = listBorder
 
     WTBT_UI.customBar = bar
+end
+
+-- ============================================================
+-- CUSTOM LIST — Wick-styled copy/paste popups (export/import)
+-- ============================================================
+
+local function MakeWickPanelChrome(popup)
+    local bg = NewTexture(popup, "BACKGROUND")
+    bg:SetAllPoints()
+    bg:SetColorTexture(C_BG[1], C_BG[2], C_BG[3], 0.97)
+    AddBorder(popup, C_BORDER[1], C_BORDER[2], C_BORDER[3], C_BORDER[4])
+    AddCornerAccents(popup)
+end
+
+local function MakeSecondaryButton(parent, label, w, onClick)
+    local btn = CreateFrame("Button", nil, parent)
+    btn:SetSize(w or 70, 22)
+    local btnBG = NewTexture(btn, "BACKGROUND")
+    btnBG:SetAllPoints()
+    btnBG:SetColorTexture(0.12, 0.08, 0.22, 1)
+    local border = AddBorder(btn, C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7)
+    local lbl = NewText(btn, 9)
+    lbl:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+    lbl:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+    lbl:SetText(label)
+    lbl:SetAllPoints()
+    lbl:SetJustifyH("CENTER")
+    lbl:SetJustifyV("MIDDLE")
+    btn:SetScript("OnEnter", function()
+        for _, e in ipairs(border) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+        lbl:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+    end)
+    btn:SetScript("OnLeave", function()
+        for _, e in ipairs(border) do e:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7) end
+        lbl:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+    end)
+    btn:SetScript("OnClick", onClick)
+    return btn
+end
+
+local function MakePrimaryButton(parent, label, w, onClick)
+    local btn = CreateFrame("Button", nil, parent)
+    btn:SetSize(w or 70, 22)
+    local btnBG = NewTexture(btn, "BACKGROUND")
+    btnBG:SetAllPoints()
+    btnBG:SetColorTexture(0.10, 0.22, 0.15, 1)
+    local border = AddBorder(btn, C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.6)
+    local lbl = NewText(btn, 9)
+    lbl:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+    lbl:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+    lbl:SetText(label)
+    lbl:SetAllPoints()
+    lbl:SetJustifyH("CENTER")
+    lbl:SetJustifyV("MIDDLE")
+    btn:SetScript("OnEnter", function()
+        for _, e in ipairs(border) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+    end)
+    btn:SetScript("OnLeave", function()
+        for _, e in ipairs(border) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.6) end
+    end)
+    btn:SetScript("OnClick", onClick)
+    return btn
+end
+
+local function ShowCopyPopup(title, encoded)
+    local popup = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+    popup:SetFrameStrata("DIALOG")
+    popup:SetSize(540, 110)
+    popup:SetPoint("CENTER", UIParent, "CENTER", 0, 100)
+    popup:SetClampedToScreen(true)
+    popup:EnableMouse(true)
+    popup:EnableKeyboard(true)
+    MakeWickPanelChrome(popup)
+
+    local titleText = NewText(popup, 11)
+    titleText:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
+    titleText:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+    titleText:SetText(title)
+    titleText:SetPoint("TOP", popup, "TOP", 0, -10)
+
+    local hint = NewText(popup, 9)
+    hint:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 0.85)
+    hint:SetText("Press Ctrl+C to copy. Esc or Close to dismiss.")
+    hint:SetPoint("TOP", titleText, "BOTTOM", 0, -3)
+
+    local eb = CreateFrame("EditBox", nil, popup, "InputBoxTemplate")
+    eb:SetSize(490, 22)
+    eb:SetPoint("CENTER", popup, "CENTER", 0, -2)
+    eb:SetFont("Fonts\\FRIZQT__.TTF", 10, "")
+    eb:SetAutoFocus(true)
+    eb:SetMaxLetters(500)
+    eb:SetText(encoded)
+    eb:HighlightText()
+    eb:SetCursorPosition(0)
+    eb:SetScript("OnEscapePressed", function() popup:Hide() end)
+    eb:SetScript("OnEnterPressed", function() popup:Hide() end)
+    eb:SetScript("OnEditFocusGained", function(self) self:HighlightText() end)
+
+    local closeBtn = MakeSecondaryButton(popup, "Close", 70, function() popup:Hide() end)
+    closeBtn:SetPoint("BOTTOM", popup, "BOTTOM", 0, 8)
+
+    popup:SetScript("OnKeyDown", function(self, key)
+        if key == "ESCAPE" then self:Hide() end
+    end)
+
+    return popup
+end
+
+local function ShowPastePopup(title, hint, onSubmit)
+    local popup = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+    popup:SetFrameStrata("DIALOG")
+    popup:SetSize(540, 130)
+    popup:SetPoint("CENTER", UIParent, "CENTER", 0, 100)
+    popup:SetClampedToScreen(true)
+    popup:EnableMouse(true)
+    popup:EnableKeyboard(true)
+    MakeWickPanelChrome(popup)
+
+    local titleText = NewText(popup, 11)
+    titleText:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
+    titleText:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+    titleText:SetText(title)
+    titleText:SetPoint("TOP", popup, "TOP", 0, -10)
+
+    local hintText = NewText(popup, 9)
+    hintText:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 0.85)
+    hintText:SetText(hint or "Paste a share code below, then click Import.")
+    hintText:SetPoint("TOP", titleText, "BOTTOM", 0, -3)
+
+    local eb = CreateFrame("EditBox", nil, popup, "InputBoxTemplate")
+    eb:SetSize(490, 22)
+    eb:SetPoint("TOP", hintText, "BOTTOM", 0, -10)
+    eb:SetFont("Fonts\\FRIZQT__.TTF", 10, "")
+    eb:SetAutoFocus(true)
+    eb:SetMaxLetters(500)
+    eb:SetScript("OnEscapePressed", function() popup:Hide() end)
+
+    local function submit()
+        local txt = eb:GetText()
+        if onSubmit then onSubmit(txt) end
+        popup:Hide()
+    end
+    eb:SetScript("OnEnterPressed", submit)
+
+    local importBtn = MakePrimaryButton(popup, "Import", 70, submit)
+    importBtn:SetPoint("BOTTOMRIGHT", popup, "BOTTOM", -4, 8)
+
+    local cancelBtn = MakeSecondaryButton(popup, "Cancel", 70, function() popup:Hide() end)
+    cancelBtn:SetPoint("BOTTOMLEFT", popup, "BOTTOM", 4, 8)
+
+    popup:SetScript("OnKeyDown", function(self, key)
+        if key == "ESCAPE" then self:Hide() end
+    end)
+
+    return popup
 end
 
 -- ============================================================
@@ -2076,6 +2321,49 @@ function WTBT_UI:RefreshCustom()
         end)
     end)
 
+    -- Wire up equipped button
+    bar.equipBtn:SetScript("OnClick", function()
+        local baseName = "Equipped " .. (WTBT.state.spec or "")
+        baseName = strtrim(baseName)
+        local finalName, count = WTBT:CreateListFromEquipped(baseName)
+        WTBT_UI:Refresh()
+        print(string.format("|cff4FC778[Wick's BIS]|r Created '%s' with %d equipped items.", finalName, count or 0))
+    end)
+
+    -- Wire up export button
+    bar.exportBtn:SetScript("OnClick", function()
+        if not listName then
+            print("|cff4FC778[Wick's BIS]|r No list selected to export.")
+            return
+        end
+        local encoded, err = WTBT:ExportCustomList(listName)
+        if not encoded then
+            print("|cffFF6B6B[Wick's BIS]|r Export failed: " .. tostring(err))
+            return
+        end
+        ShowCopyPopup("Export: " .. listName, encoded)
+    end)
+
+    -- Wire up import button
+    bar.importBtn:SetScript("OnClick", function()
+        ShowPastePopup("Import a Wick's BIS list",
+            "Paste a share code, then click Import.",
+            function(txt)
+                local ok, finalName, importedClass, importedSpec = WTBT:ImportCustomList(txt)
+                if ok then
+                    if importedClass == WTBT.state.class and importedSpec == WTBT.state.spec then
+                        WTBT.state.customList = finalName
+                        WTBT_UI:Refresh()
+                        print("|cff4FC778[Wick's BIS]|r Imported '" .. finalName .. "'.")
+                    else
+                        print(string.format("|cff4FC778[Wick's BIS]|r Imported '%s' to %s/%s. Switch class/spec to view.", finalName, importedClass, importedSpec))
+                    end
+                else
+                    print("|cffFF6B6B[Wick's BIS]|r Import failed: " .. tostring(finalName))
+                end
+            end)
+    end)
+
     -- Wire up delete button
     bar.delBtn:SetScript("OnClick", function()
         if not listName then return end
@@ -2152,12 +2440,13 @@ function WTBT_UI:RefreshCustom()
             self.customEmptyText = t
         end
         self.customEmptyText:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 0.7)
-        self.customEmptyText:SetText("No custom lists for " .. WTBT.state.spec .. " " .. WTBT.state.class .. " yet.\nClick '+ New List' or '+ Template' to get started.")
+        self.customEmptyText:SetText("No custom lists for " .. WTBT.state.spec .. " " .. WTBT.state.class .. " yet.\nClick '+ New List', '+ Template', '+ Equipped', or 'Import' to get started.")
         self.customEmptyText:ClearAllPoints()
         self.customEmptyText:SetPoint("TOP", sc, "TOP", 0, -(yOffset + 40))
         self.customEmptyText:SetWidth(300)
         self.customEmptyText:SetJustifyH("CENTER")
         self.customEmptyText:Show()
+        if self.equipAllBtn then self.equipAllBtn:Hide() end
         sc:SetHeight(200)
         self.statusLeft:SetText(WTBT.state.class .. " · " .. WTBT.state.spec .. " · Custom Lists")
         self.statusRight:SetText("")
@@ -2166,6 +2455,96 @@ function WTBT_UI:RefreshCustom()
 
     -- Hide empty text
     if self.customEmptyText then self.customEmptyText:Hide() end
+
+    -- Equip All Owned button (lazy create, updated each refresh)
+    if not self.equipAllBtn then
+        local btn = CreateFrame("Button", nil, sc)
+        btn:SetSize(280, 24)
+        local btnBG = NewTexture(btn, "BACKGROUND")
+        btnBG:SetAllPoints()
+        local border = AddBorder(btn, C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.7)
+        local lbl = NewText(btn, 10)
+        lbl:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
+        lbl:SetAllPoints()
+        lbl:SetJustifyH("CENTER")
+        lbl:SetJustifyV("MIDDLE")
+        btn.label  = lbl
+        btn.border = border
+        btn.bg     = btnBG
+        self.equipAllBtn = btn
+    end
+
+    local eqBtn = self.equipAllBtn
+    eqBtn:ClearAllPoints()
+    eqBtn:SetPoint("TOP", sc, "TOP", 0, -yOffset)
+    eqBtn:Show()
+
+    local total, ownedInBags, worn = WTBT:GetCustomListEquipStatus(listName)
+    local inCombat = InCombatLockdown()
+
+    local function setActiveStyle(active)
+        if active then
+            eqBtn.bg:SetColorTexture(0.10, 0.22, 0.15, 1)
+            for _, e in ipairs(eqBtn.border) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.7) end
+            eqBtn.label:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+        else
+            eqBtn.bg:SetColorTexture(0.08, 0.06, 0.12, 1)
+            for _, e in ipairs(eqBtn.border) do e:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.4) end
+            eqBtn.label:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+        end
+    end
+
+    if inCombat then
+        eqBtn.label:SetText("Cannot equip in combat")
+        setActiveStyle(false)
+        eqBtn:SetScript("OnEnter", nil)
+        eqBtn:SetScript("OnLeave", nil)
+        eqBtn:SetScript("OnClick", nil)
+    elseif total == 0 then
+        eqBtn.label:SetText("List has no items yet")
+        setActiveStyle(false)
+        eqBtn:SetScript("OnEnter", nil)
+        eqBtn:SetScript("OnLeave", nil)
+        eqBtn:SetScript("OnClick", nil)
+    elseif ownedInBags == 0 then
+        if worn == total then
+            eqBtn.label:SetText(string.format("All %d items already worn", total))
+        else
+            eqBtn.label:SetText(string.format("Nothing in bags (%d of %d worn)", worn, total))
+        end
+        setActiveStyle(false)
+        eqBtn:SetScript("OnEnter", nil)
+        eqBtn:SetScript("OnLeave", nil)
+        eqBtn:SetScript("OnClick", nil)
+    else
+        eqBtn.label:SetText(string.format("Equip Owned (%d of %d in bags)", ownedInBags, total))
+        setActiveStyle(true)
+        eqBtn:SetScript("OnEnter", function(self)
+            for _, e in ipairs(eqBtn.border) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+            GameTooltip:SetOwner(self, "ANCHOR_TOP")
+            GameTooltip:AddLine("Equip Owned Pieces", C_GREEN[1], C_GREEN[2], C_GREEN[3])
+            GameTooltip:AddLine(string.format("%d item(s) in your bags will be equipped to the matching slots.", ownedInBags), 0.7, 0.7, 0.7, true)
+            if worn > 0 then
+                GameTooltip:AddLine(string.format("%d already worn.", worn), 0.55, 0.55, 0.55, true)
+            end
+            GameTooltip:AddLine("BoE items may prompt for soulbind.", 0.5, 0.5, 0.5, true)
+            GameTooltip:Show()
+        end)
+        eqBtn:SetScript("OnLeave", function()
+            for _, e in ipairs(eqBtn.border) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.7) end
+            GameTooltip:Hide()
+        end)
+        eqBtn:SetScript("OnClick", function()
+            local count, err = WTBT:EquipAllOwned(listName)
+            if err then
+                print("|cffFF6B6B[Wick's BIS]|r " .. err)
+            else
+                print(string.format("|cff4FC778[Wick's BIS]|r Equipping %d item(s).", count))
+            end
+        end)
+    end
+
+    yOffset = yOffset + 32  -- 24 button + 8 gap
 
     -- Slot grid — reuse the same sections as BIS
     local sections = {

@@ -222,7 +222,26 @@ local eventFrame = CreateFrame("Frame")
 eventFrame:RegisterEvent("ADDON_LOADED")
 eventFrame:RegisterEvent("GET_ITEM_INFO_RECEIVED")
 eventFrame:RegisterEvent("PLAYER_LOGOUT")
+eventFrame:RegisterEvent("BAG_UPDATE_DELAYED")
+eventFrame:RegisterEvent("PLAYER_EQUIPMENT_CHANGED")
+eventFrame:RegisterEvent("PLAYER_REGEN_ENABLED")
+eventFrame:RegisterEvent("PLAYER_REGEN_DISABLED")
 local pendingRefresh = false
+
+local function ScheduleRefresh()
+    if pendingRefresh then return end
+    if not (WTBT_UI.panel and WTBT_UI.panel:IsShown()) then return end
+    pendingRefresh = true
+    if C_Timer and C_Timer.After then
+        C_Timer.After(0.2, function()
+            pendingRefresh = false
+            WTBT_UI:Refresh()
+        end)
+    else
+        pendingRefresh = false
+        WTBT_UI:Refresh()
+    end
+end
 
 eventFrame:SetScript("OnEvent", function(self, event, arg1)
     if event == "ADDON_LOADED" and arg1 == "WickidsTBCBISTracker" then
@@ -238,18 +257,13 @@ eventFrame:SetScript("OnEvent", function(self, event, arg1)
         WTBTSavedSettings = WTBT.settings
         WTBTSoftResData = WTBT.softResData
     elseif event == "GET_ITEM_INFO_RECEIVED" then
-        -- Item data just loaded from server; refresh UI so icons/tooltips update
-        if not pendingRefresh and WTBT_UI.panel and WTBT_UI.panel:IsShown() then
-            pendingRefresh = true
-            if C_Timer and C_Timer.After then
-                C_Timer.After(0.2, function()
-                    pendingRefresh = false
-                    WTBT_UI:Refresh()
-                end)
-            else
-                pendingRefresh = false
-                WTBT_UI:Refresh()
-            end
+        ScheduleRefresh()
+    elseif event == "BAG_UPDATE_DELAYED"
+        or event == "PLAYER_EQUIPMENT_CHANGED"
+        or event == "PLAYER_REGEN_ENABLED"
+        or event == "PLAYER_REGEN_DISABLED" then
+        if WTBT.state.tab == "custom" then
+            ScheduleRefresh()
         end
     end
 end)
@@ -498,6 +512,205 @@ function WTBT:GetCustomSlot(listName, slotKey)
     local list = csLists[listName]
     if not list then return nil end
     return list[slotKey]
+end
+
+-- ============================================================
+-- IMPORT / EXPORT
+-- ============================================================
+-- Format: WTBT1~Class~Spec~Name~id1,id2,...,id17
+-- Separator is ~ (not |) because WoW EditBoxes eat |t / |c / |r etc.
+-- Slot order matches WTBT.CUSTOM_SLOTS. 0 means empty slot.
+
+local function CleanExportName(s)
+    if not s then return "" end
+    s = s:gsub("~", "-")
+    s = s:gsub("[\r\n]", " ")
+    return strtrim(s)
+end
+
+function WTBT:ExportCustomList(listName)
+    if not listName then return nil, "No list selected." end
+    local csLists = self:GetClassSpecLists()
+    local list = csLists[listName]
+    if not list then return nil, "List not found." end
+
+    local cls = self.state.class or ""
+    local spec = self.state.spec or ""
+    local cleanName = CleanExportName(listName)
+
+    local ids = {}
+    for _, slotKey in ipairs(self.CUSTOM_SLOTS) do
+        local entry = list[slotKey]
+        local id = (entry and entry.itemId) or 0
+        ids[#ids + 1] = tostring(id)
+    end
+
+    return string.format("WTBT1~%s~%s~%s~%s", cls, spec, cleanName, table.concat(ids, ","))
+end
+
+-- Returns (ok, finalNameOrErr, parsedClass, parsedSpec)
+function WTBT:ImportCustomList(encoded)
+    if not encoded then return false, "Empty string." end
+    encoded = strtrim(encoded)
+    if encoded == "" then return false, "Empty string." end
+
+    local prefix, cls, spec, name, idstr = encoded:match("^([^~]+)~([^~]+)~([^~]+)~(.-)~([^~]+)$")
+    if not prefix then return false, "Not a valid Wick BIS list." end
+    if prefix ~= "WTBT1" then return false, "Unknown format version: " .. prefix end
+
+    -- Validate class/spec
+    local validClass, validSpec = false, false
+    for _, c in ipairs(self.CLASSES) do
+        if c.name == cls then
+            validClass = true
+            for _, s in ipairs(c.specs) do
+                if s == spec then validSpec = true break end
+            end
+            break
+        end
+    end
+    if not validClass then return false, "Unknown class: " .. tostring(cls) end
+    if not validSpec then return false, "Unknown spec for " .. cls .. ": " .. tostring(spec) end
+
+    name = strtrim(name)
+    if name == "" then return false, "Missing list name." end
+
+    -- Parse ids (one trailing comma forces final empty match capture)
+    local ids = {}
+    for chunk in (idstr .. ","):gmatch("([^,]*),") do
+        local n = tonumber(chunk)
+        if not n then return false, "Invalid item id: '" .. tostring(chunk) .. "'" end
+        ids[#ids + 1] = n
+    end
+    if #ids ~= #self.CUSTOM_SLOTS then
+        return false, string.format("Expected %d slot ids, got %d.", #self.CUSTOM_SLOTS, #ids)
+    end
+
+    -- Resolve name collisions under the source class/spec (NOT current view)
+    if not self.customLists[cls] then self.customLists[cls] = {} end
+    if not self.customLists[cls][spec] then self.customLists[cls][spec] = {} end
+    local target = self.customLists[cls][spec]
+    local finalName = name
+    if target[finalName] then
+        local i = 2
+        while target[finalName .. " (" .. i .. ")"] do i = i + 1 end
+        finalName = finalName .. " (" .. i .. ")"
+    end
+
+    target[finalName] = {}
+    for i, slotKey in ipairs(self.CUSTOM_SLOTS) do
+        local id = ids[i]
+        if id and id > 0 then
+            local entry = { itemId = id }
+            local src, srcType = self:FindItemSource(id)
+            if src then
+                entry.source = src
+                entry.sourceType = srcType
+            else
+                entry.source = "Custom"
+                entry.sourceType = "custom"
+            end
+            target[finalName][slotKey] = entry
+            GetItemInfo(id)
+        end
+    end
+
+    return true, finalName, cls, spec
+end
+
+-- Returns counts: total (slots with non-zero itemId in list), ownedInBags
+-- (in bags and not currently worn), worn (already equipped to the right slot).
+function WTBT:GetCustomListEquipStatus(listName)
+    if not listName then return 0, 0, 0 end
+    local csLists = self:GetClassSpecLists()
+    local list = csLists[listName]
+    if not list then return 0, 0, 0 end
+
+    local total, ownedInBags, worn = 0, 0, 0
+    for _, slotKey in ipairs(self.CUSTOM_SLOTS) do
+        local entry = list[slotKey]
+        if entry and entry.itemId then
+            total = total + 1
+            local invSlot = self.INV_SLOTS[slotKey]
+            if invSlot then
+                local equipped = GetInventoryItemID("player", invSlot)
+                if equipped == entry.itemId then
+                    worn = worn + 1
+                elseif (GetItemCount(entry.itemId) or 0) > 0 then
+                    ownedInBags = ownedInBags + 1
+                end
+            end
+        end
+    end
+    return total, ownedInBags, worn
+end
+
+-- Equips every list item that's currently in bags and not already worn,
+-- targeting the specific inv slot from the list (Ring1 vs Ring2, etc.).
+-- Returns equipCount, errMsg. Caller should check InCombatLockdown beforehand
+-- for friendlier UX, but this also no-ops in combat.
+function WTBT:EquipAllOwned(listName)
+    if not listName then return 0, "No list selected." end
+    if InCombatLockdown() then return 0, "Cannot equip while in combat." end
+
+    local csLists = self:GetClassSpecLists()
+    local list = csLists[listName]
+    if not list then return 0, "List not found." end
+
+    local count = 0
+    for _, slotKey in ipairs(self.CUSTOM_SLOTS) do
+        local entry = list[slotKey]
+        if entry and entry.itemId then
+            local invSlot = self.INV_SLOTS[slotKey]
+            if invSlot then
+                local already = GetInventoryItemID("player", invSlot)
+                if already ~= entry.itemId and (GetItemCount(entry.itemId) or 0) > 0 then
+                    EquipItemByName(entry.itemId, invSlot)
+                    count = count + 1
+                end
+            end
+        end
+    end
+    return count
+end
+
+-- Create a new list pre-filled with the player's currently equipped gear.
+-- Saves under current state.class/spec. Returns finalName, count (slots filled).
+function WTBT:CreateListFromEquipped(baseName)
+    if not baseName or baseName == "" then baseName = "Equipped" end
+    local csLists = self:GetClassSpecLists()
+
+    local finalName = baseName
+    if csLists[finalName] then
+        local i = 2
+        while csLists[finalName .. " (" .. i .. ")"] do i = i + 1 end
+        finalName = finalName .. " (" .. i .. ")"
+    end
+
+    csLists[finalName] = {}
+    local list = csLists[finalName]
+
+    local count = 0
+    for slotKey, invSlot in pairs(self.INV_SLOTS) do
+        local id = GetInventoryItemID("player", invSlot)
+        if id then
+            local entry = { itemId = id }
+            local src, srcType = self:FindItemSource(id)
+            if src then
+                entry.source = src
+                entry.sourceType = srcType
+            else
+                entry.source = "Currently Equipped"
+                entry.sourceType = "custom"
+            end
+            list[slotKey] = entry
+            GetItemInfo(id)
+            count = count + 1
+        end
+    end
+
+    self.state.customList = finalName
+    return finalName, count
 end
 
 -- Fallback source lookup for items not in BIS data (template-only items)
