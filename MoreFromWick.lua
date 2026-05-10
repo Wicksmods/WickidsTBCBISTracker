@@ -23,6 +23,7 @@ local SUITE = {
     { folder = "WicksQuestKey", title = "Wick's Quest Key", tagline = "ExtraActionButton for quest items", slug = "wicks-quest-key" },
     { folder = "WicksTotemsAndThings", title = "Wick's Totems and Things", tagline = "Enhancement shaman command bar", slug = "wicks-totems-and-things" },
     { folder = "WicksBags", title = "Wick's Bags", tagline = "Categorized bags + bank with masonry layout", slug = "wicks-bags" },
+    { folder = "WicksTravelForm", title = "Wick's Travel Form", tagline = "Smart shapeshift binding for druids", slug = "wicks-travel-form" },
 }
 -- wick:suite-data:end
 
