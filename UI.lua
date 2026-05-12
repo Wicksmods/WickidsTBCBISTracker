@@ -1061,10 +1061,70 @@ function WTBT_UI:Build()
 
     UpdateTabVisuals()
 
+    -- ---- WARDROBE BUTTON (left of Filter) ----
+    local wardrobeBtn = CreateFrame("Button", nil, tabBar)
+    wardrobeBtn:SetSize(120, TAB_BAR_H - 6)
+
+    local wardrobeBG = NewTexture(wardrobeBtn, "BACKGROUND")
+    wardrobeBG:SetAllPoints()
+    wardrobeBG:SetColorTexture(0.07, 0.06, 0.12, 1)
+    local wardrobeBorder = AddBorder(wardrobeBtn, 0.16, 0.12, 0.28, 1)
+
+    local wardrobeLabel = NewText(wardrobeBtn, 9)
+    wardrobeLabel:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+    wardrobeLabel:SetText("Open in Wardrobe")
+    wardrobeLabel:SetAllPoints()
+    wardrobeLabel:SetJustifyH("CENTER")
+    wardrobeLabel:SetJustifyV("MIDDLE")
+
+    local wardrobeInstalled = IsAddOnLoaded and IsAddOnLoaded("WicksWardrobe")
+    if wardrobeInstalled then
+        wardrobeLabel:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+        wardrobeBtn:SetScript("OnEnter", function()
+            for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+            wardrobeLabel:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+            GameTooltip:SetOwner(wardrobeBtn, "ANCHOR_TOP")
+            GameTooltip:AddLine("Open in Wick's Wardrobe", 1, 1, 1)
+            GameTooltip:AddLine("Preview your current BIS or custom set on your character.", 0.7, 0.7, 0.7, true)
+            GameTooltip:Show()
+        end)
+        wardrobeBtn:SetScript("OnLeave", function()
+            for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(0.16, 0.12, 0.28, 1) end
+            wardrobeLabel:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+            GameTooltip:Hide()
+        end)
+        wardrobeBtn:SetScript("OnClick", function()
+            if not (WicksWardrobe and WicksWardrobe.UI) then return end
+            local cls = (WTBT.state.class or ""):upper()
+            local tab = WTBT.state.tab or "bis"
+            local setName = nil
+            if tab == "custom" then
+                setName = WTBT.state.customList
+            end
+            if WicksWardrobe.UI.ShowWithContext then
+                WicksWardrobe.UI:ShowWithContext(cls, setName)
+            else
+                WicksWardrobe.UI:Show()
+            end
+        end)
+    else
+        wardrobeLabel:SetTextColor(0.30, 0.26, 0.40, 1)
+        for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(0.12, 0.10, 0.20, 1) end
+        wardrobeBtn:SetScript("OnEnter", function()
+            GameTooltip:SetOwner(wardrobeBtn, "ANCHOR_TOP")
+            GameTooltip:AddLine("Open in Wick's Wardrobe", 0.5, 0.5, 0.5)
+            GameTooltip:AddLine("Wick's Wardrobe is not installed.", 0.7, 0.7, 0.7, true)
+            GameTooltip:AddLine("curseforge.com/wow/addons/wicks-wardrobe", 0.5, 0.5, 0.5, true)
+            GameTooltip:Show()
+        end)
+        wardrobeBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
+    end
+
     -- ---- FILTER BUTTON (right side of tab bar) ----
     local filterBtn = CreateFrame("Button", nil, tabBar)
     filterBtn:SetSize(50, TAB_BAR_H - 6)
     filterBtn:SetPoint("RIGHT", tabBar, "RIGHT", -8, 0)
+    wardrobeBtn:SetPoint("RIGHT", filterBtn, "LEFT", -4, 0)
 
     local filterBG = NewTexture(filterBtn, "BACKGROUND")
     filterBG:SetAllPoints()
@@ -1454,6 +1514,7 @@ function WTBT_UI:Refresh()
     -- Hide custom list UI elements when not on custom tab
     if self.customBar then self.customBar:Hide() end
     if self.customEmptyText then self.customEmptyText:Hide() end
+    if self.equipAllBtn then self.equipAllBtn:Hide() end
     -- Hide SoftRes UI elements and release grid cells when not on softres tab
     if self.softResBar then self.softResBar:Hide() end
     if self.srEmptyTitle then self.srEmptyTitle:Hide() end

@@ -1,9 +1,13 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.7.2 - 2026-05-12
+
+- New "Open in Wardrobe" button in the tab bar, left of Filter. Opens Wick's Wardrobe directly to your current class. When viewing a custom list, Wardrobe opens to that list by name. Greyed out with tooltip if Wardrobe is not installed.
+
 ## 1.7.1 - 2026-05-12
 
-- Login message points players to Wick's Wardrobe if they don't have it installed. Wardrobe lets you preview your BIS and custom sets on your character model.
-- "More from Wick" flyout now includes all current suite addons.
+- Login message points players to Wick's Wardrobe if they don't have it installed.
+- "More from Wick" flyout updated to include all current suite addons.
 
 ## 1.7.0 - 2026-05-09
 
