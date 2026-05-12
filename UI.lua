@@ -842,6 +842,7 @@ end
 function WTBT_UI:Build()
     -- Main panel
     local panel = CreateFrame("Frame", "WTBTPanel", UIParent, "BackdropTemplate")
+    tinsert(UISpecialFrames, "WTBTPanel")
     panel:Hide()  -- Start hidden, shown only by user action
     panel:SetScript("OnShow", function()
         WTBT_UI:Refresh()  -- Re-render when shown (items may have cached since init)
@@ -1077,48 +1078,58 @@ function WTBT_UI:Build()
     wardrobeLabel:SetJustifyH("CENTER")
     wardrobeLabel:SetJustifyV("MIDDLE")
 
-    local wardrobeInstalled = IsAddOnLoaded and IsAddOnLoaded("WicksWardrobe")
-    if wardrobeInstalled then
-        wardrobeLabel:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
-        wardrobeBtn:SetScript("OnEnter", function()
+    local function wardrobeIsLoaded()
+        return WicksWardrobe and WicksWardrobe.UI
+    end
+
+    wardrobeLabel:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+
+    wardrobeBtn:SetScript("OnEnter", function()
+        if wardrobeIsLoaded() then
             for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
             wardrobeLabel:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
             GameTooltip:SetOwner(wardrobeBtn, "ANCHOR_TOP")
             GameTooltip:AddLine("Open in Wick's Wardrobe", 1, 1, 1)
             GameTooltip:AddLine("Preview your current BIS or custom set on your character.", 0.7, 0.7, 0.7, true)
             GameTooltip:Show()
-        end)
-        wardrobeBtn:SetScript("OnLeave", function()
-            for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(0.16, 0.12, 0.28, 1) end
-            wardrobeLabel:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
-            GameTooltip:Hide()
-        end)
-        wardrobeBtn:SetScript("OnClick", function()
-            if not (WicksWardrobe and WicksWardrobe.UI) then return end
-            local cls = (WTBT.state.class or ""):upper()
-            local tab = WTBT.state.tab or "bis"
-            local setName = nil
-            if tab == "custom" then
-                setName = WTBT.state.customList
-            end
-            if WicksWardrobe.UI.ShowWithContext then
-                WicksWardrobe.UI:ShowWithContext(cls, setName)
-            else
-                WicksWardrobe.UI:Show()
-            end
-        end)
-    else
-        wardrobeLabel:SetTextColor(0.30, 0.26, 0.40, 1)
-        for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(0.12, 0.10, 0.20, 1) end
-        wardrobeBtn:SetScript("OnEnter", function()
+        else
+            wardrobeLabel:SetTextColor(0.30, 0.26, 0.40, 1)
+            for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(0.12, 0.10, 0.20, 1) end
             GameTooltip:SetOwner(wardrobeBtn, "ANCHOR_TOP")
             GameTooltip:AddLine("Open in Wick's Wardrobe", 0.5, 0.5, 0.5)
             GameTooltip:AddLine("Wick's Wardrobe is not installed.", 0.7, 0.7, 0.7, true)
             GameTooltip:AddLine("curseforge.com/wow/addons/wicks-wardrobe", 0.5, 0.5, 0.5, true)
             GameTooltip:Show()
-        end)
-        wardrobeBtn:SetScript("OnLeave", function() GameTooltip:Hide() end)
-    end
+        end
+    end)
+    wardrobeBtn:SetScript("OnLeave", function()
+        if wardrobeIsLoaded() then
+            for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(0.16, 0.12, 0.28, 1) end
+            wardrobeLabel:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+        else
+            wardrobeLabel:SetTextColor(0.30, 0.26, 0.40, 1)
+            for _, e in ipairs(wardrobeBorder) do e:SetColorTexture(0.12, 0.10, 0.20, 1) end
+        end
+        GameTooltip:Hide()
+    end)
+    wardrobeBtn:SetScript("OnClick", function()
+        if not wardrobeIsLoaded() then return end
+        local cls  = (WTBT.state.class or ""):upper()
+        local tab  = WTBT.state.tab or "bis"
+        local spec = WTBT.state.spec
+        local setName = nil
+        local phase   = nil
+        if tab == "custom" then
+            setName = WTBT.state.customList
+        else
+            phase = WTBT.state.phase
+        end
+        if WicksWardrobe.UI.ShowWithContext then
+            WicksWardrobe.UI:ShowWithContext(cls, setName, spec, phase)
+        else
+            WicksWardrobe.UI:Show()
+        end
+    end)
 
     -- ---- FILTER BUTTON (right side of tab bar) ----
     local filterBtn = CreateFrame("Button", nil, tabBar)

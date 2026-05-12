@@ -117,7 +117,7 @@ WTBT_Data["Druid"]["Balance"] = {
             { name = "Nordrassil Chestpiece",              source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = "Exceptional Stats (+6 all stats)", itemId = 30231 },
             { name = "Vestments of the Sea-Witch",         source = "Lady Vashj — Serpentshrine Cavern",  sourceType = "drop",  gems = { "red", "red", "yellow" }, enchant = "Exceptional Stats (+6 all stats)", itemId = 30107 },
             { name = "Spellfire Robe",                     source = "Tailoring (Spellfire)",              sourceType = "craft", gems = {},                   enchant = "Exceptional Stats (+6 all stats)", itemId = 21848 },
-            { name = "Robe of Hateful Echoes",             source = "Leotheras the Blind — SSC",          sourceType = "drop",  gems = {},                   enchant = "Exceptional Stats (+6 all stats)", itemId = 30056 },
+            { name = "Robe of Hateful Echoes",             source = "Hydross the Unstable — SSC",         sourceType = "drop",  gems = {},                   enchant = "Exceptional Stats (+6 all stats)", itemId = 30056 },
         },
         Wrist = {
             { name = "Mindstorm Wristbands",               source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = "Spellpower (+15 SP)", itemId = 29918 },

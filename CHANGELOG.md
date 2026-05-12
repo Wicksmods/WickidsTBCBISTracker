@@ -1,5 +1,17 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.7.5 - 2026-05-12
+
+- Pressing Escape now closes the panel.
+
+## 1.7.4 - 2026-05-12
+
+- "Open in Wardrobe" now passes the current spec and phase to Wardrobe so the correct BIS set is previewed on the model.
+
+## 1.7.3 - 2026-05-12
+
+- Fix: "Open in Wardrobe" button showed "not installed" tooltip even when Wardrobe was loaded. Check is now dynamic (at hover/click time) instead of baked in at panel build.
+
 ## 1.7.2 - 2026-05-12
 
 - New "Open in Wardrobe" button in the tab bar, left of Filter. Opens Wick's Wardrobe directly to your current class. When viewing a custom list, Wardrobe opens to that list by name. Greyed out with tooltip if Wardrobe is not installed.
