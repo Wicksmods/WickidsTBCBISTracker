@@ -1,5 +1,10 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.7.1 - 2026-05-12
+
+- Login message points players to Wick's Wardrobe if they don't have it installed. Wardrobe lets you preview your BIS and custom sets on your character model.
+- "More from Wick" flyout now includes all current suite addons.
+
 ## 1.7.0 - 2026-05-09
 
 ### Custom Lists: share, snapshot, and one-click equip

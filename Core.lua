@@ -415,6 +415,13 @@ function WTBT:Init()
         ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetItem)
     end
 
+    -- Wardrobe cross-promo — shown once per session if not already installed.
+    if not (IsAddOnLoaded and IsAddOnLoaded("WicksWardrobe")) then
+        C_Timer.After(3, function()
+            print("|cff4FC778[Wick's BIS]|r View all your BIS and custom sets on your character in the new |cffD4C8A1Wick's Wardrobe|r addon. Get it at curseforge.com/wow/addons/wicks-wardrobe")
+        end)
+    end
+
     -- Pre-cache all item info for current phase
     local bisData = self:GetCurrentBIS()
     if bisData then
