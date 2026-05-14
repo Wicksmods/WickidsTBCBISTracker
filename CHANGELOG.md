@@ -1,5 +1,39 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.9.0 - 2026-05-14
+
+### Enchants and Gems as sub-tabs
+
+Enchants and Gems are no longer standalone primary tabs. They now live as a frozen sub-tab strip (Gear / Enchants / Gems) that appears below the main tab bar whenever BIS Tracker or Custom Lists is active. Switching class, spec, or primary tab resets the view back to Gear automatically.
+
+### Resist spec enchants and gems
+
+- Warlock "Fire Resist": stamina-prioritized enchants with Spell Power maintained for threat; resist-stack gem set.
+- Warrior "Fire Resist", "Nature Resist", "Frost Resist": tank stamina enchant set (matching Protection baseline); full Stamina gem set.
+- Paladin "Fire Resist", "Nature Resist": same tank enchant and gem set.
+
+### Fix: enchant rows bleeding through on other tabs
+
+Enchant rows now release correctly when switching away from the Enchants sub-tab.
+
+## 1.8.0 - 2026-05-14
+
+### Enchants tab
+
+- New Enchants tab (between Custom Lists and Gems) shows recommended enchants per slot for the selected class and spec. Each row shows the slot badge, enchant name, stat benefit, rep/prof requirement note, and required mats inline.
+
+### Resist sets
+
+- New spec entries for Warlock (Fire Resist), Warrior (Fire Resist, Nature Resist, Frost Resist), and Paladin (Fire Resist, Nature Resist) with full gear lists for Magtheridon, SSC Hydross, and related encounters.
+
+### Tab reorder
+
+- Tabs now: BIS Tracker, Custom Lists, Enchants, Gems, Consumables, SoftRes.
+
+### Hide Crafted filter
+
+- New filter above Hide World Boss: Hide Crafted skips all items with sourceType "craft" and falls through to the next available BIS item.
+
 ## 1.7.5 - 2026-05-12
 
 - Pressing Escape now closes the panel.

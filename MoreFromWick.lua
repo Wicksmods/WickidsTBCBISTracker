@@ -24,6 +24,7 @@ local SUITE = {
     { folder = "WicksTotemsAndThings", title = "Wick's Totems and Things", tagline = "Enhancement shaman command bar", slug = "wicks-totems-and-things" },
     { folder = "WicksBags", title = "Wick's Bags", tagline = "Categorized bags + bank with masonry layout", slug = "wicks-bags" },
     { folder = "WicksTravelForm", title = "Wick's Travel Form", tagline = "Smart shapeshift binding for druids", slug = "wicks-travel-form" },
+    { folder = "WicksLedger", title = "Wick's Ledger", tagline = "Session earnings tracker with AH-priced loot", slug = "wicks-ledger" },
     { folder = "WicksWardrobe", title = "Wick's Wardrobe", tagline = "Tier set and weapon preview browser", slug = "wicks-wardrobe" },
 }
 -- wick:suite-data:end

@@ -17,6 +17,7 @@ local SLOT_LABEL_W  = 58
 local HEADER_H      = 22
 local SELECTOR_H    = 36
 local TAB_BAR_H     = 28
+local SUB_TAB_H     = 22
 local STATUS_H      = 22
 local GEAR_LIST_H   = 480
 
@@ -321,6 +322,7 @@ local activeGearRows = {}
 -- Forward-declare pool release functions (defined after Refresh)
 local ReleaseAllConsumableRows
 local ReleaseAllGemRows
+local ReleaseAllEnchantRows
 local activeSectionHeaders = {}
 
 -- Acquire a gear row from pool or create new
@@ -476,10 +478,25 @@ local function PopulateRow(row, item, slotInfo, hasAlts, isAlt, altIndex)
         if row.altBG then row.altBG:Show() end
     end
 
-    -- Enchant
-    if item.enchant then
-        row.enchantText:SetText(item.enchant)
+    -- Enchant — use hand-entered value, then fall back to spec recommendation
+    local NO_ENCHANT_SLOTS = { Neck=true, Waist=true, Ring1=true, Ring2=true, Trinket1=true, Trinket2=true }
+    local enchantStr = item.enchant
+    if not enchantStr and not NO_ENCHANT_SLOTS[slotInfo.key] then
+        local encData = WTBT_Enchants and WTBT_Enchants[WTBT.state.class] and WTBT_Enchants[WTBT.state.class][WTBT.state.spec]
+        if encData then
+            for _, e in ipairs(encData) do
+                if e.slot == slotInfo.key then
+                    enchantStr = e.name
+                    break
+                end
+            end
+        end
+    end
+    if enchantStr then
+        row.enchantText:SetText(enchantStr)
         row.enchantText:SetTextColor(0.00, 0.78, 0.40, 0.85)
+    elseif NO_ENCHANT_SLOTS[slotInfo.key] then
+        row.enchantText:SetText("")
     else
         row.enchantText:SetText("No enchant")
         row.enchantText:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 0.5)
@@ -936,6 +953,7 @@ function WTBT_UI:Build()
 
     local classDD = CreateWTBTDropdown(selectorBar, classNames, WTBT.state.class, function(val)
         WTBT.state.class = val
+        WTBT.state.subtab = "gear"
         -- Reset spec to first valid and update spec dropdown options
         for _, c in ipairs(WTBT.CLASSES) do
             if c.name == val then
@@ -965,6 +983,7 @@ function WTBT_UI:Build()
 
     local specDD = CreateWTBTDropdown(selectorBar, specNames, WTBT.state.spec, function(val)
         WTBT.state.spec = val
+        WTBT.state.subtab = "gear"
         -- Reset custom list selection for new spec
         WTBT.state.customList = nil
         local csNames = WTBT:GetCustomListNames()
@@ -1001,12 +1020,13 @@ function WTBT_UI:Build()
         { key = "bis",         label = "BIS Tracker" },
         { key = "custom",      label = "Custom Lists" },
         { key = "consumables", label = "Consumables" },
-        { key = "gems",        label = "Gems" },
         { key = "softres",     label = "SoftRes" },
     }
 
-    local TAB_W = 100
+    local TAB_W_DEFAULT = 100
     local TAB_GAP = 3
+    -- Right-side buttons (Wardrobe 120 + Filter 50) + their gaps + left margin
+    local TAB_RIGHT_RESERVED = 8 + 120 + 6 + 50 + 8
     local tabButtons = {}
 
     local function UpdateTabVisuals()
@@ -1024,10 +1044,29 @@ function WTBT_UI:Build()
         end
     end
 
+    local function RelayoutTabs()
+        local barW = tabBar:GetWidth()
+        if not barW or barW == 0 then return end
+        local n = #tabButtons
+        local avail = barW - TAB_RIGHT_RESERVED - 8  -- 8 = left margin
+        -- Ideal: n tabs at default width + gaps. Shrink if needed, floor at 52px.
+        local idealTotal = n * TAB_W_DEFAULT + (n - 1) * TAB_GAP
+        local tabW = TAB_W_DEFAULT
+        if idealTotal > avail then
+            tabW = math.max(52, math.floor((avail - (n - 1) * TAB_GAP) / n))
+        end
+        local fontSize = tabW >= 80 and 10 or (tabW >= 64 and 9 or 8)
+        for i, tb in ipairs(tabButtons) do
+            tb:SetWidth(tabW)
+            tb:SetPoint("LEFT", tabBar, "LEFT", 8 + (i - 1) * (tabW + TAB_GAP), 0)
+            tb.label:SetFont("Fonts\\FRIZQT__.TTF", fontSize, "OUTLINE")
+        end
+    end
+
     for i, def in ipairs(TAB_DEFS) do
         local tb = CreateFrame("Button", nil, tabBar)
-        tb:SetSize(TAB_W, TAB_BAR_H - 6)
-        tb:SetPoint("LEFT", tabBar, "LEFT", 8 + (i - 1) * (TAB_W + TAB_GAP), 0)
+        tb:SetSize(TAB_W_DEFAULT, TAB_BAR_H - 6)
+        tb:SetPoint("LEFT", tabBar, "LEFT", 8 + (i - 1) * (TAB_W_DEFAULT + TAB_GAP), 0)
 
         local tbBG = NewTexture(tb, "BACKGROUND")
         tbBG:SetAllPoints()
@@ -1048,6 +1087,7 @@ function WTBT_UI:Build()
 
         tb:SetScript("OnClick", function()
             WTBT.state.tab = def.key
+            WTBT.state.subtab = "gear"
             UpdateTabVisuals()
             WTBT_UI:UpdateSelectorVisibility()
             WTBT_UI:Refresh()
@@ -1056,11 +1096,87 @@ function WTBT_UI:Build()
         tabButtons[i] = tb
     end
 
+    tabBar:SetScript("OnSizeChanged", RelayoutTabs)
+
     self.tabBar = tabBar
     self.tabButtons = tabButtons
     self.UpdateTabVisuals = UpdateTabVisuals
 
     UpdateTabVisuals()
+
+    -- ---- SUB-TAB BAR (Gear / Enchants / Gems — shown under BIS and Custom tabs) ----
+    local subTabBar = CreateFrame("Frame", nil, panel)
+    subTabBar:SetPoint("TOPLEFT",  panel, "TOPLEFT",  1, -(HEADER_H + SELECTOR_H + TAB_BAR_H + 1))
+    subTabBar:SetPoint("TOPRIGHT", panel, "TOPRIGHT", -1, -(HEADER_H + SELECTOR_H + TAB_BAR_H + 1))
+    subTabBar:SetHeight(SUB_TAB_H)
+
+    local subTabBG = NewTexture(subTabBar, "BACKGROUND")
+    subTabBG:SetAllPoints()
+    subTabBG:SetColorTexture(0.06, 0.05, 0.10, 1)
+
+    local subTabBot = NewTexture(subTabBar, "BORDER")
+    subTabBot:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.5)
+    subTabBot:SetPoint("BOTTOMLEFT"); subTabBot:SetPoint("BOTTOMRIGHT"); subTabBot:SetHeight(1)
+
+    local SUB_TAB_DEFS = {
+        { key = "gear",     label = "Gear" },
+        { key = "enchants", label = "Enchants" },
+        { key = "gems",     label = "Gems" },
+    }
+    local SUB_W = 70
+    local SUB_GAP = 3
+    local subTabButtons = {}
+
+    local function UpdateSubTabVisuals()
+        for _, stb in ipairs(subTabButtons) do
+            local active = (stb.tabKey == (WTBT.state.subtab or "gear"))
+            if active then
+                stb.bg:SetColorTexture(0.10, 0.22, 0.15, 1)
+                for _, e in ipairs(stb.border) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+                stb.label:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+            else
+                stb.bg:SetColorTexture(0.07, 0.06, 0.12, 1)
+                for _, e in ipairs(stb.border) do e:SetColorTexture(0.16, 0.12, 0.28, 1) end
+                stb.label:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+            end
+        end
+    end
+    self.UpdateSubTabVisuals = UpdateSubTabVisuals
+
+    for i, def in ipairs(SUB_TAB_DEFS) do
+        local stb = CreateFrame("Button", nil, subTabBar)
+        stb:SetSize(SUB_W, SUB_TAB_H - 6)
+        stb:SetPoint("LEFT", subTabBar, "LEFT", 8 + (i-1)*(SUB_W + SUB_GAP), 0)
+
+        local stbBG = NewTexture(stb, "BACKGROUND")
+        stbBG:SetAllPoints()
+        stbBG:SetColorTexture(0.07, 0.06, 0.12, 1)
+        local stbBorder = AddBorder(stb, 0.16, 0.12, 0.28, 1)
+
+        local stbLabel = NewText(stb, 9)
+        stbLabel:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+        stbLabel:SetText(def.label)
+        stbLabel:SetAllPoints()
+        stbLabel:SetJustifyH("CENTER")
+        stbLabel:SetJustifyV("MIDDLE")
+
+        stb.bg     = stbBG
+        stb.border = stbBorder
+        stb.label  = stbLabel
+        stb.tabKey = def.key
+
+        stb:SetScript("OnClick", function()
+            WTBT.state.subtab = def.key
+            UpdateSubTabVisuals()
+            WTBT_UI:Refresh()
+        end)
+
+        subTabButtons[i] = stb
+    end
+
+    subTabBar:Hide()
+    self.subTabBar = subTabBar
+    UpdateSubTabVisuals()
 
     -- ---- WARDROBE BUTTON (left of Filter) ----
     local wardrobeBtn = CreateFrame("Button", nil, tabBar)
@@ -1166,6 +1282,7 @@ function WTBT_UI:Build()
     filterPopup:Hide()
 
     local FILTER_DEFS = {
+        { key = "hideCrafted",     label = "Hide Crafted" },
         { key = "hideWorldBoss",   label = "Hide World Boss" },
         { key = "hidePvP",         label = "Hide PvP" },
         { key = "miniDashEnabled", label = "Show Mini Dash", invert = true, onChange = function()
@@ -1283,6 +1400,16 @@ function WTBT_UI:Build()
 
     self.scrollChild = scrollChild
     self.scrollFrame = scrollFrame
+
+    -- Reanchor scroll frame top when sub-tab bar shows/hides
+    function self:UpdateScrollAnchor()
+        local tab = WTBT.state.tab or "bis"
+        local hasSubTabs = (tab == "bis" or tab == "custom")
+        local topOffset = HEADER_H + SELECTOR_H + TAB_BAR_H + (hasSubTabs and SUB_TAB_H or 0) + 2
+        scrollFrame:ClearAllPoints()
+        scrollFrame:SetPoint("TOPLEFT",  panel, "TOPLEFT",  1, -topOffset)
+        scrollFrame:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -20, STATUS_H + 1)
+    end
 
     -- ---- STATUS BAR ----
     local statusBar = CreateFrame("Frame", nil, panel)
@@ -1486,6 +1613,8 @@ end
 -- ============================================================
 function WTBT_UI:UpdateSelectorVisibility()
     local tab = WTBT.state.tab or "bis"
+    local hasSubTabs = (tab == "bis" or tab == "custom")
+
     if tab == "bis" then
         self.classDD:Show()
         self.specDD:Show()
@@ -1498,15 +1627,22 @@ function WTBT_UI:UpdateSelectorVisibility()
         self.classDD:Hide()
         self.specDD:Hide()
         self.phaseBar:Hide()
-    elseif tab == "consumables" then
-        self.classDD:Show()
-        self.specDD:Show()
-        self.phaseBar:Hide()
-    elseif tab == "gems" then
+    else -- consumables
         self.classDD:Show()
         self.specDD:Show()
         self.phaseBar:Hide()
     end
+
+    if self.subTabBar then
+        if hasSubTabs then
+            self.subTabBar:Show()
+        else
+            self.subTabBar:Hide()
+        end
+    end
+
+    if self.UpdateScrollAnchor then self:UpdateScrollAnchor() end
+    if self.UpdateSubTabVisuals then self:UpdateSubTabVisuals() end
 end
 
 -- ============================================================
@@ -1538,18 +1674,28 @@ function WTBT_UI:Refresh()
     if ReleaseAllConsumableRows then ReleaseAllConsumableRows() end
     -- Release gem row pools
     if ReleaseAllGemRows then ReleaseAllGemRows() end
+    -- Release enchant row pools
+    if ReleaseAllEnchantRows then ReleaseAllEnchantRows() end
 
-    local tab = WTBT.state.tab or "bis"
-    if tab == "bis" then
-        self:RefreshBIS()
-    elseif tab == "custom" then
-        self:RefreshCustom()
+    local tab    = WTBT.state.tab or "bis"
+    local subtab = WTBT.state.subtab or "gear"
+
+    if tab == "bis" or tab == "custom" then
+        if subtab == "enchants" then
+            self:RefreshEnchants()
+        elseif subtab == "gems" then
+            self:RefreshGems()
+        else
+            if tab == "bis" then
+                self:RefreshBIS()
+            else
+                self:RefreshCustom()
+            end
+        end
     elseif tab == "softres" then
         self:RefreshSoftRes()
     elseif tab == "consumables" then
         self:RefreshConsumables()
-    elseif tab == "gems" then
-        self:RefreshGems()
     end
 
     -- Keep the mini dash in sync with whatever list is currently being viewed
@@ -1600,12 +1746,15 @@ function WTBT_UI:RefreshBIS()
             if slotInfo then
                 local rawSlotData = bisData and bisData[slotKey]
 
-                -- Apply source filters (World Boss / PvP)
+                -- Apply source filters (Crafted / World Boss / PvP)
                 local slotData
                 if rawSlotData then
                     slotData = {}
                     for _, itm in ipairs(rawSlotData) do
                         local dominated = false
+                        if WTBT.settings.hideCrafted and itm.sourceType == "craft" then
+                            dominated = true
+                        end
                         if WTBT.settings.hideWorldBoss and itm.source and itm.source:find("World Boss") then
                             dominated = true
                         end
@@ -3123,4 +3272,160 @@ function WTBT_UI:RefreshGems()
 
     self.statusLeft:SetText(className .. " · " .. specName .. " · Gems")
     self.statusRight:SetText("|cffC8B68C" .. totalItems .. " gems|r")
+end
+
+-- ============================================================
+-- ENCHANT TAB
+-- ============================================================
+
+local enchantRowPool   = {}
+local activeEnchantRows = {}
+
+local ENCHANT_SLOT_ORDER = {
+    "Head", "Shoulder", "Back", "Chest", "Wrist",
+    "Hands", "Legs", "Feet", "MainHand", "OffHand", "Relic",
+}
+local ENCHANT_SLOT_LABEL = {
+    Head = "Head", Shoulder = "Shoulder", Back = "Back", Chest = "Chest",
+    Wrist = "Wrist", Hands = "Hands", Legs = "Legs", Feet = "Feet",
+    MainHand = "Main Hand", OffHand = "Off Hand", Relic = "Ranged / Relic",
+}
+
+local function CreateEnchantRow(parent)
+    local row = CreateFrame("Frame", nil, parent)
+    row:SetHeight(ROW_H)
+
+    local hoverBG = NewTexture(row, "BACKGROUND")
+    hoverBG:SetAllPoints()
+    hoverBG:SetColorTexture(0, 0, 0, 0)
+    row.hoverBG = hoverBG
+
+    -- Slot badge (left)
+    local slotBadge = CreateFrame("Frame", nil, row)
+    slotBadge:SetSize(74, 14)
+    slotBadge:SetPoint("LEFT", row, "LEFT", 10, 0)
+    local slotBG = NewTexture(slotBadge, "BACKGROUND")
+    slotBG:SetAllPoints()
+    slotBG:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.08)
+    AddBorder(slotBadge, C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.35)
+    local slotLabel = NewText(slotBadge, 7)
+    slotLabel:SetFont("Fonts\\FRIZQT__.TTF", 8, "OUTLINE")
+    slotLabel:SetAllPoints()
+    slotLabel:SetJustifyH("CENTER")
+    slotLabel:SetJustifyV("MIDDLE")
+    slotLabel:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+    row.slotLabel = slotLabel
+
+    -- Enchant name
+    local enchantName = NewText(row, 10)
+    enchantName:SetFont("Fonts\\FRIZQT__.TTF", 11, "")
+    enchantName:SetPoint("LEFT", slotBadge, "RIGHT", 8, 4)
+    enchantName:SetPoint("RIGHT", row, "RIGHT", -8, 4)
+    enchantName:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+    row.enchantName = enchantName
+
+    -- Stat / note text
+    local statText = NewText(row, 8)
+    statText:SetFont("Fonts\\FRIZQT__.TTF", 9, "")
+    statText:SetPoint("LEFT", slotBadge, "RIGHT", 8, -7)
+    statText:SetPoint("RIGHT", row, "RIGHT", -8, -7)
+    statText:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 1)
+    row.statText = statText
+
+    -- Bottom divider
+    local div = NewTexture(row, "BORDER")
+    div:SetColorTexture(0.220, 0.188, 0.345, 0.25)
+    div:SetPoint("BOTTOMLEFT", 10, 0); div:SetPoint("BOTTOMRIGHT", -10, 0); div:SetHeight(1)
+
+    row:EnableMouse(true)
+    row:SetScript("OnEnter", function(self) self.hoverBG:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 0.04) end)
+    row:SetScript("OnLeave", function(self) self.hoverBG:SetColorTexture(0, 0, 0, 0) end)
+
+    return row
+end
+
+local function AcquireEnchantRow(parent)
+    local row = table.remove(enchantRowPool)
+    if not row then row = CreateEnchantRow(parent) end
+    row:SetParent(parent)
+    row:Show()
+    activeEnchantRows[#activeEnchantRows + 1] = row
+    return row
+end
+
+ReleaseAllEnchantRows = function()
+    for _, row in ipairs(activeEnchantRows) do
+        row:Hide()
+        row:ClearAllPoints()
+        enchantRowPool[#enchantRowPool + 1] = row
+    end
+    wipe(activeEnchantRows)
+end
+
+function WTBT_UI:RefreshEnchants()
+    local sc = self.scrollChild
+    ReleaseAllEnchantRows()
+
+    local className = WTBT.state.class
+    local specName  = WTBT.state.spec
+    local data = WTBT_Enchants and WTBT_Enchants[className] and WTBT_Enchants[className][specName]
+
+    if not data or #data == 0 then
+        self.statusLeft:SetText(className .. " · " .. specName .. " · Enchants")
+        self.statusRight:SetText("|cff6B5A8CNo data|r")
+        sc:SetHeight(40)
+        return
+    end
+
+    -- Bucket by slot
+    local bySlot = {}
+    for _, e in ipairs(data) do
+        bySlot[e.slot] = bySlot[e.slot] or {}
+        bySlot[e.slot][#bySlot[e.slot] + 1] = e
+    end
+
+    local yOffset = 0
+    local totalRows = 0
+
+    for _, slotKey in ipairs(ENCHANT_SLOT_ORDER) do
+        local entries = bySlot[slotKey]
+        if entries and #entries > 0 then
+            -- Section header for the slot
+            local hdr = AcquireSectionHeader(sc, ENCHANT_SLOT_LABEL[slotKey] or slotKey)
+            hdr:SetPoint("TOPLEFT", sc, "TOPLEFT", 0, -yOffset)
+            hdr:SetPoint("TOPRIGHT", sc, "TOPRIGHT", 0, -yOffset)
+            yOffset = yOffset + 16
+
+            for _, e in ipairs(entries) do
+                local row = AcquireEnchantRow(sc)
+                row:SetPoint("TOPLEFT", sc, "TOPLEFT", 0, -yOffset)
+                row:SetPoint("TOPRIGHT", sc, "TOPRIGHT", 0, -yOffset)
+
+                row.slotLabel:SetText((ENCHANT_SLOT_LABEL[slotKey] or slotKey):upper())
+
+                local nameStr = e.name or ""
+                row.enchantName:SetText(nameStr)
+
+                local statStr = e.stat or ""
+                if e.note then
+                    statStr = statStr .. "  |cff6B5A8C(" .. e.note .. ")|r"
+                end
+                if e.mats and #e.mats > 0 then
+                    local matParts = {}
+                    for _, m in ipairs(e.mats) do
+                        matParts[#matParts + 1] = "|cffC8B68C" .. m.name .. " x" .. m.count .. "|r"
+                    end
+                    statStr = statStr .. "  |cff6B5A8CMats:|r " .. table.concat(matParts, ", ")
+                end
+                row.statText:SetText(statStr)
+
+                yOffset = yOffset + ROW_H
+                totalRows = totalRows + 1
+            end
+        end
+    end
+
+    sc:SetHeight(yOffset + 4)
+    self.statusLeft:SetText(className .. " · " .. specName .. " · Enchants")
+    self.statusRight:SetText("|cffC8B68C" .. totalRows .. " enchants|r")
 end

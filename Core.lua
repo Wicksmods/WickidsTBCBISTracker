@@ -9,7 +9,8 @@ WTBT.state = {
     class      = "Priest",
     spec       = "Holy",
     phase      = 1,
-    tab        = "bis",  -- "bis", "leveling", "custom"
+    tab        = "bis",  -- "bis", "custom", "consumables", "softres"
+    subtab     = "gear", -- "gear", "enchants", "gems" (BIS + Custom tabs only)
     customList = nil,     -- active custom list name
     customSlotPending = nil, -- slot waiting for item input
 }
@@ -50,14 +51,14 @@ WTBT.SOURCE_COLORS = {
 -- Classes and their specs
 WTBT.CLASSES = {
     { name = "Priest",  specs = { "Holy", "Discipline", "Shadow" },        color = {1.00, 1.00, 1.00} },
-    { name = "Paladin", specs = { "Holy", "Protection", "Retribution" },   color = {0.96, 0.55, 0.73} },
+    { name = "Paladin", specs = { "Holy", "Protection", "Retribution", "Fire Resist", "Nature Resist" }, color = {0.96, 0.55, 0.73} },
     { name = "Druid",   specs = { "Restoration", "Balance", "Feral" },     color = {1.00, 0.49, 0.04} },
     { name = "Shaman",  specs = { "Restoration", "Enhancement", "Elemental" }, color = {0.00, 0.44, 0.87} },
     { name = "Mage",    specs = { "Fire", "Frost", "Arcane" },              color = {0.25, 0.78, 0.92} },
-    { name = "Warlock", specs = { "Destruction", "Affliction", "Demonology" }, color = {0.53, 0.53, 0.93} },
+    { name = "Warlock", specs = { "Destruction", "Affliction", "Demonology", "Fire Resist" }, color = {0.53, 0.53, 0.93} },
     { name = "Hunter",  specs = { "Beast Mastery", "Marksmanship", "Survival" }, color = {0.67, 0.83, 0.45} },
     { name = "Rogue",   specs = { "Combat", "Assassination", "Subtlety" },  color = {1.00, 0.96, 0.41} },
-    { name = "Warrior", specs = { "Arms", "Fury", "Protection" },           color = {0.78, 0.61, 0.43} },
+    { name = "Warrior", specs = { "Arms", "Fury", "Protection", "Fire Resist", "Nature Resist", "Frost Resist" }, color = {0.78, 0.61, 0.43} },
 }
 
 -- Spec aliases (some specs share BIS guides)

@@ -23,6 +23,14 @@ local WARRIOR_DPS_GEMS = {
     { category = "Blue",   name = "Sovereign Nightseye",           itemId = 24054, stat = "+4 Strength, +6 Stamina (purple)" },
     { category = "Hybrid", name = "Jagged Talasite",               itemId = 24067, stat = "+4 Crit Rating, +6 Stamina (green)" },
 }
+local WARRIOR_RESIST_GEMS = {
+    { category = "Meta",   name = "Powerful Earthstorm Diamond",   itemId = 25896, stat = "+18 Stamina, +5% Stun Resist (needs 3 blue)" },
+    { category = "Red",    name = "Solid Star of Elune",           itemId = 24033, stat = "+12 Stamina" },
+    { category = "Yellow", name = "Solid Star of Elune",           itemId = 24033, stat = "+12 Stamina (ignore socket bonus)" },
+    { category = "Blue",   name = "Solid Star of Elune",           itemId = 24033, stat = "+12 Stamina" },
+    { category = "Hybrid", name = "Shifting Nightseye",            itemId = 24055, stat = "+4 Agility, +6 Stamina (purple — if socket bonus is good)" },
+}
+
 WTBT_Gems["Warrior"] = {
     ["Arms"] = WARRIOR_DPS_GEMS,
     ["Fury"] = WARRIOR_DPS_GEMS,
@@ -36,6 +44,9 @@ WTBT_Gems["Warrior"] = {
         { category = "Blue",   name = "Solid Star of Elune",           itemId = 24033, stat = "+12 Stamina" },
         { category = "Hybrid", name = "Glinting Noble Topaz",          itemId = 24061, stat = "+4 Agility, +4 Hit Rating (orange — hit cap)" },
     },
+    ["Fire Resist"]   = WARRIOR_RESIST_GEMS,
+    ["Nature Resist"] = WARRIOR_RESIST_GEMS,
+    ["Frost Resist"]  = WARRIOR_RESIST_GEMS,
 }
 
 -- ============================================================
@@ -66,6 +77,8 @@ WTBT_Gems["Paladin"] = {
         { category = "Yellow", name = "Rigid Dawnstone",               itemId = 24051, stat = "+8 Hit Rating (until hit capped)" },
         { category = "Blue",   name = "Sovereign Nightseye",           itemId = 24054, stat = "+4 Strength, +6 Stamina (purple)" },
     },
+    ["Fire Resist"]   = WARRIOR_RESIST_GEMS,
+    ["Nature Resist"] = WARRIOR_RESIST_GEMS,
 }
 
 -- ============================================================
@@ -191,10 +204,19 @@ local WARLOCK_GEMS = {
     { category = "Yellow", name = "Potent Noble Topaz",         itemId = 24059, stat = "+5 Spell Damage, +4 Crit Rating (orange — post hit cap)" },
     { category = "Blue",   name = "Glowing Nightseye",          itemId = 24056, stat = "+5 Spell Damage, +5 Stamina (purple)" },
 }
+local WARLOCK_RESIST_GEMS = {
+    { category = "Meta",   name = "Powerful Earthstorm Diamond",   itemId = 25896, stat = "+18 Stamina, +5% Stun Resist (needs 3 blue)" },
+    { category = "Red",    name = "Runed Living Ruby",             itemId = 24030, stat = "+9 Spell Damage (maintain threat while alive)" },
+    { category = "Yellow", name = "Solid Star of Elune",           itemId = 24033, stat = "+12 Stamina (ignore socket bonus)" },
+    { category = "Blue",   name = "Solid Star of Elune",           itemId = 24033, stat = "+12 Stamina" },
+    { category = "Hybrid", name = "Glowing Nightseye",             itemId = 24056, stat = "+5 Spell Damage, +5 Stamina (purple)" },
+}
+
 WTBT_Gems["Warlock"] = {
-    ["Affliction"]  = WARLOCK_GEMS,
-    ["Demonology"]  = WARLOCK_GEMS,
-    ["Destruction"] = WARLOCK_GEMS,
+    ["Affliction"]   = WARLOCK_GEMS,
+    ["Demonology"]   = WARLOCK_GEMS,
+    ["Destruction"]  = WARLOCK_GEMS,
+    ["Fire Resist"]  = WARLOCK_RESIST_GEMS,
 }
 
 -- ============================================================
