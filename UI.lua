@@ -2022,10 +2022,39 @@ local function BuildCustomBar(parent)
         GameTooltip:Hide()
     end)
 
-    -- Export button (left of import)
+    -- Sixty Upgrades import button (left of Import)
+    local suBtn = CreateFrame("Button", nil, bar)
+    suBtn:SetSize(44, 22)
+    suBtn:SetPoint("RIGHT", importBtn, "LEFT", -4, 0)
+    local suBG = NewTexture(suBtn, "BACKGROUND")
+    suBG:SetAllPoints()
+    suBG:SetColorTexture(0.12, 0.08, 0.22, 1)
+    local suBorder = AddBorder(suBtn, C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7)
+    local suLabel = NewText(suBtn, 9)
+    suLabel:SetFont("Fonts\\FRIZQT__.TTF", 9, "OUTLINE")
+    suLabel:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+    suLabel:SetText("60U")
+    suLabel:SetAllPoints()
+    suLabel:SetJustifyH("CENTER")
+    suLabel:SetJustifyV("MIDDLE")
+    suBtn:SetScript("OnEnter", function(self)
+        for _, e in ipairs(suBorder) do e:SetColorTexture(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1) end
+        suLabel:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+        GameTooltip:SetOwner(self, "ANCHOR_TOP")
+        GameTooltip:AddLine("Import from Sixty Upgrades", C_GREEN[1], C_GREEN[2], C_GREEN[3])
+        GameTooltip:AddLine("Paste a JSON export from sixtyupgrades.com.", 0.7, 0.7, 0.7, true)
+        GameTooltip:Show()
+    end)
+    suBtn:SetScript("OnLeave", function()
+        for _, e in ipairs(suBorder) do e:SetColorTexture(C_BORDER[1], C_BORDER[2], C_BORDER[3], 0.7) end
+        suLabel:SetTextColor(C_TEXT_NORMAL[1], C_TEXT_NORMAL[2], C_TEXT_NORMAL[3], 1)
+        GameTooltip:Hide()
+    end)
+
+    -- Export button (left of 60U)
     local exportBtn = CreateFrame("Button", nil, bar)
     exportBtn:SetSize(56, 22)
-    exportBtn:SetPoint("RIGHT", importBtn, "LEFT", -4, 0)
+    exportBtn:SetPoint("RIGHT", suBtn, "LEFT", -4, 0)
     local exportBG = NewTexture(exportBtn, "BACKGROUND")
     exportBG:SetAllPoints()
     exportBG:SetColorTexture(0.12, 0.08, 0.22, 1)
@@ -2075,6 +2104,7 @@ local function BuildCustomBar(parent)
     bar.equipBtn  = equipBtn
     bar.exportBtn = exportBtn
     bar.importBtn = importBtn
+    bar.suBtn     = suBtn
     bar.delBtn    = delBtn
     bar.listDD    = listDD
     bar.listLabel = listLabel
@@ -2235,6 +2265,66 @@ local function ShowPastePopup(title, hint, onSubmit)
         if key == "ESCAPE" then self:Hide() end
     end)
 
+    return popup
+end
+
+local function ShowSUPastePopup(onSubmit)
+    local popup = CreateFrame("Frame", nil, UIParent, "BackdropTemplate")
+    popup:SetFrameStrata("DIALOG")
+    popup:SetSize(560, 280)
+    popup:SetPoint("CENTER", UIParent, "CENTER", 0, 60)
+    popup:SetClampedToScreen(true)
+    popup:EnableMouse(true)
+    popup:EnableKeyboard(true)
+    MakeWickPanelChrome(popup)
+
+    local titleText = NewText(popup, 11)
+    titleText:SetFont("Fonts\\FRIZQT__.TTF", 11, "OUTLINE")
+    titleText:SetTextColor(C_GREEN[1], C_GREEN[2], C_GREEN[3], 1)
+    titleText:SetText("Import from Sixty Upgrades")
+    titleText:SetPoint("TOP", popup, "TOP", 0, -10)
+
+    local hintText = NewText(popup, 9)
+    hintText:SetTextColor(C_TEXT_DIM[1], C_TEXT_DIM[2], C_TEXT_DIM[3], 0.85)
+    hintText:SetText("On sixtyupgrades.com open your set, click Share > Export JSON, then paste here.")
+    hintText:SetPoint("TOP", titleText, "BOTTOM", 0, -3)
+
+    -- Scroll frame + multiline edit box
+    local scrollFrame = CreateFrame("ScrollFrame", nil, popup, "UIPanelScrollFrameTemplate")
+    scrollFrame:SetPoint("TOPLEFT",  popup, "TOPLEFT",  10, -52)
+    scrollFrame:SetPoint("BOTTOMRIGHT", popup, "BOTTOMRIGHT", -28, 40)
+
+    local eb = CreateFrame("EditBox", nil, scrollFrame)
+    eb:SetSize(scrollFrame:GetWidth(), 600)
+    eb:SetFont("Fonts\\FRIZQT__.TTF", 9, "")
+    eb:SetMultiLine(true)
+    eb:SetAutoFocus(true)
+    eb:SetMaxLetters(32000)
+    eb:SetTextInsets(4, 4, 4, 4)
+    eb:SetScript("OnEscapePressed", function() popup:Hide() end)
+    scrollFrame:SetScrollChild(eb)
+
+    local bg = NewTexture(scrollFrame, "BACKGROUND")
+    bg:SetAllPoints()
+    bg:SetColorTexture(0.05, 0.04, 0.10, 1)
+
+    local function submit()
+        local txt = eb:GetText()
+        if onSubmit then onSubmit(txt) end
+        popup:Hide()
+    end
+
+    local importBtn = MakePrimaryButton(popup, "Import", 70, submit)
+    importBtn:SetPoint("BOTTOMRIGHT", popup, "BOTTOM", -4, 8)
+
+    local cancelBtn = MakeSecondaryButton(popup, "Cancel", 70, function() popup:Hide() end)
+    cancelBtn:SetPoint("BOTTOMLEFT", popup, "BOTTOM", 4, 8)
+
+    popup:SetScript("OnKeyDown", function(self, key)
+        if key == "ESCAPE" then self:Hide() end
+    end)
+
+    eb:SetFocus()
     return popup
 end
 
@@ -2583,6 +2673,20 @@ function WTBT_UI:RefreshCustom()
                     print("|cffFF6B6B[Wick's BIS]|r Import failed: " .. tostring(finalName))
                 end
             end)
+    end)
+
+    -- Wire up Sixty Upgrades import button
+    bar.suBtn:SetScript("OnClick", function()
+        ShowSUPastePopup(function(txt)
+            local ok, result = WTBT:ImportFromSixtyUpgrades(txt)
+            if ok then
+                WTBT.state.customList = result
+                WTBT_UI:Refresh()
+                print("|cff4FC778[Wick's BIS]|r Imported '" .. result .. "' from Sixty Upgrades.")
+            else
+                print("|cffFF6B6B[Wick's BIS]|r 60U import failed: " .. tostring(result))
+            end
+        end)
     end)
 
     -- Wire up delete button

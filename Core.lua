@@ -626,6 +626,143 @@ function WTBT:ImportCustomList(encoded)
     return true, finalName, cls, spec
 end
 
+-- ============================================================
+-- SIXTY UPGRADES IMPORT
+-- ============================================================
+-- Parses the JSON exported by sixtyupgrades.com and creates a
+-- custom list under the currently selected class/spec.
+-- Returns (ok, finalNameOrErr)
+local SU_SLOT_MAP = {
+    HEAD       = "Head",
+    NECK       = "Neck",
+    SHOULDERS  = "Shoulder",
+    BACK       = "Back",
+    CHEST      = "Chest",
+    WRISTS     = "Wrist",
+    HANDS      = "Hands",
+    WAIST      = "Waist",
+    LEGS       = "Legs",
+    FEET       = "Feet",
+    FINGER_1   = "Ring1",
+    FINGER_2   = "Ring2",
+    TRINKET_1  = "Trinket1",
+    TRINKET_2  = "Trinket2",
+    MAIN_HAND  = "MainHand",
+    OFF_HAND   = "OffHand",
+    RANGED     = "Relic",
+    RELIC      = "Relic",
+}
+
+local SU_CLASS_MAP = {
+    PRIEST  = "Priest",  PALADIN = "Paladin", DRUID   = "Druid",
+    SHAMAN  = "Shaman",  MAGE    = "Mage",    WARLOCK = "Warlock",
+    HUNTER  = "Hunter",  ROGUE   = "Rogue",   WARRIOR = "Warrior",
+}
+
+-- Minimal field extractor for the Sixty Upgrades JSON format.
+-- Avoids a full JSON parser by targeting known structure.
+local function SU_ParseJSON(raw)
+    local gameClass = raw:match('"gameClass"%s*:%s*"([^"]+)"')
+    local charBlock = raw:match('"character"%s*:%s*(%b{})')
+    local charName  = charBlock and charBlock:match('"name"%s*:%s*"([^"]+)"')
+    local setName   = raw:match('"name"%s*:%s*"([^"]+)"')
+
+    -- Locate the "items" array and scan it for {id, slot} pairs.
+    -- Each item entry is a flat object: {"name":"...","id":N,"gems":[...],"slot":"S"}
+    -- Strategy: find "items": then walk character-by-character tracking brace depth
+    -- to collect each top-level object in the array.
+    local items = {}
+    local itemsStart = raw:find('"items"%s*:%s*%[')
+    if itemsStart then
+        -- Advance past the opening [
+        local pos = raw:find("%[", itemsStart) + 1
+        local depth = 0
+        local objStart = nil
+        while pos <= #raw do
+            local ch = raw:sub(pos, pos)
+            if ch == "{" then
+                if depth == 0 then objStart = pos end
+                depth = depth + 1
+            elseif ch == "}" then
+                depth = depth - 1
+                if depth == 0 and objStart then
+                    local block = raw:sub(objStart, pos)
+                    local id   = block:match('"id"%s*:%s*(%d+)')
+                    local slot = block:match('"slot"%s*:%s*"([^"]+)"')
+                    if id and slot and SU_SLOT_MAP[slot] then
+                        items[#items + 1] = { id = tonumber(id), slot = slot }
+                    end
+                    objStart = nil
+                end
+            elseif ch == "]" and depth == 0 then
+                break  -- end of items array
+            end
+            pos = pos + 1
+        end
+    end
+
+    return gameClass, charName, setName, items
+end
+
+function WTBT:ImportFromSixtyUpgrades(raw)
+    if not raw or strtrim(raw) == "" then return false, "Empty paste." end
+
+    local gameClass, charName, setName, items = SU_ParseJSON(raw)
+
+    if not gameClass then return false, "Could not find gameClass in JSON." end
+    local mappedClass = SU_CLASS_MAP[gameClass]
+    if not mappedClass then return false, "Unknown class in export: " .. gameClass end
+
+    -- Validate against the current view's class
+    local curClass = self.state.class or ""
+    if mappedClass ~= curClass then
+        return false, string.format(
+            "Export is for a %s but you are viewing %s. Switch class first.",
+            mappedClass, curClass)
+    end
+
+    if not items or #items == 0 then return false, "No items found in JSON." end
+
+    -- Build list name from set name + char name
+    local baseName = setName or "60U Import"
+    if charName and charName ~= "" then
+        baseName = charName .. " - " .. baseName
+    end
+    baseName = baseName:gsub("~", "-"):gsub("[\r\n]", " ")
+
+    local csLists = self:GetClassSpecLists()
+    local finalName = baseName
+    if csLists[finalName] then
+        local i = 2
+        while csLists[finalName .. " (" .. i .. ")"] do i = i + 1 end
+        finalName = finalName .. " (" .. i .. ")"
+    end
+
+    csLists[finalName] = {}
+    local list = csLists[finalName]
+    local filled = 0
+    for _, entry in ipairs(items) do
+        local slotKey = SU_SLOT_MAP[entry.slot]
+        if slotKey and entry.id > 0 then
+            local src, srcType = self:FindItemSource(entry.id)
+            list[slotKey] = {
+                itemId     = entry.id,
+                source     = src or "Sixty Upgrades",
+                sourceType = srcType or "custom",
+            }
+            GetItemInfo(entry.id)
+            filled = filled + 1
+        end
+    end
+
+    if filled == 0 then
+        csLists[finalName] = nil
+        return false, "No valid items could be mapped from the export."
+    end
+
+    return true, finalName
+end
+
 -- Returns counts: total (slots with non-zero itemId in list), ownedInBags
 -- (in bags and not currently worn), worn (already equipped to the right slot).
 function WTBT:GetCustomListEquipStatus(listName)
