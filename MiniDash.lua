@@ -123,6 +123,19 @@ function WTBT_MiniDash:GetTrackedList()
     return {}, "No list"
 end
 
+-- Abbreviations used in source strings that don't substring-match the full instance name.
+local INSTANCE_ABBREVS = {
+    ["Serpentshrine Cavern"] = "SSC",
+    ["Tempest Keep"]         = "TK",
+    ["Black Temple"]         = "BT",
+    ["Sunwell Plateau"]      = "SWP",
+    ["Hyjal Summit"]         = "MH",
+    ["Gruul's Lair"]         = "GL",
+    ["Magtheridon's Lair"]   = "ML",
+    ["Karazhan"]             = "Kara",
+    ["Zul'Aman"]             = "ZA",
+}
+
 -- Split a location string into searchable tokens.
 -- Handles "Auchindoun: Shadow Labyrinth" → {"Auchindoun: Shadow Labyrinth", "Auchindoun", "Shadow Labyrinth"}
 -- and "Black Morass" → {"Black Morass"}.
@@ -134,6 +147,11 @@ local function LocationTokens(name)
         if trimmed and trimmed ~= "" and trimmed ~= name then
             tokens[#tokens + 1] = trimmed
         end
+    end
+    -- Include the abbreviation so source strings like "Lady Vashj — SSC" match
+    -- when the instance name is the full form (e.g. "Serpentshrine Cavern").
+    if INSTANCE_ABBREVS[name] then
+        tokens[#tokens + 1] = INSTANCE_ABBREVS[name]
     end
     return tokens
 end

@@ -1,5 +1,9 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 1.9.1 - 2026-05-14
+
+- Fix Mini Dash not showing SSC (and other raid) items. Source strings use abbreviations like "SSC" and "TK" while GetInstanceInfo returns full names. Added an abbreviation map so both forms match.
+
 ## 1.9.0 - 2026-05-14
 
 ### Enchants and Gems as sub-tabs
