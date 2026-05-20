@@ -1,5 +1,41 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 2.0.0 — 2026-05-18
+
+### Season 2 PvP gear — Merciless Gladiator templates
+
+- Added `Data_PvP.lua` with "S2 PvP — Merciless Gladiator" custom list templates for every class and spec (9 classes, 17 specs).
+- Templates cover the full 5-piece Merciless Gladiator armor set for each spec plus the correct Season 2 weapons and relics (librams, idols, totems).
+- Templates are available via the "+ Template" button on the Custom Lists tab. Select any class/spec then tap "+ Template" to see the new "S2 PvP — Merciless Gladiator" entry alongside the existing Pre-Raid BIS template.
+- All item IDs verified against Wowhead TBC Classic item pages.
+
+## 2.0.1 — 2026-05-20
+
+### Enchant material corrections — full audit
+
+Fixed incorrect reagent lists across all enchant tables. Every class and spec was affected. Key corrections:
+
+- Cloak — Titanweave (WotLK enchant, does not exist in TBC) replaced with Cloak — Steelweave (+12 Defense) for all tank specs. Mats corrected to Greater Planar Essence x8, Primal Earth x8.
+- Gloves — Stone Skin replaced with Gloves — Threat (+2% Threat) for tank specs. Mats: Small Prismatic Shard x4, Greater Planar Essence x2, Primal Life x8.
+- Bracer — Spellpower: was LPS x6 + Arcane Dust x10, now LPS x6 + Primal Fire x6 + Primal Water x6.
+- Gloves — Major Spellpower: was LPS x6 + Arcane Dust x6, now Greater Planar Essence x6 + LPS x6 + Primal Mana x6.
+- Weapon — Spellsurge: was LPS x8 + GPE x4 + Arcane Dust x10, now LPS x12 + GPE x10 + Arcane Dust x20.
+- Weapon — Mongoose: was LPS x10 + Arcane Dust x10 + GPE x6, now LPS x10 + GPE x8 + Arcane Dust x40 + Void Crystal x6.
+- 2H Weapon — Major Agility: corrected name (was "Major Agility") and mats to LPS x8 + GPE x6 + Arcane Dust x20.
+- Boots — Boar's Speed: was LPS x8 + Arcane Dust x12, now LPS x8 + Primal Earth x8.
+- Boots — Dexterity: was LPS x4 + Arcane Dust x8, now Greater Planar Essence x8 + Arcane Dust x8.
+- Boots — Fortitude: was LPS x3 + Arcane Dust x8, now Arcane Dust x12.
+- Cloak — Greater Agility: was LPS x4 + Arcane Dust x4, now GPE x1 + Arcane Dust x4 + Primal Air x1.
+- Cloak — Subtlety: was LPS x4 + Arcane Dust x6, now Small Prismatic Shard x4 + GPE x2 + Primal Shadow x8.
+- Chest — Exceptional Stats: was LPS x6 + Arcane Dust x6, now LPS x4 + GPE x4 + Arcane Dust x4.
+- Chest — Exceptional Health: was LPS x6 + Arcane Dust x6, now Arcane Dust x10 + Major Healing Potion x6.
+- Bracer — Brawn and Bracer — Assault: removed incorrect LPS x4, now Arcane Dust x6 only.
+- Bracer — Major Defense: was LPS x2 + Arcane Dust x8, now Small Prismatic Shard x2 + Arcane Dust x10.
+- Bracer — Restore Mana Prime: was LPS x4 + GPE x4, now Greater Planar Essence x8.
+- Gloves — Major Healing: was LPS x8 + Arcane Dust x8, now LPS x6 + GPE x6 + Primal Life x6.
+- Gloves — Superior Agility: was LPS x3 + Arcane Dust x4, now GPE x3 + Small Prismatic Shard x3 + Primal Air x2.
+- Shield — Tough Shield: was LPS x2 + Arcane Dust x4, now Arcane Dust x6 + Primal Earth x10.
+
 ## 1.9.2 — 2026-05-15
 
 - (edit this entry with the actual changes)
