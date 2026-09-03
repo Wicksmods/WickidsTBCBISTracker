@@ -130,57 +130,73 @@ local function RogueArmor(phase)
         },
         [3] = {
             Head = {
-                { name = "Cursed Vision of Sargeras",      source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 32235 },
-                { name = "Slayer's Helm",                  source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = { "meta", "red" },    enchant = nil, itemId = 31027 },
+                { name = "Cursed Vision of Sargeras",          source = "Illidan Stormrage — Black Temple",         sourceType = "drop",  gems = { "meta", "yellow" },       enchant = nil, itemId = 32235 },
+                { name = "Slayer's Helm",                      source = "Archimonde — Hyjal Summit",                sourceType = "token", gems = { "meta", "yellow" },       enchant = nil, itemId = 31027 },
+                { name = "Deathmantle Helm",                   source = "Lady Vashj — Serpentshrine Cavern",        sourceType = "token", gems = { "meta", "red" },          enchant = nil, itemId = 30146 },
             },
             Neck = {
-                { name = "Choker of Endless Nightmares",   source = "Supremus — Black Temple",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32260 },
-                { name = "Choker of Serrated Blades",      source = "Hyjal Trash",                        sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32591 },
+                { name = "Choker of Endless Nightmares",       source = "Supremus — Black Temple",                  sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32260 },
+                { name = "Choker of Serrated Blades",          source = "Trash — Hyjal Summit",                     sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32591 },
+                { name = "Choker of Vile Intent",              source = "G'eras — Badges of Justice",               sourceType = "badge", gems = {},                         enchant = nil, itemId = 29381 },
             },
             Shoulder = {
-                { name = "Slayer's Shoulderpads",          source = "Mother Shahraz — Black Temple",      sourceType = "drop",  gems = { "red", "yellow" },  enchant = nil, itemId = 31030 },
-                { name = "Swiftstrike Shoulders",          source = "Leatherworking",                     sourceType = "craft", gems = { "red", "red" },     enchant = nil, itemId = 32581 },
+                { name = "Slayer's Shoulderpads",              source = "Mother Shahraz — Black Temple",            sourceType = "token", gems = { "yellow", "blue" },       enchant = nil, itemId = 31030 },
+                { name = "Swiftstrike Shoulders",              source = "Leatherworking",                           sourceType = "craft", gems = {},                         enchant = nil, itemId = 32581 },
+                { name = "Mantle of Darkness",                 source = "High Warlord Naj'entus — Black Temple",    sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32377 },
             },
             Back = {
-                { name = "Shadowmoon Destroyer's Drape",   source = "Teron Gorefiend — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32323 },
-                { name = "Thalassian Wildercloak",         source = "Kael'thas — Tempest Keep",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29994 },
+                { name = "Shadowmoon Destroyer's Drape",       source = "Teron Gorefiend — Black Temple",           sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32323 },
+                { name = "Thalassian Wildercloak",             source = "Kael'thas Sunstrider — Tempest Keep",      sourceType = "drop",  gems = {},                         enchant = nil, itemId = 29994 },
+                { name = "Drape of the Dark Reavers",          source = "Shade of Aran — Karazhan",                 sourceType = "drop",  gems = {},                         enchant = nil, itemId = 28672 },
             },
             Chest = {
-                { name = "Slayer's Chestguard",            source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = { "red", "red", "yellow" }, enchant = nil, itemId = 31028 },
-                { name = "Midnight Chestguard",            source = "Archimonde — Hyjal Summit",          sourceType = "drop",  gems = { "red", "red", "yellow" }, enchant = nil, itemId = 30905 },
+                { name = "Slayer's Chestguard",                source = "Illidan Stormrage — Black Temple",         sourceType = "token", gems = { "yellow", "yellow", "blue" }, enchant = nil, itemId = 31028 },
+                { name = "Midnight Chestguard",                source = "Archimonde — Hyjal Summit",                sourceType = "drop",  gems = { "blue", "red", "yellow" }, enchant = nil, itemId = 30905 },
+                { name = "Nether Shadow Tunic",                source = "Supremus — Black Temple",                  sourceType = "drop",  gems = { "red", "yellow", "blue" }, enchant = nil, itemId = 32252 },
             },
             Wrist = {
-                { name = "Insidious Bands",                source = "Teron Gorefiend — Black Temple",     sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32324 },
-                { name = "Deadly Cuffs",                   source = "Rage Winterchill — Hyjal Summit",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30863 },
+                { name = "Insidious Bands",                    source = "Teron Gorefiend — Black Temple",           sourceType = "drop",  gems = { "yellow" },               enchant = nil, itemId = 32324 },
+                { name = "Swiftstrike Bracers",                source = "Leatherworking",                           sourceType = "craft", gems = {},                         enchant = nil, itemId = 32580 },
+                { name = "Deadly Cuffs",                       source = "Rage Winterchill — Hyjal Summit",          sourceType = "drop",  gems = { "yellow" },               enchant = nil, itemId = 30863 },
             },
             Hands = {
-                { name = "Slayer's Handguards",            source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = { "red" },             enchant = nil, itemId = 31026 },
-                { name = "Grips of Damnation",             source = "Essence of Anger — Black Temple",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32347 },
+                { name = "Slayer's Handguards",                source = "Azgalor — Hyjal Summit",                   sourceType = "token", gems = { "blue" },                 enchant = nil, itemId = 31026 },
+                { name = "Grips of Damnation",                 source = "Essence of Anger — Black Temple",          sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32347 },
+                { name = "Deathmantle Handguards",             source = "Leotheras the Blind — Serpentshrine Cavern", sourceType = "token", gems = {},                         enchant = nil, itemId = 30145 },
             },
             Waist = {
-                { name = "Belt of One-Hundred Deaths",     source = "Lady Vashj — SSC",                   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30106 },
-                { name = "Shadow-walker's Cord",           source = "Shade of Akama — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32265 },
+                { name = "Belt of One-Hundred Deaths",         source = "Lady Vashj — Serpentshrine Cavern",        sourceType = "drop",  gems = { "red", "blue" },          enchant = nil, itemId = 30106 },
+                { name = "Shadow-walker's Cord",               source = "Shade of Akama — Black Temple",            sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32265 },
+                { name = "Belt of Deep Shadow",                source = "Leatherworking",                           sourceType = "craft", gems = { "blue", "blue" },         enchant = nil, itemId = 30040 },
             },
             Legs = {
-                { name = "Slayer's Legguards",             source = "Illidari Council — Black Temple",    sourceType = "drop",  gems = { "red", "red" },     enchant = nil, itemId = 31029 },
-                { name = "Shady Dealer's Pantaloons",      source = "Azgalor — Hyjal Summit",             sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30898 },
+                { name = "Slayer's Legguards",                 source = "The Illidari Council — Black Temple",      sourceType = "token", gems = { "blue" },                 enchant = nil, itemId = 31029 },
+                { name = "Shady Dealer's Pantaloons",          source = "Azgalor — Hyjal Summit",                   sourceType = "drop",  gems = {},                         enchant = nil, itemId = 30898 },
+                { name = "Skulker's Greaves",                  source = "Netherspite — Karazhan",                   sourceType = "drop",  gems = { "red", "red", "blue" },   enchant = nil, itemId = 28741 },
             },
             Feet = {
-                { name = "Shadowmaster's Boots",           source = "Mother Shahraz — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32366 },
-                { name = "Edgewalker Longboots",           source = "Moroes — Karazhan",                  sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28545 },
+                { name = "Shadowmaster's Boots",               source = "Mother Shahraz — Black Temple",            sourceType = "drop",  gems = { "red", "yellow" },        enchant = nil, itemId = 32366 },
+                { name = "Edgewalker Longboots",               source = "Moroes — Karazhan",                        sourceType = "drop",  gems = { "red", "yellow" },        enchant = nil, itemId = 28545 },
+                { name = "Softstep Boots of Tracking",         source = "Teron Gorefiend — Black Temple",           sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32510 },
             },
             Ring1 = {
-                { name = "Stormrage Signet Ring",          source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32497 },
+                { name = "Stormrage Signet Ring",              source = "Illidan Stormrage — Black Temple",         sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32497 },
+                { name = "Ring of Deceitful Intent",           source = "Shade of Akama — Black Temple",            sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32266 },
+                { name = "Band of the Ranger-General",         source = "Kael'thas Sunstrider — Tempest Keep",      sourceType = "drop",  gems = {},                         enchant = nil, itemId = 29997 },
             },
             Ring2 = {
-                { name = "Band of the Eternal Champion",   source = "Scale of the Sands — Exalted",       sourceType = "rep",   gems = {},                   enchant = nil, itemId = 29301 },
+                { name = "Band of the Eternal Champion",       source = "Scale of the Sands — Exalted",             sourceType = "rep",   gems = {},                         enchant = nil, itemId = 29301 },
+                { name = "Ring of Lethality",                  source = "Hydross the Unstable — Serpentshrine Cavern", sourceType = "drop",  gems = {},                         enchant = nil, itemId = 30052 },
             },
             Trinket1 = {
-                { name = "Dragonspine Trophy",             source = "Gruul — Gruul's Lair",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 28830 },
+                { name = "Dragonspine Trophy",                 source = "Gruul the Dragonkiller — Gruul's Lair",    sourceType = "drop",  gems = {},                         enchant = nil, itemId = 28830 },
+                { name = "Bloodlust Brooch",                   source = "G'eras — Badges of Justice",               sourceType = "badge", gems = {},                         enchant = nil, itemId = 29383 },
+                { name = "Badge of the Swarmguard",            source = "Battleguard Sartura — Ahn'Qiraj",          sourceType = "drop",  gems = {},                         enchant = nil, itemId = 21670 },
             },
             Trinket2 = {
-                { name = "Warp-Spring Coil",               source = "Void Reaver — Tempest Keep",         sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30450 },
-                { name = "Madness of the Betrayer",        source = "Illidari Council — Black Temple",    sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32505 },
+                { name = "Madness of the Betrayer",            source = "The Illidari Council — Black Temple",      sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32505 },
+                { name = "Ashtongue Talisman of Lethality",    source = "Ashtongue Deathsworn — Exalted",           sourceType = "rep",   gems = {},                         enchant = nil, itemId = 32492 },
+                { name = "Warp-Spring Coil",                   source = "Void Reaver — Tempest Keep",               sourceType = "drop",  gems = {},                         enchant = nil, itemId = 30450 },
             },
         },
         [4] = {
@@ -320,15 +336,19 @@ local CombatWeapons = {
     },
     [3] = {
         MainHand = {
-            { name = "Warglaive of Azzinoth",          source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32837 },
-            { name = "Blade of Infamy",                source = "Anetheron — Hyjal Summit",           sourceType = "drop",  gems = {},                   enchant = nil, itemId = 30881 },
+            { name = "Warglaive of Azzinoth",              source = "Illidan Stormrage — Black Temple",         sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32837 },
+            { name = "Vengeful Gladiator's Slicer",        source = "Arena — Season 3",                         sourceType = "pvp",   gems = {},                         enchant = nil, itemId = 33762 },
+            { name = "Blade of Infamy",                    source = "Anetheron — Hyjal Summit",                 sourceType = "drop",  gems = {},                         enchant = nil, itemId = 30881 },
         },
         OffHand = {
-            { name = "Warglaive of Azzinoth",          source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32838 },
-            { name = "Blade of Savagery",              source = "Mother Shahraz — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32369 },
+            { name = "Warglaive of Azzinoth",              source = "Illidan Stormrage — Black Temple",         sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32838 },
+            { name = "Vengeful Gladiator's Quickblade",    source = "Arena — Season 3",                         sourceType = "pvp",   gems = {},                         enchant = nil, itemId = 33734 },
+            { name = "Talon of Azshara",                   source = "Morogrim Tidewalker — Serpentshrine Cavern", sourceType = "drop",  gems = {},                         enchant = nil, itemId = 30082 },
         },
         Relic = {
-            { name = "Arcanite Steam-Pistol",          source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29949 },
+            { name = "Twisted Blades of Zarak",            source = "Teron Gorefiend — Black Temple",           sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32326 },
+            { name = "Arcanite Steam-Pistol",              source = "Al'ar — Tempest Keep",                     sourceType = "drop",  gems = {},                         enchant = nil, itemId = 29949 },
+            { name = "Barrel-Blade Longrifle",             source = "Doomwalker — World Boss",                  sourceType = "drop",  gems = { "red", "red" },           enchant = nil, itemId = 30724 },
         },
     },
     [4] = {
@@ -391,15 +411,18 @@ local AssassinWeapons = {
     },
     [3] = {
         MainHand = {
-            { name = "Shard of Azzinoth",              source = "Illidan Stormrage — Black Temple",   sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32471 },
-            { name = "Tracker's Blade",                source = "Supremus — Black Temple",            sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32253 },
+            { name = "Shard of Azzinoth",                  source = "Illidan Stormrage — Black Temple",         sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32471 },
+            { name = "Vengeful Gladiator's Shanker",       source = "Arena — Season 3",                         sourceType = "pvp",   gems = {},                         enchant = nil, itemId = 33754 },
         },
         OffHand = {
-            { name = "Vengeful Gladiator's Shiv",      source = "Arena PvP (Season 3)",               sourceType = "pvp",   gems = {},                   enchant = nil, itemId = 33756 },
-            { name = "Blade of Savagery",              source = "Mother Shahraz — Black Temple",      sourceType = "drop",  gems = {},                   enchant = nil, itemId = 32369 },
+            { name = "Blade of Savagery",                  source = "Mother Shahraz — Black Temple",            sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32369 },
+            { name = "Tracker's Blade",                    source = "Rage Winterchill — Hyjal Summit",          sourceType = "drop",  gems = {},                         enchant = nil, itemId = 30865 },
+            { name = "Vengeful Gladiator's Shiv",          source = "Arena — Season 3",                         sourceType = "pvp",   gems = {},                         enchant = nil, itemId = 33756 },
         },
         Relic = {
-            { name = "Arcanite Steam-Pistol",          source = "Al'ar — Tempest Keep",               sourceType = "drop",  gems = {},                   enchant = nil, itemId = 29949 },
+            { name = "Twisted Blades of Zarak",            source = "Teron Gorefiend — Black Temple",           sourceType = "drop",  gems = {},                         enchant = nil, itemId = 32326 },
+            { name = "Arcanite Steam-Pistol",              source = "Al'ar — Tempest Keep",                     sourceType = "drop",  gems = {},                         enchant = nil, itemId = 29949 },
+            { name = "Barrel-Blade Longrifle",             source = "Doomwalker — World Boss",                  sourceType = "drop",  gems = { "red", "red" },           enchant = nil, itemId = 30724 },
         },
     },
     [4] = {

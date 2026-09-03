@@ -383,3 +383,228 @@ WTBT_Data["Paladin"]["Nature Resist"] = {
         },
     },
 }
+
+-- =============================================================================
+-- SHADOW RESISTANCE  (Mother Shahraz — Black Temple, Phase 3)
+-- Fatal Attraction is shadow damage; the whole raid swaps in shadow resistance.
+-- The crafted BoE set covers wrist, waist, legs and feet; neck and back are
+-- shared across all armour types. Everything else stays in your normal set.
+-- Stack these with Glyph of Shadow Warding (head), Inscription of Endurance
+-- (shoulder), Greater Shadow Resistance (cloak) and Shadow Armor Kits.
+-- =============================================================================
+
+WTBT_Data["Warrior"] = WTBT_Data["Warrior"] or {}
+WTBT_Data["Warrior"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Shadesteel Bracers",                 source = "Blacksmithing (BoE) — 40 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 32403 },
+        },
+        Waist = {
+            { name = "Shadesteel Girdle",                  source = "Blacksmithing (BoE) — 54 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 32401 },
+        },
+        Legs = {
+            { name = "Shadesteel Greaves",                 source = "Blacksmithing (BoE) — 72 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 32404 },
+        },
+        Feet = {
+            { name = "Shadesteel Sabots",                  source = "Blacksmithing (BoE) — 54 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 32402 },
+        },
+    },
+}
+
+WTBT_Data["Paladin"] = WTBT_Data["Paladin"] or {}
+WTBT_Data["Paladin"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Shadesteel Bracers",                 source = "Blacksmithing (BoE) — 40 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 32403 },
+        },
+        Waist = {
+            { name = "Shadesteel Girdle",                  source = "Blacksmithing (BoE) — 54 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 32401 },
+        },
+        Legs = {
+            { name = "Shadesteel Greaves",                 source = "Blacksmithing (BoE) — 72 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 32404 },
+        },
+        Feet = {
+            { name = "Shadesteel Sabots",                  source = "Blacksmithing (BoE) — 54 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 32402 },
+        },
+    },
+}
+
+WTBT_Data["Hunter"] = WTBT_Data["Hunter"] or {}
+WTBT_Data["Hunter"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Bracers of Shackled Souls",          source = "Leatherworking (BoE) — 40 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32399 },
+        },
+        Waist = {
+            { name = "Waistguard of Shackled Souls",       source = "Leatherworking (BoE) — 54 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32397 },
+        },
+        Legs = {
+            { name = "Greaves of Shackled Souls",          source = "Leatherworking (BoE) — 72 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32400 },
+        },
+        Feet = {
+            { name = "Boots of Shackled Souls",            source = "Leatherworking (BoE) — 54 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32398 },
+        },
+    },
+}
+
+WTBT_Data["Shaman"] = WTBT_Data["Shaman"] or {}
+WTBT_Data["Shaman"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Bracers of Shackled Souls",          source = "Leatherworking (BoE) — 40 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32399 },
+        },
+        Waist = {
+            { name = "Waistguard of Shackled Souls",       source = "Leatherworking (BoE) — 54 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32397 },
+        },
+        Legs = {
+            { name = "Greaves of Shackled Souls",          source = "Leatherworking (BoE) — 72 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32400 },
+        },
+        Feet = {
+            { name = "Boots of Shackled Souls",            source = "Leatherworking (BoE) — 54 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32398 },
+        },
+    },
+}
+
+WTBT_Data["Rogue"] = WTBT_Data["Rogue"] or {}
+WTBT_Data["Rogue"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Redeemed Soul Wristguards",          source = "Leatherworking (BoE) — 40 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32395 },
+        },
+        Waist = {
+            { name = "Redeemed Soul Cinch",                source = "Leatherworking (BoE) — 54 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32393 },
+        },
+        Legs = {
+            { name = "Redeemed Soul Legguards",            source = "Leatherworking (BoE) — 72 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32396 },
+        },
+        Feet = {
+            { name = "Redeemed Soul Moccasins",            source = "Leatherworking (BoE) — 54 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32394 },
+        },
+    },
+}
+
+WTBT_Data["Druid"] = WTBT_Data["Druid"] or {}
+WTBT_Data["Druid"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Redeemed Soul Wristguards",          source = "Leatherworking (BoE) — 40 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32395 },
+        },
+        Waist = {
+            { name = "Redeemed Soul Cinch",                source = "Leatherworking (BoE) — 54 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32393 },
+        },
+        Legs = {
+            { name = "Redeemed Soul Legguards",            source = "Leatherworking (BoE) — 72 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32396 },
+        },
+        Feet = {
+            { name = "Redeemed Soul Moccasins",            source = "Leatherworking (BoE) — 54 shadow resist",  sourceType = "craft", gems = {},                         enchant = nil, itemId = 32394 },
+        },
+    },
+}
+
+WTBT_Data["Priest"] = WTBT_Data["Priest"] or {}
+WTBT_Data["Priest"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Soulguard Bracers",                  source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32392 },
+        },
+        Waist = {
+            { name = "Soulguard Girdle",                   source = "Tailoring (BoE) — 54 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32390 },
+        },
+        Legs = {
+            { name = "Soulguard Leggings",                 source = "Tailoring (BoE) — 72 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32389 },
+        },
+        Feet = {
+            { name = "Soulguard Slippers",                 source = "Tailoring (BoE) — 54 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32391 },
+        },
+    },
+}
+
+WTBT_Data["Mage"] = WTBT_Data["Mage"] or {}
+WTBT_Data["Mage"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Soulguard Bracers",                  source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32392 },
+        },
+        Waist = {
+            { name = "Soulguard Girdle",                   source = "Tailoring (BoE) — 54 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32390 },
+        },
+        Legs = {
+            { name = "Soulguard Leggings",                 source = "Tailoring (BoE) — 72 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32389 },
+        },
+        Feet = {
+            { name = "Soulguard Slippers",                 source = "Tailoring (BoE) — 54 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32391 },
+        },
+    },
+}
+
+WTBT_Data["Warlock"] = WTBT_Data["Warlock"] or {}
+WTBT_Data["Warlock"]["Shadow Resist"] = {
+    [3] = {
+        Neck = {
+            { name = "Pendant of Shadow's End",            source = "Jewelcrafting (BoE) — 30 shadow resist",   sourceType = "craft", gems = {},                         enchant = nil, itemId = 24097 },
+        },
+        Back = {
+            { name = "Night's End",                        source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32420 },
+        },
+        Wrist = {
+            { name = "Soulguard Bracers",                  source = "Tailoring (BoE) — 40 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32392 },
+        },
+        Waist = {
+            { name = "Soulguard Girdle",                   source = "Tailoring (BoE) — 54 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32390 },
+        },
+        Legs = {
+            { name = "Soulguard Leggings",                 source = "Tailoring (BoE) — 72 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32389 },
+        },
+        Feet = {
+            { name = "Soulguard Slippers",                 source = "Tailoring (BoE) — 54 shadow resist",       sourceType = "craft", gems = {},                         enchant = nil, itemId = 32391 },
+        },
+    },
+}

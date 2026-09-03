@@ -8,7 +8,7 @@ WTBT_UI = WTBT_UI or {}
 WTBT.state = {
     class      = "Priest",
     spec       = "Holy",
-    phase      = 1,
+    phase      = 3,
     tab        = "bis",  -- "bis", "custom", "consumables", "softres"
     subtab     = "gear", -- "gear", "enchants", "gems" (BIS + Custom tabs only)
     customList = nil,     -- active custom list name
@@ -50,15 +50,15 @@ WTBT.SOURCE_COLORS = {
 
 -- Classes and their specs
 WTBT.CLASSES = {
-    { name = "Priest",  specs = { "Holy", "Discipline", "Shadow" },        color = {1.00, 1.00, 1.00} },
-    { name = "Paladin", specs = { "Holy", "Protection", "Retribution", "Fire Resist", "Nature Resist" }, color = {0.96, 0.55, 0.73} },
-    { name = "Druid",   specs = { "Restoration", "Balance", "Feral" },     color = {1.00, 0.49, 0.04} },
-    { name = "Shaman",  specs = { "Restoration", "Enhancement", "Elemental" }, color = {0.00, 0.44, 0.87} },
-    { name = "Mage",    specs = { "Fire", "Frost", "Arcane" },              color = {0.25, 0.78, 0.92} },
-    { name = "Warlock", specs = { "Destruction", "Affliction", "Demonology", "Fire Resist" }, color = {0.53, 0.53, 0.93} },
-    { name = "Hunter",  specs = { "Beast Mastery", "Marksmanship", "Survival" }, color = {0.67, 0.83, 0.45} },
-    { name = "Rogue",   specs = { "Combat", "Assassination", "Subtlety" },  color = {1.00, 0.96, 0.41} },
-    { name = "Warrior", specs = { "Arms", "Fury", "Protection", "Fire Resist", "Nature Resist", "Frost Resist" }, color = {0.78, 0.61, 0.43} },
+    { name = "Priest",  specs = { "Holy", "Discipline", "Shadow", "Shadow Resist" },        color = {1.00, 1.00, 1.00} },
+    { name = "Paladin", specs = { "Holy", "Protection", "Retribution", "Fire Resist", "Nature Resist", "Shadow Resist" }, color = {0.96, 0.55, 0.73} },
+    { name = "Druid",   specs = { "Restoration", "Balance", "Feral", "Shadow Resist" },     color = {1.00, 0.49, 0.04} },
+    { name = "Shaman",  specs = { "Restoration", "Enhancement", "Elemental", "Shadow Resist" }, color = {0.00, 0.44, 0.87} },
+    { name = "Mage",    specs = { "Fire", "Frost", "Arcane", "Shadow Resist" },              color = {0.25, 0.78, 0.92} },
+    { name = "Warlock", specs = { "Destruction", "Affliction", "Demonology", "Fire Resist", "Shadow Resist" }, color = {0.53, 0.53, 0.93} },
+    { name = "Hunter",  specs = { "Beast Mastery", "Marksmanship", "Survival", "Shadow Resist" }, color = {0.67, 0.83, 0.45} },
+    { name = "Rogue",   specs = { "Combat", "Assassination", "Subtlety", "Shadow Resist" },  color = {1.00, 0.96, 0.41} },
+    { name = "Warrior", specs = { "Arms", "Fury", "Protection", "Fire Resist", "Nature Resist", "Frost Resist", "Shadow Resist" }, color = {0.78, 0.61, 0.43} },
 }
 
 -- Spec aliases (some specs share BIS guides)

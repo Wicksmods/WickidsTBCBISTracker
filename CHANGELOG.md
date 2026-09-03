@@ -1,5 +1,34 @@
 # Wick's TBC BIS Tracker — Changelog
 
+## 2.1.0 — 2026-09-03
+
+### Phase 3 content pass — Black Temple and Mount Hyjal
+
+Full Phase 3 rebuild of the BIS data. Every class and spec previously had a placeholder P3 list with a single item per slot and no alternates; all 25 specs now carry ranked options in every slot, sourced from the Wowhead Phase 3 (BT/Hyjal) best-in-slot guides.
+
+- **Phase 3 gear lists rebuilt** for all 25 class/spec combinations. Each slot now lists 2 to 3 ranked options covering Tier 6 tokens, Black Temple and Mount Hyjal drops, Season 3 arena pieces, badge gear, crafted BoEs and the Phase 2 holdovers that stay competitive.
+- **Socket data filled in.** Gem hints are now recorded for every Phase 3 item that has sockets, so the gems column is accurate instead of empty.
+- **Tier tokens marked correctly.** Tier 4, 5 and 6 set pieces now use the `token` source type and name the boss that drops the token.
+- **Default phase is now Phase 3** for new installs. Existing users keep whatever phase they last had selected.
+
+### Shadow Resistance sets — Mother Shahraz
+
+- Added a **Shadow Resist** spec to all nine classes, covering the gear swap for Mother Shahraz in Black Temple.
+- Lists the crafted BoE resistance set for the right armour type (Shadesteel for plate, Shackled Souls for mail, Redeemed Soul for leather, Soulguard for cloth) plus the shared neck and cloak pieces, with the shadow resistance value on each entry.
+- Covers the six slots you actually swap: neck, back, wrist, waist, legs and feet. Everything else stays in your normal set.
+
+### Season 3 PvP templates — Vengeful Gladiator
+
+- Added **"S3 PvP — Vengeful Gladiator"** custom-list templates for every class and spec, alongside the existing Season 2 templates.
+- Each template covers the full five-piece Vengeful Gladiator armour set for the spec plus the correct Season 3 weapons and relics (librams, idols, totems). Available from the "+ Template" button on the Custom Lists tab.
+- All item IDs verified against Wowhead TBC Classic item pages.
+
+### Fixes
+
+- Balance Druid P2 had its two-handed staves under an invalid `TwoHand` slot key, so The Nexus Key and Merciless Gladiator's War Staff never rendered. Folded them into the Main Hand list.
+- Rogue Assassination P3 listed "Tracker's Blade" against item ID 32253, which is actually Legionkiller. Corrected to 30865 and re-sourced to Rage Winterchill.
+- The new Season 3 templates split rogue weapons correctly: Combat gets the arena swords, Assassination gets the daggers. The older Season 2 templates hand daggers to both and are left as they are.
+
 ## 2.0.0 — 2026-05-18
 
 ### Season 2 PvP gear — Merciless Gladiator templates

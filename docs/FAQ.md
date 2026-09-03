@@ -4,6 +4,14 @@
 
 P1, P2, P3, P4, P5 for every class/spec.
 
+### What are the Resist specs in the spec dropdown?
+
+Encounter-specific resistance sets, listed as their own spec so they don't clutter
+your normal BIS list. **Shadow Resist** is the Mother Shahraz swap in Black Temple
+(Phase 3) and exists for all nine classes. Fire, Nature and Frost Resist cover the
+earlier fights that need them. Each list only shows the slots you actually swap,
+so a resist set is shorter than a full BIS list.
+
 ### Does my list carry across characters?
 
 BIS selections are **per character**. Settings (panel position, default phase, etc.) are **account-wide**.

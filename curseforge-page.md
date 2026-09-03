@@ -13,6 +13,8 @@ Part of the **Wick suite** — a small family of TBC Classic addons built around
 - **Compare upgrades** against what you're currently wearing.
 - **Soft-reserve integration** — import/export with your guild's SoftRes roster.
 - **Phase-aware** — flip between P1, P2, P3, P4, P5 without losing your place.
+- **Resistance sets** for the fights that need them, including the Shadow Resist swap for Mother Shahraz.
+- **Arena templates** for Season 2 and Season 3, one click from the Custom Lists tab.
 
 ## Why it feels different
 
